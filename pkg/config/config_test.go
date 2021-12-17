@@ -14,5 +14,7 @@ func TestNewConfig(t *testing.T) {
 		t.Error(err.Error())
 	}
 
-	log.Printf("%+v\n", conf)
+	for _, node := range conf.Nodes {
+		log.Printf("%+v\n", node)
+	}
 }

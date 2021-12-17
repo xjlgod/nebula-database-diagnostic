@@ -10,25 +10,11 @@ nodes:
       username: katz.zhang
       password: nebula
       port: 22
-    duration: -1
-    interval: 0
-    output: ./out/node0.log
-    infos:
-      - "all"
-    diags:
-      - "all"
-  node1:
-    host:
-      address:
-      port:
-    ssh:
-      username:
-      password:
-      port:
-    duration:
-    interval:
-    infos:
-      - "metrics"
-    diags:
-      - "partition"
-
+    # the following configs have default values
+#    output:
+#      dirPath:
+#      remote:
+#    duration:
+#    interval:
+#    infos:
+#    diags:
