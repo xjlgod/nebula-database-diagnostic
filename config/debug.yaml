@@ -9,6 +9,7 @@ nodes:
     ssh:
       address: 192.168.8.49
       port: 22
+      timeout: 3s
       username: katz.zhang
       password: nebula
     # the following configs have default values
