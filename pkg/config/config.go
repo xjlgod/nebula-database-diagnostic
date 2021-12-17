@@ -30,13 +30,18 @@ func (c HostConfig) IsValid() bool {
 }
 
 type SSHConfig struct {
+	// ssh address equals to service address
+	Address  string `mapstructure:"address"`
+	Port     int    `mapstructure:"port"`
+	Timeout  string `mapstructure:"timeout"`
 	Username string `mapstructure:"username"`
 	Password string `mapstructure:"password"`
-	Port     int    `mapstructure:"port"`
+
+	// TODO support the private key login
 }
 
 func (c SSHConfig) IsValid() bool {
-	return c.Username != "" && c.Password != "" && c.Port > 0 // TODO add more exactly verify: port
+	return c.Address != "" && c.Port > 0 && isValidTimeout(c.Timeout) && c.Username != "" && c.Password != "" // TODO add more exactly verify: port
 }
 
 type OutputConfig struct {
@@ -102,6 +107,9 @@ func NewConfig(confPath string, configType string) (*Config, error) {
 
 func configComplete(conf *Config) {
 	for _, node := range conf.Nodes {
+		if node.SSH.Timeout == "" {
+			node.SSH.Timeout = "3s"
+		}
 		if node.Duration == "" {
 			node.Duration = defaultDuration
 		}
@@ -124,7 +132,7 @@ func configValidate(conf *Config) ([]string, bool) {
 	ids := make([]string, 0)
 	ok := true
 	for k, node := range conf.Nodes {
-		if !node.Host.IsValid() || !node.SSH.IsValid() || !node.Output.IsValid() || !IsValidDuration(node.Duration) || !IsValidInterval(node.Interval) {
+		if !node.Host.IsValid() || !node.SSH.IsValid() || !node.Output.IsValid() || !isValidDuration(node.Duration) || !isValidInterval(node.Interval) {
 			ids = append(ids, k)
 			ok = false
 		}
@@ -133,12 +141,17 @@ func configValidate(conf *Config) ([]string, bool) {
 	return ids, ok
 }
 
-func IsValidDuration(duration string) bool {
+func isValidDuration(duration string) bool {
 	_, err := time.ParseDuration(duration)
 	return duration == "-1" || err == nil
 }
 
-func IsValidInterval(interval string) bool {
+func isValidInterval(interval string) bool {
 	d, err := time.ParseDuration(interval)
 	return d > 0 && err == nil
+}
+
+func isValidTimeout(timeout string) bool {
+	d, err := time.ParseDuration(timeout)
+	return d >= 0 && err == nil
 }

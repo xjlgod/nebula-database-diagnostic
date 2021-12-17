@@ -7,9 +7,10 @@ nodes:
       address: 192.168.8.49
       port: 9669
     ssh:
+      address: 192.168.8.49
+      port: 22
       username: katz.zhang
       password: nebula
-      port: 22
     # the following configs have default values
 #    output:
 #      dirPath:
