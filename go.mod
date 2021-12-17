@@ -2,7 +2,10 @@ module github.com/xjlgod/nebula-database-diagnostic
 
 go 1.17
 
-require github.com/spf13/viper v1.10.1
+require (
+	github.com/spf13/viper v1.10.1
+	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
+)
 
 require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
