@@ -69,8 +69,8 @@ var (
 	StorageWithLabels = []string{
 		"num_add_vertices",
 		"num_add_edges",
-		"add_vertices_latency_us",
-		"add_edges_latency_us",
+		"add_vertices",
+		"add_edges",
 	}
 
 	StorageWithouLabels = []string{

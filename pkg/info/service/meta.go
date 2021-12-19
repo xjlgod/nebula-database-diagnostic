@@ -2,7 +2,6 @@ package service
 
 import (
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/remote"
-	"strconv"
 	"strings"
 )
 
@@ -31,26 +30,17 @@ func (exporter *MetaExporter) Collect() {
 		return
 	}
 
-
 	// 服务存活，开始通过服务接口收集信息
 	metrics, err := remote.GetNebulaMetrics(exporter.ipAddress, exporter.port)
-	if err != nil {
-		
-	}
-
-	matches := convertToMap(exporter.WithMetricMap)
-	for metric, value := range matches {
-		v, err := strconv.ParseFloat(value, 64)
-		if err != nil {
-			continue
-		}
-		if metric, ok := exporter.metricMap[metric]; ok {
-			ch <- prometheus.MustNewConstMetric(metric.desc, prometheus.GaugeValue, v,
-				name,
-				namespace,
-				cluster,
-				componentType,
-			)
+	if err == nil {
+		matches := convertToMap(metrics)
+		for metric, value := range matches {
+			if err != nil {
+				continue
+			}
+			if _, ok := exporter.WithMetricMap[metric]; ok {
+				exporter.WithMetricMap[metric] = value
+			}
 		}
 	}
 
