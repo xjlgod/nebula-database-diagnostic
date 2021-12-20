@@ -68,12 +68,16 @@ func newSSHClient(conf config.SSHConfig) (*SSHClient, error) {
 	}, nil
 }
 
-func (c *SSHClient) Execute(cmd string, ch chan<- ExecuteResult) {
+func (c *SSHClient) ExecuteAsync(cmd string, ch chan<- ExecuteResult) {
+	res, _ := c.Execute(cmd)
+	ch <- res
+}
+
+func (c *SSHClient) Execute(cmd string) (ExecuteResult, bool) {
 	now := time.Now()
 	session, err := c.NewSession()
 	if err != nil {
-		ch <- ExecuteResult{cmd, err, []byte{}, []byte{}, time.Since(now)}
-		return
+		return ExecuteResult{cmd, err, []byte{}, []byte{}, time.Since(now)}, false
 	}
 	defer session.Close()
 
@@ -85,9 +89,8 @@ func (c *SSHClient) Execute(cmd string, ch chan<- ExecuteResult) {
 
 	err = session.Run(cmd)
 	if err != nil {
-		ch <- ExecuteResult{cmd, err, stdOut.Bytes(), stdErr.Bytes(), time.Since(now)}
-		return
+		return ExecuteResult{cmd, err, stdOut.Bytes(), stdErr.Bytes(), time.Since(now)}, false
 	}
 
-	ch <- ExecuteResult{cmd, err, stdOut.Bytes(), stdErr.Bytes(), time.Since(now)}
+	return ExecuteResult{cmd, err, stdOut.Bytes(), stdErr.Bytes(), time.Since(now)}, true
 }
