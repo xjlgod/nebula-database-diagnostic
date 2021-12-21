@@ -8,6 +8,7 @@ import (
 type MetaExporter struct {
 	WithMetricMap map[string]string
 	WithoutMetricMap map[string]string
+	ConfigMap map[string]string
 	ipAddress string
 	port int32
 	ServiceStatus string
@@ -46,11 +47,26 @@ func (exporter *MetaExporter) Collect() {
 
 	// TODO 自动生成服务目前不能提供的信息
 
+	// 获取服务配置信息
+	configs, err := remote.GetNebulaConfigs(exporter.ipAddress, exporter.port)
+	if err == nil {
+		matches := convertToMap(configs)
+		for config, value := range matches {
+			if err != nil {
+				continue
+			}
+			if _, ok := exporter.ConfigMap[config]; ok {
+				exporter.ConfigMap[config] = value
+			}
+		}
+	}
+
 }
 
-func (exporter *MetaExporter) BuildMetricMap() {
+func (exporter *MetaExporter) BuildAllMap() {
 	exporter.buildWithLabels()
 	exporter.buildWithoutLabels()
+	exporter.buildConfigLabels()
 }
 
 func (exporter MetaExporter) GetWithMetricMap() map[string]string{
@@ -61,9 +77,20 @@ func (exporter MetaExporter) GetWithoutMetricMap() map[string]string{
 	return exporter.WithoutMetricMap
 }
 
+func (exporter MetaExporter) GetConfigMap() map[string]string{
+	return exporter.ConfigMap
+}
+
 func (exporter *MetaExporter) Config(ipAddress string, port int32)() {
 	exporter.ipAddress = ipAddress
 	exporter.port = port
+}
+
+func (exporter *MetaExporter) buildConfigLabels() {
+	exporter.ConfigMap = make(map[string]string)
+	for _, metaLabel := range MetaConfigLabels {
+		exporter.ConfigMap[metaLabel] = NotCollect
+	}
 }
 
 func (exporter *MetaExporter) buildWithLabels() {

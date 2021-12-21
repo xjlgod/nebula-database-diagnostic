@@ -36,6 +36,33 @@ func GetNebulaMetrics(ipAddress string, port int32) ([]string, error) {
 	return metrics, nil
 }
 
+func GetNebulaConfigs(ipAddress string, port int32) ([]string, error) {
+	httpClient := http.Client{
+		Timeout: time.Second * 10,
+	}
+
+	resp, err := httpClient.Get(fmt.Sprintf("http://%s:%d/flags", ipAddress, port))
+	if err != nil {
+		return []string{}, err
+	}
+	defer resp.Body.Close()
+
+	bytes, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return []string{}, err
+	}
+
+	configStr := string(bytes)
+	configs := strings.Split(configStr, "\n")
+	if len(configs) > 0 {
+		if configs[len(configs)-1] == "" {
+			configs = configs[:len(configs)-1]
+		}
+	}
+
+	return configs, nil
+}
+
 func GetNebulaComponentStatus(ipAddress string, port int32) ([]string, error) {
 	httpClient := http.Client{
 		Timeout: time.Second * 2,

@@ -10,12 +10,14 @@ type (
 		IsAlive() bool
 		// Collect 收集所有服务指标信息
 		Collect()
-		// BuildMetricMap 进行所需服务指标信息的map构建
-		BuildMetricMap()
+		// BuildAllMap 进行所需服务所有信息的map构建
+		BuildAllMap()
 		// GetWithMetricMap 返回能够收集到的服务指标信息 key为指标名，value为值
 		GetWithMetricMap() map[string]string
 		// GetWithoutMetricMap 返回目前服务不能提供，自动生成的服务指标信息 key为指标名，value为值
 		GetWithoutMetricMap() map[string]string
+		// GetConfigMap 返回能够收集到的服务配置信息
+		GetConfigMap() map[string]string
 		// Config TODO 配置Exporter，目前只配置需收集的服务的ip与端口
 		Config(ipAddress string, port int32)
 	}
@@ -51,6 +53,14 @@ var (
 		"runtime_dir",
 	}
 
+	GraphConfigLabels = []string{
+		"log_dir",
+		"pid_file",
+		"port",
+		"ws_h2_port",
+		"ws_http_port",
+	}
+
 	MetadWithLabels = []string{
 		"heartbeat",
 		"num_heartbeats",
@@ -64,6 +74,14 @@ var (
 		"log",
 		"config",
 		"runtime_dir",
+	}
+
+	MetaConfigLabels = []string{
+		"log_dir",
+		"pid_file",
+		"port",
+		"ws_h2_port",
+		"ws_http_port",
 	}
 
 	StorageWithLabels = []string{
@@ -81,6 +99,14 @@ var (
 		"log",
 		"config",
 		"runtime_dir",
+	}
+
+	StorageConfigLabels = []string{
+		"log_dir",
+		"pid_file",
+		"port",
+		"ws_h2_port",
+		"ws_http_port",
 	}
 
 	SecondaryLabels = []string{
