@@ -1,0 +1,30 @@
+pkg/info
+- physical info 1
+- service info 1
+- metrics info TODO
+- stats info TODO
+
+pkg/remote
+- ssh 1
+- http 1
+
+pkg/logger
+- logger TODO github.com/sirupsen/logrus
+
+pkg/errors
+- NOT
+
+pkg/diag
+- partition TODO
+
+pkg/config
+- config 1
+
+script NOT
+test NOT
+doc NOT
+config 1
+
+cmd TODO https://github.com/spf13/cobra
+internal TODO
+

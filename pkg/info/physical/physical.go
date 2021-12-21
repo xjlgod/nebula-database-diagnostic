@@ -11,12 +11,18 @@ import (
 )
 
 type PhyInfo struct {
-	Memory MemoryInfo
-	Disk   DiskInfo
-	Swap   SwapInfo
-	IO     IOInfo
-	System SystemInfo
-	CPU    CPUInfo
+	Process ProcessInfo
+	Memory  MemoryInfo
+	Disk    DiskInfo
+	Swap    SwapInfo
+	IO      IOInfo
+	System  SystemInfo
+	CPU     CPUInfo
+}
+
+type ProcessInfo struct {
+	RunNumber  int
+	WaitNumber int
 }
 
 type MemoryInfo struct { // kB
@@ -70,6 +76,13 @@ func GetPhyInfo(conf config.SSHConfig) (PhyInfo, error) {
 	fields := strings.Fields(string(res.StdOut))
 	fields = fields[len(fields)-17:]
 
+	process := ProcessInfo{}
+	runNum, _ := strconv.Atoi(fields[0])
+	process.RunNumber = runNum
+	waitNum, _ := strconv.Atoi(fields[1])
+	process.WaitNumber = waitNum
+	info.Process = process
+
 	memory := MemoryInfo{}
 	memFree, _ := strconv.Atoi(fields[3])
 	memory.MemFree = memFree
@@ -77,11 +90,11 @@ func GetPhyInfo(conf config.SSHConfig) (PhyInfo, error) {
 	memory.MemBuff = memBuff
 	memCache, _ := strconv.Atoi(fields[5])
 	memory.MemCache = memCache
+	memory.MemTotal = memory.MemFree + memory.MemBuff + memory.MemCache
 	info.Memory = memory
 
-	// TODO use regex to match the info
-	//disk, err := getDiskInfo(conf)
-	//info.Disk = disk
+	disk, err := getDiskInfo(conf)
+	info.Disk = disk
 
 	swap := SwapInfo{}
 	swapIn, _ := strconv.Atoi(fields[6])
@@ -125,7 +138,7 @@ func getDiskDetailInfo(conf config.SSHConfig) (map[string]DiskInfo, error) {
 	}
 	log.Printf("%+v", c)
 
-	res, ok := c.Execute("df -BK | grep -vE '^Filesystem|tmpfs|udev' | awk '{ print $1 \" \" $2 \" \" $3 \" \" $4 }'")
+	res, ok := c.Execute("df -BK | grep -vE '^Filesystem|tmpfs|udev' | awk '{ print $1 \" \" $2 \" \" $4 }'")
 	if !ok {
 		return nil, fmt.Errorf("exec got error: %v, with std error: %v", res.Err, errors.New(string(res.StdErr)))
 	}
@@ -133,13 +146,15 @@ func getDiskDetailInfo(conf config.SSHConfig) (map[string]DiskInfo, error) {
 	detailInfos := make(map[string]DiskInfo, 0)
 	for _, s := range strings.Split(string(res.StdOut), "\n") {
 		fields := strings.Fields(s)
-		info := DiskInfo{}
-		f0, _ := strconv.Atoi(strings.TrimSpace(fields[0]))
-		info.DiskTotal = f0
-		f2, _ := strconv.Atoi(strings.TrimSpace(fields[2]))
-		info.DiskTotal = f2
-		f3 := strings.TrimSpace(fields[3])
-		detailInfos[f3] = info
+		if len(fields) == 3 {
+			info := DiskInfo{}
+			f1, _ := strconv.Atoi(trimSuffix(strings.TrimSpace(fields[1]), "K"))
+			info.DiskTotal = f1
+			f2, _ := strconv.Atoi(trimSuffix(strings.TrimSpace(fields[2]), "K"))
+			info.DiskAvailable = f2
+			f0 := strings.TrimSpace(fields[0])
+			detailInfos[f0] = info
+		}
 	}
 
 	return detailInfos, nil
@@ -158,4 +173,11 @@ func getDiskInfo(conf config.SSHConfig) (DiskInfo, error) {
 	}
 
 	return DiskInfo{diskTotal, diskAvailable}, nil
+}
+
+func trimSuffix(s, suffix string) string {
+	if strings.HasSuffix(s, suffix) {
+		s = s[:len(s)-len(suffix)]
+	}
+	return s
 }
