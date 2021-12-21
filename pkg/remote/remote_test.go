@@ -16,8 +16,8 @@ func TestNewSSHClient(t *testing.T) {
 		Password: "nebula",
 	}
 	go testSSHClient(conf)
-	go testSSHClient1(conf)
-	testSSHClient2(conf)
+	//go testSSHClient1(conf)
+	//testSSHClient2(conf)
 	time.Sleep(3 * time.Second)
 }
 
@@ -29,10 +29,17 @@ func testSSHClient(conf config.SSHConfig) {
 	log.Printf("%+v", c)
 
 	ch := make(chan ExecuteResult)
-	go c.ExecuteAsync("whoami", ch)
-
-	res := <-ch
-	log.Println(string(res.StdOut))
+	go c.ExecuteAsync("vmstat 1 1", ch)
+	// sudo du -sh /home/*
+	// df -H | grep -vE '^Filesystem|tmpfs|udev' | awk '{ print $1 " " $2 " " $3 " " $4 " " $5 }'
+	for {
+		select {
+		case res := <-ch:
+			log.Println("\n", string(res.StdOut))
+			break
+		default:
+		}
+	}
 }
 
 func testSSHClient1(conf config.SSHConfig) {
@@ -45,18 +52,25 @@ func testSSHClient1(conf config.SSHConfig) {
 	ch1 := make(chan ExecuteResult)
 	go c1.ExecuteAsync("ls", ch1)
 
-	res1 := <-ch1
-	log.Println(string(res1.StdOut))
+	for {
+		select {
+		case res := <-ch1:
+			log.Println(string(res.StdOut))
+			break
+		default:
+
+		}
+	}
 }
 
 func testSSHClient2(conf config.SSHConfig) {
-	c1, err := GetSSHClient(conf.Username, conf)
+	c2, err := GetSSHClient(conf.Username, conf)
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("%+v", c1)
+	log.Printf("%+v", c2)
 
-	res, _ := c1.Execute("ls")
+	res2, _ := c2.Execute("ls")
 
-	log.Println(string(res.StdOut))
+	log.Println(string(res2.StdOut))
 }

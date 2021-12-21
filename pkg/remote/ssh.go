@@ -88,7 +88,7 @@ func (c *SSHClient) Execute(cmd string) (ExecuteResult, bool) {
 	session.Stderr = &stdErr
 
 	err = session.Run(cmd)
-	if err != nil {
+	if err != nil || len(stdErr.Bytes()) > 0 {
 		return ExecuteResult{cmd, err, stdOut.Bytes(), stdErr.Bytes(), time.Since(now)}, false
 	}
 
