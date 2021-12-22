@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/spf13/viper"
@@ -12,13 +13,13 @@ type Config struct {
 }
 
 type NodeConfig struct {
-	Host     HostConfig   `mapstructure:"host"`           // node host
-	SSH      SSHConfig    `mapstructure:"ssh"`            // node ssh
-	Output   OutputConfig `mapstructure:"output"`         // output location
-	Duration string       `mapstructure:"duration"`       // TODO parse into time.Duration, default is 0
-	Interval string       `mapstructure:"interval"`       // TODO parse into time.Duration, default is 0
-	Infos    []InfoOption `mapstructure:"info,omitempty"` // info to fetch, default is all
-	Diags    []DiagOption `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
+	Host     HostConfig                `mapstructure:"host"`           // node host
+	SSH      SSHConfig                 `mapstructure:"ssh"`            // node ssh
+	Output   OutputConfig              `mapstructure:"output"`         // output location
+	Duration string                    `mapstructure:"duration"`       // TODO parse into time.Duration, default is 0
+	Period   string                    `mapstructure:"period"`         // TODO parse into time.Duration, default is 0
+	Infos    []InfoOption              `mapstructure:"info,omitempty"` // info to fetch, default is all
+	Diags    []DiagOption              `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
 	Services map[string]*ServiceConfig `mapstructure:"services"`
 }
 
@@ -28,7 +29,7 @@ type HostConfig struct {
 }
 
 type ServiceConfig struct {
-	Type string `mapstructure:"type"`
+	Type       string `mapstructure:"type"`
 	DeployDir  string `mapstructure:"deploy_dir"`
 	RuntimeDir string `mapstructure:"runtime_dir"`
 	Port       int    `mapstructure:"port"`
@@ -93,11 +94,19 @@ const (
 
 var (
 	defaultDuration = "-1"
-	defaultInterval = "5s"
+	defaultPeriod   = "5s"
 	defaultDirPath  = "./out"
 	defaultInfos    = []InfoOption{AllInfo}
 	defaultDiags    = []DiagOption{NoDiag}
 )
+
+func GetConfigType(confPath string) string {
+	if strings.HasSuffix(confPath, "yaml") {
+		return "yaml"
+	}
+
+	return ""
+}
 
 func NewConfig(confPath string, configType string) (*Config, error) {
 	var viperConfig = viper.New()
@@ -122,6 +131,15 @@ func NewConfig(confPath string, configType string) (*Config, error) {
 	return conf, nil
 }
 
+func (c *Config) String() string {
+	sb := strings.Builder{}
+	for k, node := range c.Nodes {
+		sb.WriteString(k + ": ")
+		sb.WriteString(fmt.Sprintf("%+v\n", node))
+	}
+	return sb.String()
+}
+
 func configComplete(conf *Config) {
 	for _, node := range conf.Nodes {
 		if node.SSH.Timeout == "" {
@@ -130,8 +148,8 @@ func configComplete(conf *Config) {
 		if node.Duration == "" {
 			node.Duration = defaultDuration
 		}
-		if node.Interval == "" {
-			node.Interval = defaultInterval
+		if node.Period == "" {
+			node.Period = defaultPeriod
 		}
 		if node.Output.DirPath == "" {
 			node.Output.DirPath = defaultDirPath
@@ -149,7 +167,7 @@ func configValidate(conf *Config) ([]string, bool) {
 	ids := make([]string, 0)
 	ok := true
 	for k, node := range conf.Nodes {
-		if !node.Host.IsValid() || !node.SSH.IsValid() || !node.Output.IsValid() || !isValidDuration(node.Duration) || !isValidInterval(node.Interval) {
+		if !node.Host.IsValid() || !node.SSH.IsValid() || !node.Output.IsValid() || !isValidDuration(node.Duration) || !isValidPeriod(node.Period) {
 			ids = append(ids, k)
 			ok = false
 		}
@@ -163,8 +181,8 @@ func isValidDuration(duration string) bool {
 	return duration == "-1" || err == nil
 }
 
-func isValidInterval(interval string) bool {
-	d, err := time.ParseDuration(interval)
+func isValidPeriod(period string) bool {
+	d, err := time.ParseDuration(period)
 	return d > 0 && err == nil
 }
 
