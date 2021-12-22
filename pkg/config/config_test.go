@@ -15,6 +15,10 @@ func TestNewConfig(t *testing.T) {
 	}
 
 	for _, node := range conf.Nodes {
+		for _, service := range node.Services {
+			log.Printf("%+v\n", service)
+		}
 		log.Printf("%+v\n", node)
 	}
+
 }

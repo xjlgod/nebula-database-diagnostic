@@ -1,10 +1,11 @@
 package service
 
-import "strings"
+import (
+	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
+	"strings"
+)
 
 type (
-	ComponentType string
-
 	ServiceExporter interface {
 		// IsAlive 判断需要收集的服务是否存活，并更新服务状态
 		IsAlive() bool
@@ -18,18 +19,14 @@ type (
 		GetWithoutMetricMap() map[string]string
 		// GetConfigMap 返回能够收集到的服务配置信息
 		GetConfigMap() map[string]string
-		// Config TODO 配置Exporter，目前只配置需收集的服务的ip与端口
-		Config(ipAddress string, port int32)
+		// Config 配置config
+		Config(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig)
 		// GetLogsInLogDir 通过指定路径获取日志
 		GetLogsInLogDir() error
 	}
 )
 
 const (
-	GraphdComponent   ComponentType = "graphd"
-	MetadComponent    ComponentType = "metad"
-	StoragedComponent ComponentType = "storaged"
-
 	NotCollect string = "wait for collect"
 )
 

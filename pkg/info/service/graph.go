@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/remote"
 	"strings"
 )
@@ -12,6 +13,8 @@ type GraphExporter struct {
 	ipAddress        string
 	port             int32
 	ServiceStatus    string
+	NodeConfig *config.NodeConfig
+	ServiceConfig *config.ServiceConfig
 }
 
 func (exporter *GraphExporter) IsAlive() bool {
@@ -80,9 +83,13 @@ func (exporter GraphExporter) GetConfigMap() map[string]string {
 	return exporter.ConfigMap
 }
 
-func (exporter *GraphExporter) Config(ipAddress string, port int32) {
-	exporter.ipAddress = ipAddress
-	exporter.port = port
+func (exporter *GraphExporter) Config(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) {
+	exporter.NodeConfig = nodeConfig
+	exporter.ServiceConfig = serviceConfig
+}
+
+func(exporter *GraphExporter) GetLogsInLogDir() error()  {
+
 }
 
 func (exporter *GraphExporter) buildConfigLabels() {

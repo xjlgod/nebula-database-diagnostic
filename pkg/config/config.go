@@ -19,6 +19,7 @@ type NodeConfig struct {
 	Interval string       `mapstructure:"interval"`       // TODO parse into time.Duration, default is 0
 	Infos    []InfoOption `mapstructure:"info,omitempty"` // info to fetch, default is all
 	Diags    []DiagOption `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
+	Services map[string]*ServiceConfig `mapstructure:"services"`
 }
 
 type HostConfig struct {
@@ -27,8 +28,16 @@ type HostConfig struct {
 }
 
 type ServiceConfig struct {
-	Host     HostConfig   `mapstructure:"host"`
-	Output   OutputConfig `mapstructure:"output"`
+	Type string `mapstructure:"type"`
+	DeployDir  string `mapstructure:"deploy_dir"`
+	RuntimeDir string `mapstructure:"runtime_dir"`
+	Port       int    `mapstructure:"port"`
+	HTTPPort   int    `mapstructure:"http_port"`
+	HTTP2Port  int    `mapstructure:"http_2_port"`
+}
+
+func (s ServiceConfig) IsValid() bool {
+	return s.HTTPPort > 0 // TODO add more exactly verify: DeployDir, RuntimeDir
 }
 
 func (c HostConfig) IsValid() bool {
@@ -60,6 +69,8 @@ func (c OutputConfig) IsValid() bool {
 }
 
 type InfoOption string
+
+type ComponentType string
 
 const (
 	Metrics        InfoOption = "metrics"
