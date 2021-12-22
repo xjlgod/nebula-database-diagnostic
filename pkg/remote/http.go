@@ -93,5 +93,3 @@ func GetNebulaComponentStatus(ipAddress string, port int32) ([]string, error) {
 
 	return statusMetrics, nil
 }
-
-

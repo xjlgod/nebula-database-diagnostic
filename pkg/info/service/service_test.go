@@ -13,12 +13,12 @@ func TestMetaExporter(t *testing.T) {
 	serviceExporter.Collect()
 	withMetricMap := serviceExporter.GetWithMetricMap()
 	//循环遍历Map
-	for key,value:= range withMetricMap{
-		fmt.Printf("%s=>%s\n",key,value)
+	for key, value := range withMetricMap {
+		fmt.Printf("%s=>%s\n", key, value)
 	}
 	configMap := serviceExporter.GetConfigMap()
-	for key,value:= range configMap{
-		fmt.Printf("%s=>%s\n",key,value)
+	for key, value := range configMap {
+		fmt.Printf("%s=>%s\n", key, value)
 	}
 }
 
@@ -30,8 +30,8 @@ func TestGraphExporter(t *testing.T) {
 	serviceExporter.Collect()
 	withMetricMap := serviceExporter.GetWithMetricMap()
 	//循环遍历Map
-	for key,value:= range withMetricMap{
-		fmt.Printf("%s=>%s\n",key,value)
+	for key, value := range withMetricMap {
+		fmt.Printf("%s=>%s\n", key, value)
 	}
 }
 
@@ -43,7 +43,7 @@ func TestStorageExporter(t *testing.T) {
 	serviceExporter.Collect()
 	withMetricMap := serviceExporter.GetWithMetricMap()
 	//循环遍历Map
-	for key,value:= range withMetricMap{
-		fmt.Printf("%s=>%s\n",key,value)
+	for key, value := range withMetricMap {
+		fmt.Printf("%s=>%s\n", key, value)
 	}
 }

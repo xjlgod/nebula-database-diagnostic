@@ -20,6 +20,8 @@ type (
 		GetConfigMap() map[string]string
 		// Config TODO 配置Exporter，目前只配置需收集的服务的ip与端口
 		Config(ipAddress string, port int32)
+		// GetLogsInLogDir 通过指定路径获取日志
+		GetLogsInLogDir() error
 	}
 )
 
@@ -120,7 +122,6 @@ var (
 	LastLabels = []string{
 		"5", "60", "600", "3600",
 	}
-
 )
 
 func convertToMap(metrics []string) map[string]string {

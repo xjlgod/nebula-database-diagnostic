@@ -6,17 +6,17 @@ import (
 )
 
 type MetaExporter struct {
-	WithMetricMap map[string]string
+	WithMetricMap    map[string]string
 	WithoutMetricMap map[string]string
-	ConfigMap map[string]string
-	ipAddress string
-	port int32
-	ServiceStatus string
+	ConfigMap        map[string]string
+	ipAddress        string
+	port             int32
+	ServiceStatus    string
 }
 
-func (exporter *MetaExporter) IsAlive() bool{
+func (exporter *MetaExporter) IsAlive() bool {
 
-	status, _ := remote.GetNebulaComponentStatus(exporter.ipAddress, exporter.port);
+	status, _ := remote.GetNebulaComponentStatus(exporter.ipAddress, exporter.port)
 	exporter.ServiceStatus = status[0]
 	if exporter.ServiceStatus == "running" {
 		return true
@@ -27,7 +27,7 @@ func (exporter *MetaExporter) IsAlive() bool{
 
 func (exporter *MetaExporter) Collect() {
 
-	if (!exporter.IsAlive()) {
+	if !exporter.IsAlive() {
 		return
 	}
 
@@ -69,19 +69,19 @@ func (exporter *MetaExporter) BuildAllMap() {
 	exporter.buildConfigLabels()
 }
 
-func (exporter MetaExporter) GetWithMetricMap() map[string]string{
+func (exporter MetaExporter) GetWithMetricMap() map[string]string {
 	return exporter.WithMetricMap
 }
 
-func (exporter MetaExporter) GetWithoutMetricMap() map[string]string{
+func (exporter MetaExporter) GetWithoutMetricMap() map[string]string {
 	return exporter.WithoutMetricMap
 }
 
-func (exporter MetaExporter) GetConfigMap() map[string]string{
+func (exporter MetaExporter) GetConfigMap() map[string]string {
 	return exporter.ConfigMap
 }
 
-func (exporter *MetaExporter) Config(ipAddress string, port int32)() {
+func (exporter *MetaExporter) Config(ipAddress string, port int32) {
 	exporter.ipAddress = ipAddress
 	exporter.port = port
 }

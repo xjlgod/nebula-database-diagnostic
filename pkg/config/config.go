@@ -26,6 +26,11 @@ type HostConfig struct {
 	Port    int    `mapstructure:"port"`
 }
 
+type ServiceConfig struct {
+	Host     HostConfig   `mapstructure:"host"`
+	Output   OutputConfig `mapstructure:"output"`
+}
+
 func (c HostConfig) IsValid() bool {
 	return c.Address != "" && c.Port > 0 // TODO add more exactly verify: address, port
 }
