@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/urfave/cli/v2"
-	"github.com/xjlgo/nebula-database-diagnostic/cmd"
+	"github.com/xjlgod/nebula-database-diagnostic/cmd"
 	"log"
 	"os"
 )
