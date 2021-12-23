@@ -2,6 +2,7 @@
 #
 tmp/
 bak/
+diag
 
 # Binaries for programs and plugins
 *.exe
@@ -23,9 +24,7 @@ vendor/
 *.swp
 *.swo
 *~
-<<<<<<< HEAD
 yu
-=======
 .vs
 .vscode
->>>>>>> e816867766332be4e00dadce97d6e537c6456e8a
+

@@ -15,6 +15,8 @@ type (
 
 func Run(conf *config.Config) {
 	for _, node := range conf.Nodes {
+		logger.InitCmdLogger()
+		logger.InitFileLogger(node.Output)
 		// the conf has been verified, so don't need to handle error
 		d, _ := time.ParseDuration(node.Duration)
 		if node.Output.DirPath == "" {
