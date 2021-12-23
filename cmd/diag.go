@@ -32,8 +32,9 @@ var diagCmd = &cli.Command{
 	},
 	Action: func(ctx *cli.Context) error {
 		configPath := ctx.String("config")
+		var err error
 		if configPath != "" {
-			GlobalConfig, err := config.NewConfig(configPath, config.GetConfigType(configPath))
+			GlobalConfig, err = config.NewConfig(configPath, config.GetConfigType(configPath))
 			if err != nil {
 				return err
 			}
