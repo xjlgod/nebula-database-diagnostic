@@ -59,18 +59,18 @@ type CPUInfo struct { // percent
 	WaitPercent   int
 }
 
-func GetPhyInfo(conf config.SSHConfig) (PhyInfo, error) {
-	info := PhyInfo{}
+func GetPhyInfo(conf config.SSHConfig) (*PhyInfo, error) {
+	info := new(PhyInfo)
 
 	c, err := remote.GetSSHClient(conf.Username, conf)
 	if err != nil {
-		return info, err
+		return nil, err
 	}
 	log.Printf("%+v", c)
 
 	res, ok := c.Execute("vmstat 1 1")
 	if !ok {
-		return info, fmt.Errorf("exec got error: %v, with std error: %v", res.Err, errors.New(string(res.StdErr)))
+		return nil, fmt.Errorf("exec got error: %v, with std error: %v", res.Err, errors.New(string(res.StdErr)))
 	}
 
 	fields := strings.Fields(string(res.StdOut))

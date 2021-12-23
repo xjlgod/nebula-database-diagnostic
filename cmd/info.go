@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/urfave/cli/v2"
+	"github.com/xjlgod/nebula-database-diagnostic/intrenal/info"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 )
 
@@ -62,7 +62,6 @@ var infoCmd = &cli.Command{
 			if err != nil {
 				return err
 			}
-			fmt.Printf("%+v", GlobalConfig.String())
 		}
 		if GlobalConfig == nil {
 			return ErrConfigIsNull
@@ -94,8 +93,8 @@ var infoCmd = &cli.Command{
 				}
 				node.Infos = infoOptions
 			}
-			fmt.Printf("%+v", GlobalConfig.String())
 		}
+		info.Run(GlobalConfig)
 		return nil
 	},
 }

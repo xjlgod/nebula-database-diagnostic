@@ -13,15 +13,14 @@ type Config struct {
 }
 
 type NodeConfig struct {
-	Host     HostConfig                `mapstructure:"host"`           // node host
-	SSH      SSHConfig                 `mapstructure:"ssh"`            // node ssh
-	Output   OutputConfig              `mapstructure:"output"`         // output location
-	Duration string                    `mapstructure:"duration"`       // TODO parse into time.Duration, default is 0
-	Interval string                    `mapstructure:"interval"`       // TODO parse into time.Duration, default is 0
-	Period   string                    `mapstructure:"period"`         // TODO parse into time.Duration, default is 0
-	Infos    []InfoOption              `mapstructure:"info,omitempty"` // info to fetch, default is all
-	Diags    []DiagOption              `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
-	Services map[string]*ServiceConfig `mapstructure:"services"`
+	Host     HostConfig               `mapstructure:"host"`           // node host
+	SSH      SSHConfig                `mapstructure:"ssh"`            // node ssh
+	Output   OutputConfig             `mapstructure:"output"`         // output location
+	Duration string                   `mapstructure:"duration"`       // TODO parse into time.Duration, default is -1
+	Period   string                   `mapstructure:"period"`         // TODO parse into time.Duration, default is 0
+	Infos    []InfoOption             `mapstructure:"info,omitempty"` // info to fetch, default is all
+	Diags    []DiagOption             `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
+	Services map[string]ServiceConfig `mapstructure:"services"`
 }
 
 type HostConfig struct {
@@ -30,14 +29,12 @@ type HostConfig struct {
 }
 
 type ServiceConfig struct {
-
 	Type       ComponentType `mapstructure:"type"`
 	DeployDir  string        `mapstructure:"deploy_dir"`
 	RuntimeDir string        `mapstructure:"runtime_dir"`
 	Port       int           `mapstructure:"port"`
 	HTTPPort   int           `mapstructure:"http_port"`
 	HTTP2Port  int           `mapstructure:"http_2_port"`
-
 }
 
 func (s ServiceConfig) IsValid() bool {
@@ -98,7 +95,7 @@ const (
 var (
 	defaultDuration = "-1"
 	defaultPeriod   = "5s"
-	defaultDirPath  = "./out"
+	defaultDirPath  = ""
 	defaultInfos    = []InfoOption{AllInfo}
 	defaultDiags    = []DiagOption{NoDiag}
 )
