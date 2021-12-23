@@ -12,13 +12,13 @@ type Config struct {
 }
 
 type NodeConfig struct {
-	Host     HostConfig   `mapstructure:"host"`           // node host
-	SSH      SSHConfig    `mapstructure:"ssh"`            // node ssh
-	Output   OutputConfig `mapstructure:"output"`         // output location
-	Duration string       `mapstructure:"duration"`       // TODO parse into time.Duration, default is 0
-	Interval string       `mapstructure:"interval"`       // TODO parse into time.Duration, default is 0
-	Infos    []InfoOption `mapstructure:"info,omitempty"` // info to fetch, default is all
-	Diags    []DiagOption `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
+	Host     HostConfig                `mapstructure:"host"`           // node host
+	SSH      SSHConfig                 `mapstructure:"ssh"`            // node ssh
+	Output   OutputConfig              `mapstructure:"output"`         // output location
+	Duration string                    `mapstructure:"duration"`       // TODO parse into time.Duration, default is 0
+	Interval string                    `mapstructure:"interval"`       // TODO parse into time.Duration, default is 0
+	Infos    []InfoOption              `mapstructure:"info,omitempty"` // info to fetch, default is all
+	Diags    []DiagOption              `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
 	Services map[string]*ServiceConfig `mapstructure:"services"`
 }
 
@@ -28,12 +28,12 @@ type HostConfig struct {
 }
 
 type ServiceConfig struct {
-	Type string `mapstructure:"type"`
-	DeployDir  string `mapstructure:"deploy_dir"`
-	RuntimeDir string `mapstructure:"runtime_dir"`
-	Port       int    `mapstructure:"port"`
-	HTTPPort   int    `mapstructure:"http_port"`
-	HTTP2Port  int    `mapstructure:"http_2_port"`
+	Type       ComponentType `mapstructure:"type"`
+	DeployDir  string        `mapstructure:"deploy_dir"`
+	RuntimeDir string        `mapstructure:"runtime_dir"`
+	Port       int           `mapstructure:"port"`
+	HTTPPort   int           `mapstructure:"http_port"`
+	HTTP2Port  int           `mapstructure:"http_2_port"`
 }
 
 func (s ServiceConfig) IsValid() bool {
@@ -60,7 +60,7 @@ func (c SSHConfig) IsValid() bool {
 }
 
 type OutputConfig struct {
-	DirPath string `mapstructure:"dirPath"` // output dir included log, info, diag, etc., default is ./out, and will auto create if not existed
+	DirPath string `mapstructure:"dirPath"` // output dir included logs, info, diag, etc., default is ./out, and will auto create if not existed
 	Remote  bool   `mapstructure:"remote"`  // remote = true means that output dir is located at the remote node
 }
 
@@ -73,14 +73,14 @@ type InfoOption string
 type ComponentType string
 
 const (
-	Metrics        InfoOption = "metrics"
-	Physical       InfoOption = "physical"
-	GraphService   InfoOption = "graphService"
-	MetaService    InfoOption = "metaService"
-	StorageService InfoOption = "storageService"
-	Stats          InfoOption = "stats"
-	AllInfo        InfoOption = "all"
-	NoInfo         InfoOption = "no"
+	Metrics        InfoOption    = "metrics"
+	Physical       InfoOption    = "physical"
+	GraphService   ComponentType = "graphService"
+	MetaService    ComponentType = "metaService"
+	StorageService ComponentType = "storageService"
+	Stats          InfoOption    = "stats"
+	AllInfo        InfoOption    = "all"
+	NoInfo         InfoOption    = "no"
 )
 
 type DiagOption string

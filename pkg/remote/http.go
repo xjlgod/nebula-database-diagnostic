@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func GetNebulaMetrics(ipAddress string, port int32) ([]string, error) {
+func GetNebulaMetrics(ipAddress string, port int) ([]string, error) {
 	httpClient := http.Client{
 		Timeout: time.Second * 10,
 	}
@@ -36,7 +36,7 @@ func GetNebulaMetrics(ipAddress string, port int32) ([]string, error) {
 	return metrics, nil
 }
 
-func GetNebulaConfigs(ipAddress string, port int32) ([]string, error) {
+func GetNebulaConfigs(ipAddress string, port int) ([]string, error) {
 	httpClient := http.Client{
 		Timeout: time.Second * 10,
 	}
@@ -63,7 +63,7 @@ func GetNebulaConfigs(ipAddress string, port int32) ([]string, error) {
 	return configs, nil
 }
 
-func GetNebulaComponentStatus(ipAddress string, port int32) ([]string, error) {
+func GetNebulaComponentStatus(ipAddress string, port int) ([]string, error) {
 	httpClient := http.Client{
 		Timeout: time.Second * 2,
 	}

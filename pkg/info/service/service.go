@@ -1,8 +1,11 @@
 package service
 
 import (
+	"errors"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
+	"strconv"
 	"strings"
+	"sync"
 )
 
 type (
@@ -10,7 +13,7 @@ type (
 		// IsAlive 判断需要收集的服务是否存活，并更新服务状态
 		IsAlive() bool
 		// Collect 收集所有服务指标信息
-		Collect()
+		Collect(isMetrics bool, isConfig bool) error
 		// BuildAllMap 进行所需服务所有信息的map构建
 		BuildAllMap()
 		// GetWithMetricMap 返回能够收集到的服务指标信息 key为指标名，value为值
@@ -27,7 +30,8 @@ type (
 )
 
 const (
-	NotCollect string = "wait for collect"
+	NotCollect    string = "wait for collect"
+	LOCAL_LOG_DIR        = "data/logs"
 )
 
 var (
@@ -47,7 +51,7 @@ var (
 		"pid",
 		"port",
 		"deploy_dir",
-		"log",
+		"logs",
 		"config",
 		"runtime_dir",
 	}
@@ -70,7 +74,7 @@ var (
 		"pid",
 		"port",
 		"deploy_dir",
-		"log",
+		"logs",
 		"config",
 		"runtime_dir",
 	}
@@ -95,7 +99,7 @@ var (
 		"pid",
 		"port",
 		"deploy_dir",
-		"log",
+		"logs",
 		"config",
 		"runtime_dir",
 	}
@@ -120,6 +124,59 @@ var (
 		"5", "60", "600", "3600",
 	}
 )
+
+var exporters = make(map[string]ServiceExporter)
+var mux sync.RWMutex
+
+func GetServiceExporter(seid string, nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) (ServiceExporter, error) {
+	mux.Lock()
+	if _, ok := exporters[seid]; !ok {
+		e, err := newServiceExporter(nodeConfig, serviceConfig)
+		if err != nil {
+			return nil, err
+		}
+
+		exporters[seid] = e
+	}
+	mux.Unlock()
+
+	mux.RLock()
+	e := exporters[seid]
+	mux.RUnlock()
+
+	return e, nil
+}
+
+func newServiceExporter(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) (ServiceExporter, error) {
+
+	serviceType := serviceConfig.Type
+	switch serviceType {
+	case config.GraphService:
+		seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+		graphExporter := new(GraphExporter)
+		graphExporter.Config(nodeConfig, serviceConfig)
+		graphExporter.BuildAllMap()
+		exporters[seid] = graphExporter
+		return graphExporter, nil
+	case config.MetaService:
+		seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+		metaExporter := new(MetaExporter)
+		metaExporter.Config(nodeConfig, serviceConfig)
+		metaExporter.BuildAllMap()
+		exporters[seid] = metaExporter
+		return metaExporter, nil
+	case config.StorageService:
+		seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+		storageExporter := new(StorageExporter)
+		storageExporter.Config(nodeConfig, serviceConfig)
+		storageExporter.BuildAllMap()
+		exporters[seid] = storageExporter
+		return storageExporter, nil
+	default:
+		return nil, errors.New("init service exporter fail")
+	}
+
+}
 
 func convertToMap(metrics []string) map[string]string {
 	matches := make(map[string]string)

@@ -1,7 +1,8 @@
 pkg/info
 - physical info 1
 - service info 1
-- metrics info TODO
+- metrics info 1
+- config info 1
 - stats info TODO
 
 pkg/remote

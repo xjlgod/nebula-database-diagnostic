@@ -1,7 +1,10 @@
 package service
 
 import (
+	"errors"
+	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/remote"
+	"path/filepath"
 	"strings"
 )
 
@@ -10,8 +13,10 @@ type MetaExporter struct {
 	WithoutMetricMap map[string]string
 	ConfigMap        map[string]string
 	ipAddress        string
-	port             int32
+	port             int
 	ServiceStatus    string
+	NodeConfig       *config.NodeConfig
+	ServiceConfig    *config.ServiceConfig
 }
 
 func (exporter *MetaExporter) IsAlive() bool {
@@ -25,22 +30,24 @@ func (exporter *MetaExporter) IsAlive() bool {
 
 }
 
-func (exporter *MetaExporter) Collect() {
+func (exporter *MetaExporter) Collect(isMetrics bool, isConfig bool) error {
 
 	if !exporter.IsAlive() {
-		return
+		return errors.New("service is not alive")
 	}
 
 	// 服务存活，开始通过服务接口收集信息
-	metrics, err := remote.GetNebulaMetrics(exporter.ipAddress, exporter.port)
-	if err == nil {
-		matches := convertToMap(metrics)
-		for metric, value := range matches {
-			if err != nil {
-				continue
-			}
-			if _, ok := exporter.WithMetricMap[metric]; ok {
-				exporter.WithMetricMap[metric] = value
+	if isMetrics {
+		metrics, err := remote.GetNebulaMetrics(exporter.ipAddress, exporter.port)
+		if err == nil {
+			matches := convertToMap(metrics)
+			for metric, value := range matches {
+				if err != nil {
+					continue
+				}
+				if _, ok := exporter.WithMetricMap[metric]; ok {
+					exporter.WithMetricMap[metric] = value
+				}
 			}
 		}
 	}
@@ -48,18 +55,21 @@ func (exporter *MetaExporter) Collect() {
 	// TODO 自动生成服务目前不能提供的信息
 
 	// 获取服务配置信息
-	configs, err := remote.GetNebulaConfigs(exporter.ipAddress, exporter.port)
-	if err == nil {
-		matches := convertToMap(configs)
-		for config, value := range matches {
-			if err != nil {
-				continue
+	if isConfig {
+		configs, err := remote.GetNebulaConfigs(exporter.ipAddress, exporter.port)
+		if err == nil {
+			matches := convertToMap(configs)
+			for config, value := range matches {
+				if _, ok := exporter.ConfigMap[config]; ok {
+					exporter.ConfigMap[config] = value
+				}
 			}
-			if _, ok := exporter.ConfigMap[config]; ok {
-				exporter.ConfigMap[config] = value
-			}
+		} else {
+			return err
 		}
 	}
+
+	return nil
 
 }
 
@@ -81,9 +91,24 @@ func (exporter MetaExporter) GetConfigMap() map[string]string {
 	return exporter.ConfigMap
 }
 
-func (exporter *MetaExporter) Config(ipAddress string, port int32) {
-	exporter.ipAddress = ipAddress
-	exporter.port = port
+func (exporter *MetaExporter) Config(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) {
+	exporter.NodeConfig = nodeConfig
+	exporter.ServiceConfig = serviceConfig
+	exporter.ipAddress = nodeConfig.SSH.Address
+	exporter.port = serviceConfig.HTTPPort
+}
+
+func (exporter *MetaExporter) GetLogsInLogDir() error {
+
+	logDir, ok := exporter.ConfigMap["log_dir"]
+	if !ok {
+		return errors.New("logdir is nut exist")
+	}
+	dir := filepath.Join(exporter.ServiceConfig.DeployDir, logDir)
+
+	err := remote.GetFilesInRemoteDir(exporter.NodeConfig.SSH.Username, exporter.NodeConfig.SSH, dir, LOCAL_LOG_DIR)
+	return err
+
 }
 
 func (exporter *MetaExporter) buildConfigLabels() {

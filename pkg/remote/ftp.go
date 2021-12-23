@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 )
 
-func GetFileInRemotePath(scid string, conf config.SSHConfig, remotePath string, localPath string) error{
+func GetFileInRemotePath(scid string, conf config.SSHConfig, remotePath string, localPath string) error {
 
 	client, err := GetSSHClient(scid, conf)
 
@@ -36,7 +36,7 @@ func GetFileInRemotePath(scid string, conf config.SSHConfig, remotePath string, 
 	return nil
 }
 
-func GetFilesInRemoteDir(scid string, conf config.SSHConfig, remoteDir string, localDir string) error{
+func GetFilesInRemoteDir(scid string, conf config.SSHConfig, remoteDir string, localDir string) error {
 
 	client, err := GetSSHClient(scid, conf)
 
@@ -49,7 +49,7 @@ func GetFilesInRemoteDir(scid string, conf config.SSHConfig, remoteDir string, l
 	filesInfo, err := ftpClient.ReadDir(remoteDir)
 	for _, fileInfo := range filesInfo {
 
-		if (fileInfo.IsDir()) {
+		if fileInfo.IsDir() {
 			continue
 		}
 		srcPath := filepath.Join(remoteDir, fileInfo.Name())
@@ -74,7 +74,6 @@ func GetFilesInRemoteDir(scid string, conf config.SSHConfig, remoteDir string, l
 	return nil
 }
 
-
 func GetFtpClient(client *ssh.Client) (*sftp.Client, error) {
 	ftpClient, err := sftp.NewClient(client)
 	if err != nil {
@@ -82,4 +81,3 @@ func GetFtpClient(client *ssh.Client) (*sftp.Client, error) {
 	}
 	return ftpClient, nil
 }
-
