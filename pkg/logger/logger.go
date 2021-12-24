@@ -92,7 +92,12 @@ func InitFileLogger(o config.OutputConfig) {
 	log := logrus.New()
 	log.SetFormatter(&logrus.TextFormatter{})
 	timeUnix := time.Now().Unix()
-	FileLogger.filepath = filepath.Join(o.DirPath, strconv.FormatInt(timeUnix, 10)+".log")
+	p, _ := filepath.Abs(o.DirPath)
+	_, err := os.Stat(p)
+	if os.IsNotExist(err) {
+		os.Mkdir(p, os.ModePerm)
+	}
+	FileLogger.filepath = filepath.Join(p, strconv.FormatInt(timeUnix, 10)+".log")
 	file, err := os.OpenFile(FileLogger.filepath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatal(err)
