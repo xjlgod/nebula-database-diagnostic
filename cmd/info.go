@@ -35,6 +35,12 @@ var infoCmd = &cli.Command{
 			Usage:   "output dir on remote",
 			Value:   false,
 		},
+		&cli.BoolFlag{
+			Name:    "log_to_file",
+			Aliases: []string{"L"},
+			Usage:   "log to file or to cmd",
+			Value:   false,
+		},
 		&cli.StringFlag{
 			Name:    "duration",
 			Aliases: []string{"D"},
@@ -76,6 +82,10 @@ var infoCmd = &cli.Command{
 			if ctx.IsSet("output_remote") {
 				outputRemote := ctx.Bool("output_remote")
 				node.Output.Remote = outputRemote
+			}
+			if ctx.IsSet("log_to_file") {
+				logToFile := ctx.Bool("log_to_file")
+				node.Output.LogToFile = logToFile
 			}
 			if ctx.IsSet("duration") {
 				duration := ctx.String("duration")

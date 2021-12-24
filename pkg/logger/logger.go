@@ -15,7 +15,6 @@ var (
 	// logger.CMDLogger.Info()
 	CMDLogger  *DefaultLogger = &DefaultLogger{logToFile: false}
 	FileLogger *DefaultLogger = &DefaultLogger{logToFile: true}
-
 )
 
 type (
@@ -36,7 +35,7 @@ type DefaultLogger struct {
 	logr *logrus.Logger
 
 	logToFile bool
-	filepath string
+	filepath  string
 }
 
 func (d *DefaultLogger) Info(msg ...interface{}) {
@@ -88,13 +87,13 @@ func InitCmdLogger() {
 
 }
 
-func InitFileLogger(o config.OutputConfig)  {
+func InitFileLogger(o config.OutputConfig) {
 
 	log := logrus.New()
 	log.SetFormatter(&logrus.TextFormatter{})
 	timeUnix := time.Now().Unix()
-	FileLogger.filepath = filepath.Join(o.DirPath, strconv.FormatInt(timeUnix,10))
-	file, err := os.OpenFile(FileLogger.filepath , os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	FileLogger.filepath = filepath.Join(o.DirPath, strconv.FormatInt(timeUnix, 10)+".log")
+	file, err := os.OpenFile(FileLogger.filepath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}

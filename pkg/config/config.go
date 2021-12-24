@@ -61,8 +61,9 @@ func (c SSHConfig) IsValid() bool {
 }
 
 type OutputConfig struct {
-	DirPath string `mapstructure:"dirPath"` // output dir included logs, info, diag, etc., default is ./out, and will auto create if not existed
-	Remote  bool   `mapstructure:"remote"`  // remote = true means that output dir is located at the remote node
+	DirPath   string `mapstructure:"dirPath"` // output dir included logs, info, diag, etc., default is ./out, and will auto create if not existed
+	Remote    bool   `mapstructure:"remote"`  // remote = true means that output dir is located at the remote node
+	LogToFile bool   `mapstructure:"logToFile"`
 }
 
 func (c OutputConfig) IsValid() bool {
@@ -95,7 +96,7 @@ const (
 var (
 	defaultDuration = "-1"
 	defaultPeriod   = "5s"
-	defaultDirPath  = ""
+	defaultDirPath  = "./out"
 	defaultInfos    = []InfoOption{AllInfo}
 	defaultDiags    = []DiagOption{NoDiag}
 )

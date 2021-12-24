@@ -23,6 +23,24 @@ var diagCmd = &cli.Command{
 			Usage:   "node name",
 			Value:   "",
 		},
+		&cli.StringFlag{
+			Name:    "output_dir_path",
+			Aliases: []string{"O"},
+			Usage:   "output dir",
+			Value:   "./out",
+		},
+		&cli.BoolFlag{
+			Name:    "output_remote",
+			Aliases: []string{"R"},
+			Usage:   "output dir on remote",
+			Value:   false,
+		},
+		&cli.BoolFlag{
+			Name:    "log_to_file",
+			Aliases: []string{"L"},
+			Usage:   "log to file or to cmd",
+			Value:   false,
+		},
 		&cli.StringSliceFlag{
 			Name:    "diags",
 			Aliases: []string{"D"},
@@ -46,6 +64,18 @@ var diagCmd = &cli.Command{
 		if ctx.IsSet("name") {
 			name := ctx.String("name")
 			node := GlobalConfig.Nodes[name]
+			if ctx.IsSet("output_dir_path") {
+				outputDirPath := ctx.String("output_dir_path")
+				node.Output.DirPath = outputDirPath
+			}
+			if ctx.IsSet("output_remote") {
+				outputRemote := ctx.Bool("output_remote")
+				node.Output.Remote = outputRemote
+			}
+			if ctx.IsSet("log_to_file") {
+				logToFile := ctx.Bool("log_to_file")
+				node.Output.LogToFile = logToFile
+			}
 			if ctx.IsSet("diags") {
 				diags := ctx.StringSlice("diags")
 				diagOptions := make([]config.DiagOption, len(diags))
