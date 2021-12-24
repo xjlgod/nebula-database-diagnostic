@@ -41,14 +41,16 @@ func run(conf *config.NodeConfig, defaultLogger logger.Logger) {
 }
 
 func runWithInfinity(conf *config.NodeConfig, defaultLogger logger.Logger) {
-	go func() {
-		p, _ := time.ParseDuration(conf.Period)
-		for {
-			time.AfterFunc(p, func() {
-				run(conf, defaultLogger)
-			})
+	p, _ := time.ParseDuration(conf.Period)
+	ticker := time.NewTicker(p)
+	for {
+		select {
+		case <-ticker.C:
+			run(conf, defaultLogger)
+		default:
+
 		}
-	}()
+	}
 }
 
 func runWithDuration(conf *config.NodeConfig, defaultLogger logger.Logger) {
