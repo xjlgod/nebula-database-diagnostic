@@ -3,6 +3,7 @@
 tmp/
 bak/
 out/
+data/
 diag
 
 # Binaries for programs and plugins
