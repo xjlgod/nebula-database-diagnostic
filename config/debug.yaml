@@ -25,7 +25,7 @@ nodes:
 #      dirPath:
 #      remote:
 #      logToFile:
-#    duration:
+    duration: 0s
 #    period:
 #    infos:
 #    diags:
