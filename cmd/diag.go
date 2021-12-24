@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/urfave/cli/v2"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
+	"strings"
 )
 
 var diagCmd = &cli.Command{
@@ -41,11 +42,11 @@ var diagCmd = &cli.Command{
 			Usage:   "log to file or to cmd",
 			Value:   false,
 		},
-		&cli.StringSliceFlag{
+		&cli.StringFlag{
 			Name:    "diags",
 			Aliases: []string{"D"},
 			Usage:   "diags to analyze",
-			Value:   cli.NewStringSlice(string(config.NoDiag)),
+			Value:   string(config.NoDiag),
 		},
 	},
 	Action: func(ctx *cli.Context) error {
@@ -77,7 +78,16 @@ var diagCmd = &cli.Command{
 				node.Output.LogToFile = logToFile
 			}
 			if ctx.IsSet("diags") {
-				diags := ctx.StringSlice("diags")
+				var diags []string
+				diagsStr := ctx.String("diags")
+				if strings.Contains(diagsStr, "all") {
+					diags = []string{"all"}
+				} else {
+					for _, diagStr := range strings.Split(diagsStr, ",") {
+						diags = append(diags, diagStr)
+					}
+				}
+
 				diagOptions := make([]config.DiagOption, len(diags))
 				for i := range diags {
 					diagOptions[i] = config.DiagOption(diags[i])

@@ -4,6 +4,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"github.com/xjlgod/nebula-database-diagnostic/intrenal/info"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
+	"strings"
 )
 
 var infoCmd = &cli.Command{
@@ -53,11 +54,11 @@ var infoCmd = &cli.Command{
 			Usage:   "info period",
 			Value:   "5s",
 		},
-		&cli.StringSliceFlag{
+		&cli.StringFlag{
 			Name:    "infos",
 			Aliases: []string{"I"},
 			Usage:   "infos to fetch, will overwrite the infos in config",
-			Value:   cli.NewStringSlice(string(config.AllInfo)),
+			Value:   string(config.AllInfo),
 		},
 	},
 	Action: func(ctx *cli.Context) error {
@@ -96,7 +97,16 @@ var infoCmd = &cli.Command{
 				node.Period = period
 			}
 			if ctx.IsSet("infos") {
-				infos := ctx.StringSlice("infos")
+				var infos []string
+				infosStr := ctx.String("infos")
+				if strings.Contains(infosStr, "all") {
+					infos = []string{"all"}
+				} else {
+					for _, infoStr := range strings.Split(infosStr, ",") {
+						infos = append(infos, infoStr)
+					}
+				}
+
 				infoOptions := make([]config.InfoOption, len(infos))
 				for i := range infos {
 					infoOptions[i] = config.InfoOption(infos[i])

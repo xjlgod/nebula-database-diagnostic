@@ -8,25 +8,26 @@ import (
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/physical"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/service"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/logger"
-	"log"
 	"os"
 	"path/filepath"
 )
 
 type AllInfo struct {
-	PhyInfo     physical.PhyInfo            `json:"phy_info"`
+	PhyInfo     *physical.PhyInfo           `json:"phy_info"`
 	MetricsInfo []service.ServiceMetricInfo `json:"metrics_info,omitempty"`
 	ConfigInfo  []service.ServiceConfigInfo `json:"config_info,omitempty"`
 }
 
-func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) (physical.PhyInfo,
-	[]service.ServiceMetricInfo, []service.ServiceConfigInfo){
+func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) (*physical.PhyInfo,
+	[]service.ServiceMetricInfo, []service.ServiceConfigInfo) {
 	phyInfo, err := fetchPhyInfo(option, conf.SSH)
 	if err != nil {
 		defaultLogger.Errorf("fetch phy info failed: %s", err.Error())
 	} else {
 		// defaultLogger.Info(phyInfo.String())
-		defaultLogger.Info(phyInfo)
+		if phyInfo != nil {
+			defaultLogger.Info(phyInfo)
+		}
 	}
 
 	// fetch all services metrics info
@@ -35,7 +36,9 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 		defaultLogger.Errorf("fetch services metrics failed: %s", err.Error())
 	} else {
 		// defaultLogger.Info(phyInfo.String())
-		defaultLogger.Info(servicesMetricsInfo)
+		if servicesMetricsInfo != nil {
+			defaultLogger.Info(servicesMetricsInfo)
+		}
 	}
 
 	// fetch all services config info
@@ -44,12 +47,14 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 		defaultLogger.Errorf("fetch services metrics failed: %s", err.Error())
 	} else {
 		// defaultLogger.Info(phyInfo.String())
-		defaultLogger.Info(serviceConfigsInfo)
+		if serviceConfigsInfo != nil {
+			defaultLogger.Info(serviceConfigsInfo)
+		}
 	}
 
 	// TODO pack all services log
 
-	return *phyInfo, servicesMetricsInfo, serviceConfigsInfo
+	return phyInfo, servicesMetricsInfo, serviceConfigsInfo
 }
 
 func fetchPhyInfo(option config.InfoOption, sshConfig config.SSHConfig) (*physical.PhyInfo, error) {
@@ -66,7 +71,7 @@ func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, default
 		for key, serviceConfig := range servicesConfig {
 			metrics, err := metrics.GetMetricsInfo(conf, &serviceConfig)
 			serviceMetricsInfo := service.ServiceMetricInfo{
-				Name: key,
+				Name:    key,
 				Metrics: metrics,
 			}
 			if err != nil {
@@ -89,7 +94,7 @@ func fetchConfigsInfo(conf *config.NodeConfig, option config.InfoOption, default
 		for key, serviceConfig := range servicesConfig {
 			configs, err := configinfo.GetConfigInfo(conf, &serviceConfig)
 			serviceMetricsInfo := service.ServiceConfigInfo{
-				Name: key,
+				Name:    key,
 				Configs: configs,
 			}
 			if err != nil {
@@ -107,9 +112,9 @@ func fetchAndSaveInfo(conf *config.NodeConfig, option config.InfoOption, default
 
 	phyInfo, metricsInfo, configInfo := fetchInfo(conf, option, defaultLogger)
 	allInfo := &AllInfo{
-		PhyInfo: phyInfo,
+		PhyInfo:     phyInfo,
 		MetricsInfo: metricsInfo,
-		ConfigInfo: configInfo,
+		ConfigInfo:  configInfo,
 	}
 	marshal, err := json.Marshal(allInfo)
 	if err != nil {
@@ -124,12 +129,11 @@ func fetchAndSaveInfo(conf *config.NodeConfig, option config.InfoOption, default
 	jsonPath := filepath.Join(p, name+".json")
 	file, err := os.OpenFile(jsonPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
-		log.Fatal(err)
+		defaultLogger.Fatal(err)
 	}
 	_, err = file.Write(marshal)
 	if err != nil {
 		defaultLogger.Errorf("save json data fail: %s", err.Error())
 	}
-
 
 }
