@@ -36,7 +36,8 @@ func Run(conf *config.Config) {
 
 func run(conf *config.NodeConfig, defaultLogger logger.Logger) {
 	for _, option := range conf.Infos {
-		fetchInfo(conf, option, defaultLogger)
+		//fetchInfo(conf, option, defaultLogger)
+		fetchAndSaveInfo(conf, option, defaultLogger)
 	}
 }
 

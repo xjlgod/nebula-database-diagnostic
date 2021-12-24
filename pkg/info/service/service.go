@@ -29,6 +29,18 @@ type (
 	}
 )
 
+type (
+	ServiceMetricInfo struct {
+		Name    string            `json:"name,omitempty"`
+		Metrics map[string]string `json:"metrics,omitempty"`
+	}
+	ServiceConfigInfo struct {
+		Name    string            `json:"name,omitempty"`
+		Configs map[string]string `json:"configs,omitempty"`
+	}
+
+)
+
 const (
 	NotCollect    string = "wait for collect"
 	LOCAL_LOG_DIR        = "data/logs"

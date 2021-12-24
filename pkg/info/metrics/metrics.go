@@ -1,4 +1,4 @@
-package main
+package metrics
 
 import (
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
