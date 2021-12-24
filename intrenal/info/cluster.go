@@ -2,7 +2,6 @@ package info
 
 import (
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
-	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/physical"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/logger"
 	"time"
 )
@@ -25,13 +24,12 @@ func Run(conf *config.Config) {
 		}
 		// the conf has been verified, so don't need to handle error
 		d, _ := time.ParseDuration(node.Duration)
-
-		if d == 0 {
-			go run(node, _logger)
-		} else if d < 0 {
-			go runWithInfinity(node, _logger)
+		if node.Duration == "-1" {
+			runWithInfinity(node, _logger)
+		} else if d == 0 {
+			run(node, _logger)
 		} else {
-			go runWithDuration(node, _logger)
+			runWithDuration(node, _logger)
 		}
 	}
 }
@@ -77,22 +75,4 @@ func runWithDuration(conf *config.NodeConfig, defaultLogger logger.Logger) {
 	time.Sleep(d)
 	ch <- true
 	close(ch)
-}
-
-func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) {
-	phyInfo, err := fetchPhyInfo(option, conf.SSH)
-	if err != nil {
-		defaultLogger.Errorf("fetch phy info failed: %s", err.Error())
-	} else {
-		//defaultLogger.Info(phyInfo.String())
-		defaultLogger.Info(phyInfo)
-	}
-	// ... fetch more info here
-}
-
-func fetchPhyInfo(option config.InfoOption, sshConfig config.SSHConfig) (*physical.PhyInfo, error) {
-	if option == config.AllInfo || option == config.Physical {
-		return physical.GetPhyInfo(sshConfig)
-	}
-	return nil, nil
 }

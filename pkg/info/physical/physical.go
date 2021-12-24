@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/remote"
-	"log"
 	"strconv"
 	"strings"
 )
@@ -66,7 +65,6 @@ func GetPhyInfo(conf config.SSHConfig) (*PhyInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	log.Printf("%+v", c)
 
 	res, ok := c.Execute("vmstat 1 1")
 	if !ok {
@@ -136,7 +134,6 @@ func getDiskDetailInfo(conf config.SSHConfig) (map[string]DiskInfo, error) {
 	if err != nil {
 		return nil, err
 	}
-	log.Printf("%+v", c)
 
 	res, ok := c.Execute("df -BK | grep -vE '^Filesystem|tmpfs|udev' | awk '{ print $1 \" \" $2 \" \" $4 }'")
 	if !ok {
