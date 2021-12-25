@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	configinfo "github.com/xjlgod/nebula-database-diagnostic/pkg/info/config"
+	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/logs"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/metrics"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/physical"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/service"
@@ -12,7 +13,10 @@ import (
 	"path/filepath"
 )
 
+var NowAllInfo AllInfo
+
 type AllInfo struct {
+	Time string `json:"time"`
 	PhyInfo     *physical.PhyInfo            `json:"phy_info"`
 	MetricsInfo []*service.ServiceMetricInfo `json:"metrics_info,omitempty"`
 	ConfigInfo  []*service.ServiceConfigInfo `json:"config_info,omitempty"`
@@ -52,10 +56,31 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 		}
 	}
 
-	// TODO pack all services log
+	// pack all services log
+	err = packageLogs(conf, option, defaultLogger)
+	if err != nil {
+		defaultLogger.Errorf("package logs failed: %s", err.Error())
+	} else {
+		defaultLogger.Info(conf.Host, ": ", "package logs success!")
+	}
 
 	return phyInfo, servicesMetricsInfo, serviceConfigsInfo
 }
+
+func packageLogs(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) error {
+	if option == config.AllInfo || option == config.Metrics {
+		servicesConfig := conf.Services
+		for _, serviceConfig := range servicesConfig {
+			err := logs.GetAllLog(conf, &serviceConfig)
+			if err != nil {
+				defaultLogger.Errorf("package logs failed: %s, stop package logs!", err.Error())
+				return err
+			}
+		}
+	}
+	return nil
+}
+
 
 func fetchPhyInfo(option config.InfoOption, sshConfig config.SSHConfig) (*physical.PhyInfo, error) {
 	if option == config.AllInfo || option == config.Physical {
@@ -125,15 +150,32 @@ func fetchAndSaveInfo(conf *config.NodeConfig, option config.InfoOption, default
 	if os.IsNotExist(err) {
 		os.Mkdir(p, os.ModePerm)
 	}
-	name := "data"
-	jsonPath := filepath.Join(p, name+".json")
-	file, err := os.OpenFile(jsonPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	if err != nil {
-		defaultLogger.Fatal(err)
+
+
+	filename := defaultLogger.Filename()
+	filePath := filepath.Join(p, filename+".data")
+	_, err = os.Stat(filePath)
+	if os.IsNotExist(err) {
+		file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+		if err != nil {
+			defaultLogger.Fatal(err)
+		}
+		_, err = file.Write(marshal)
+		if err != nil {
+			defaultLogger.Errorf("save json data fail: %s", err.Error())
+		}
+	} else {
+		file, err := os.OpenFile(filePath, os.O_WRONLY|os.O_APPEND, 0666)
+		if err != nil {
+			defaultLogger.Fatal(err)
+		}
+		_, err = file.Write([]byte("\n"))
+		_, err = file.Write(marshal)
+		if err != nil {
+			defaultLogger.Errorf("save json data fail: %s", err.Error())
+		}
 	}
-	_, err = file.Write(marshal)
-	if err != nil {
-		defaultLogger.Errorf("save json data fail: %s", err.Error())
-	}
+
+
 
 }

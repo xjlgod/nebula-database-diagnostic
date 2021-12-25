@@ -16,7 +16,7 @@ nodes:
       graph1:
         type: graphService
         deploy_dir: deploy_dir
-        runtime_dir: runtime_dir
+        runtime_dir: /home/katz.zhang/.nebula/clusters/graphd
         port: 9669
         http_port: 19669
         http_2_port: 19670

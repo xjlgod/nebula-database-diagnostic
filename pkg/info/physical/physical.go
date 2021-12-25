@@ -10,52 +10,52 @@ import (
 )
 
 type PhyInfo struct {
-	Process ProcessInfo
-	Memory  MemoryInfo
-	Disk    DiskInfo
-	Swap    SwapInfo
-	IO      IOInfo
-	System  SystemInfo
-	CPU     CPUInfo
+	Process ProcessInfo `json:"process"`
+	Memory  MemoryInfo  `json:"memory"`
+	Disk    DiskInfo    `json:"disk"`
+	Swap    SwapInfo    `json:"swap"`
+	IO      IOInfo      `json:"io"`
+	System  SystemInfo  `json:"system"`
+	CPU     CPUInfo     `json:"cpu"`
 }
 
 type ProcessInfo struct {
-	RunNumber  int
-	WaitNumber int
+	RunNumber  int `json:"run_number,omitempty"`
+	WaitNumber int `json:"wait_number,omitempty"`
 }
 
 type MemoryInfo struct { // kB
-	MemTotal int
-	MemFree  int
-	MemBuff  int
-	MemCache int
+	MemTotal int `json:"mem_total,omitempty"`
+	MemFree  int `json:"mem_free,omitempty"`
+	MemBuff  int `json:"mem_buff,omitempty"`
+	MemCache int `json:"mem_cache,omitempty"`
 }
 
 type DiskInfo struct { // kB
-	DiskTotal     int
-	DiskAvailable int
+	DiskTotal     int `json:"disk_total,omitempty"`
+	DiskAvailable int `json:"disk_available,omitempty"`
 }
 
 type SwapInfo struct { // kB
-	SwapIn  int
-	SwapOut int
+	SwapIn  int `json:"swap_in,omitempty"`
+	SwapOut int `json:"swap_out,omitempty"`
 }
 
 type IOInfo struct { // kb
-	BitIn  int
-	BitOut int
+	BitIn  int `json:"bit_in,omitempty"`
+	BitOut int `json:"bit_out,omitempty"`
 }
 
 type SystemInfo struct {
-	InterruptCount     int
-	ContextSwitchCount int
+	InterruptCount     int `json:"interrupt_count,omitempty"`
+	ContextSwitchCount int `json:"context_switch_count,omitempty"`
 }
 
 type CPUInfo struct { // percent
-	UserUseTime   int
-	SystemUseTime int
-	IdleTime      int
-	WaitPercent   int
+	UserUseTime   int `json:"user_use_time,omitempty"`
+	SystemUseTime int `json:"system_use_time,omitempty"`
+	IdleTime      int `json:"idle_time,omitempty"`
+	WaitPercent   int `json:"wait_percent,omitempty"`
 }
 
 func GetPhyInfo(conf config.SSHConfig) (*PhyInfo, error) {

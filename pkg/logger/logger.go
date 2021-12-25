@@ -29,6 +29,8 @@ type (
 		Errorf(string, ...interface{})
 		Fatal(...interface{})
 		Fatalf(string, ...interface{})
+		Filepath() string
+		Filename() string
 	}
 )
 
@@ -38,6 +40,15 @@ type DefaultLogger struct {
 
 	logToFile bool
 	filepath  string
+	filename string
+}
+
+func (d *DefaultLogger) Filepath() string {
+	return d.filepath
+}
+
+func (d *DefaultLogger) Filename() string {
+	return d.filename
 }
 
 func (d *DefaultLogger) Info(msg ...interface{}) {
@@ -100,6 +111,11 @@ func initCmdLogger(n string) {
 	cmdLogger.logToFile = false
 	cmdLogger.logr = logr
 	cmdLoggers[n] = cmdLogger
+
+	timeUnix := time.Now().Unix()
+	filename := fmt.Sprintf("%s_%s", n, strconv.FormatInt(timeUnix, 10))
+	cmdLogger.filename = filename
+
 }
 
 func GetFileLogger(n string, o config.OutputConfig) Logger {
@@ -126,8 +142,9 @@ func initFileLogger(n string, o config.OutputConfig) {
 	fileLogger := new(DefaultLogger)
 	fileLogger.logToFile = true
 
-	filename := fmt.Sprintf("%s_%s.%s", n, strconv.FormatInt(timeUnix, 10), "log")
-	fileLogger.filepath = filepath.Join(p, filename)
+	filename := fmt.Sprintf("%s_%s", n, strconv.FormatInt(timeUnix, 10))
+	fileLogger.filename = filename
+	fileLogger.filepath = filepath.Join(p, filename + ".log")
 	file, err := os.OpenFile(fileLogger.filepath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
 		logr.Fatal(err)
