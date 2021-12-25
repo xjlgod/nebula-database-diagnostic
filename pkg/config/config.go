@@ -9,23 +9,37 @@ import (
 )
 
 type Config struct {
-	Nodes map[string]*NodeConfig `mapstructure:"nodes"`
+	Infos map[string]*InfoConfig `mapstructure:"infos"`
+	Diag  *DiagConfig            `mapstructure:"diag"`
+}
+
+type InfoConfig struct {
+	Node     NodeConfig               `mapstructure:"node"`
+	Output   OutputConfig             `mapstructure:"output"`           // output location
+	Duration string                   `mapstructure:"duration"`         // TODO parse into time.Duration, default is -1
+	Period   string                   `mapstructure:"period"`           // TODO parse into time.Duration, default is 0
+	Options  []InfoOption             `mapstructure:"option,omitempty"` // info to fetch, default is all
+	Services map[string]ServiceConfig `mapstructure:"services"`
+}
+
+type DiagConfig struct {
+	Output  OutputConfig `mapstructure:"output"` // output location
+	Input   InputConfig  `mapstructure:"input,omitempty"`
+	Options []DiagOption `mapstructure:"option,omitempty"` // diag result to analyze, default is no
 }
 
 type NodeConfig struct {
-	Host     HostConfig               `mapstructure:"host"`           // node host
-	SSH      SSHConfig                `mapstructure:"ssh"`            // node ssh
-	Output   OutputConfig             `mapstructure:"output"`         // output location
-	Duration string                   `mapstructure:"duration"`       // TODO parse into time.Duration, default is -1
-	Period   string                   `mapstructure:"period"`         // TODO parse into time.Duration, default is 0
-	Infos    []InfoOption             `mapstructure:"info,omitempty"` // info to fetch, default is all
-	Diags    []DiagOption             `mapstructure:"diag,omitempty"` // diag result to analyze, default is no
-	Services map[string]ServiceConfig `mapstructure:"services"`
+	Host HostConfig `mapstructure:"host"` // node host
+	SSH  SSHConfig  `mapstructure:"ssh"`  // node ssh
 }
 
 type HostConfig struct {
 	Address string `mapstructure:"address"`
 	Port    int    `mapstructure:"port"`
+}
+
+func (c HostConfig) IsValid() bool {
+	return c.Address != "" && c.Port > 0 // TODO add more exactly verify: address, port
 }
 
 type ServiceConfig struct {
@@ -39,10 +53,6 @@ type ServiceConfig struct {
 
 func (s ServiceConfig) IsValid() bool {
 	return s.HTTPPort > 0 // TODO add more exactly verify: DeployDir, RuntimeDir
-}
-
-func (c HostConfig) IsValid() bool {
-	return c.Address != "" && c.Port > 0 // TODO add more exactly verify: address, port
 }
 
 type SSHConfig struct {
@@ -62,12 +72,16 @@ func (c SSHConfig) IsValid() bool {
 
 type OutputConfig struct {
 	DirPath   string `mapstructure:"dirPath"` // output dir included logs, info, diag, etc., default is ./out, and will auto create if not existed
-	Remote    bool   `mapstructure:"remote"`  // remote = true means that output dir is located at the remote node
 	LogToFile bool   `mapstructure:"logToFile"`
 }
 
 func (c OutputConfig) IsValid() bool {
 	return c.DirPath != "" // TODO add more exactly verify: dirPath
+}
+
+type InputConfig struct {
+	DirPath string `mapstructure:"dirPath"` // input dir included logs, info, etc.
+	Remote  bool   `mapstructure:"remote"`  // remote = true means that input dir is located at the remote node
 }
 
 type InfoOption string
@@ -94,11 +108,11 @@ const (
 )
 
 var (
-	defaultDuration = "-1"
-	defaultPeriod   = "5s"
-	defaultDirPath  = "./out"
-	defaultInfos    = []InfoOption{AllInfo}
-	defaultDiags    = []DiagOption{NoDiag}
+	defaultDuration      = "-1"
+	defaultPeriod        = "5s"
+	defaultOutputDirPath = "./output"
+	defaultInfoOptions   = []InfoOption{AllInfo}
+	defaultDiagOptions   = []DiagOption{NoDiag}
 )
 
 func GetConfigType(confPath string) string {
@@ -124,8 +138,8 @@ func NewConfig(confPath string, configType string) (*Config, error) {
 		return nil, err
 	}
 
-	configComplete(conf)
-	if ids, ok := configValidate(conf); !ok {
+	ConfigComplete(conf)
+	if ids, ok := ConfigValidate(conf); !ok {
 		err := fmt.Errorf("such nodes config is invalid: %+v", ids)
 		return nil, err
 	}
@@ -134,44 +148,54 @@ func NewConfig(confPath string, configType string) (*Config, error) {
 
 func (c *Config) String() string {
 	sb := strings.Builder{}
-	for k, node := range c.Nodes {
+	for k, info := range c.Infos {
 		sb.WriteString(k + ": ")
-		sb.WriteString(fmt.Sprintf("%+v\n", node))
+		sb.WriteString(fmt.Sprintf("%+v\n", info))
 	}
+	sb.WriteString(fmt.Sprintf("%+v", c.Diag))
 	return sb.String()
 }
 
-func configComplete(conf *Config) {
-	for _, node := range conf.Nodes {
+func ConfigComplete(conf *Config) {
+	for _, info := range conf.Infos {
+		node := info.Node
 		if node.SSH.Timeout == "" {
 			node.SSH.Timeout = "3s"
 		}
-		if node.Duration == "" {
-			node.Duration = defaultDuration
+		if info.Duration == "" {
+			info.Duration = defaultDuration
 		}
-		if node.Period == "" {
-			node.Period = defaultPeriod
+		if info.Period == "" {
+			info.Period = defaultPeriod
 		}
-		if node.Output.DirPath == "" {
-			node.Output.DirPath = defaultDirPath
+		if info.Output.DirPath == "" {
+			info.Output.DirPath = defaultOutputDirPath
 		}
-		if len(node.Infos) == 0 {
-			node.Infos = defaultInfos
+		if len(info.Options) == 0 {
+			info.Options = defaultInfoOptions
 		}
-		if len(node.Diags) == 0 {
-			node.Diags = defaultDiags
-		}
+	}
+	if conf.Diag.Output.DirPath == "" {
+		conf.Diag.Output.DirPath = defaultOutputDirPath
+	}
+	if len(conf.Diag.Options) == 0 {
+		conf.Diag.Options = defaultDiagOptions
 	}
 }
 
-func configValidate(conf *Config) ([]string, bool) {
+func ConfigValidate(conf *Config) ([]string, bool) {
 	ids := make([]string, 0)
 	ok := true
-	for k, node := range conf.Nodes {
-		if !node.Host.IsValid() || !node.SSH.IsValid() || !node.Output.IsValid() || !isValidDuration(node.Duration) || !isValidPeriod(node.Period) {
+	for k, info := range conf.Infos {
+		node := info.Node
+		if !node.Host.IsValid() || !node.SSH.IsValid() || !info.Output.IsValid() || !isValidDuration(info.Duration) || !isValidPeriod(info.Period) {
 			ids = append(ids, k)
 			ok = false
 		}
+	}
+
+	if !conf.Diag.Output.IsValid() {
+		ok = false
 	}
 
 	return ids, ok

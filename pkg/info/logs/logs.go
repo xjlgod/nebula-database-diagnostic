@@ -6,9 +6,9 @@ import (
 	"strconv"
 )
 
-func GetAllLog(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) error {
+func GetAllLog(nodeConfig *config.InfoConfig, serviceConfig *config.ServiceConfig) error {
 
-	seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+	seid := nodeConfig.Node.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
 	exporter, err := service.GetServiceExporter(seid, nodeConfig, serviceConfig)
 	if err != nil {
 		return err

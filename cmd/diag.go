@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/urfave/cli/v2"
+	"github.com/xjlgod/nebula-database-diagnostic/intrenal/diag"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"strings"
 )
@@ -19,28 +20,22 @@ var diagCmd = &cli.Command{
 			Value:   "",
 		},
 		&cli.StringFlag{
-			Name:    "name",
-			Aliases: []string{"N"},
-			Usage:   "node name",
-			Value:   "",
-		},
-		&cli.StringFlag{
 			Name:    "output_dir_path",
 			Aliases: []string{"O"},
 			Usage:   "output dir",
-			Value:   "./out",
-		},
-		&cli.BoolFlag{
-			Name:    "output_remote",
-			Aliases: []string{"R"},
-			Usage:   "output dir on remote",
-			Value:   false,
+			Value:   "./output",
 		},
 		&cli.BoolFlag{
 			Name:    "log_to_file",
 			Aliases: []string{"L"},
 			Usage:   "log to file or to cmd",
 			Value:   false,
+		},
+		&cli.StringFlag{
+			Name:    "input_dir_path",
+			Aliases: []string{"I"},
+			Usage:   "input dir",
+			Value:   "",
 		},
 		&cli.StringFlag{
 			Name:    "diags",
@@ -60,42 +55,44 @@ var diagCmd = &cli.Command{
 			fmt.Printf("%+v", GlobalConfig.String())
 		}
 		if GlobalConfig == nil {
-			return ErrConfigIsNull
+			GlobalConfig = new(config.Config)
+			GlobalConfig.Diag = new(config.DiagConfig)
+			config.ConfigComplete(GlobalConfig)
 		}
-		if ctx.IsSet("name") {
-			name := ctx.String("name")
-			node := GlobalConfig.Nodes[name]
-			if ctx.IsSet("output_dir_path") {
-				outputDirPath := ctx.String("output_dir_path")
-				node.Output.DirPath = outputDirPath
-			}
-			if ctx.IsSet("output_remote") {
-				outputRemote := ctx.Bool("output_remote")
-				node.Output.Remote = outputRemote
-			}
-			if ctx.IsSet("log_to_file") {
-				logToFile := ctx.Bool("log_to_file")
-				node.Output.LogToFile = logToFile
-			}
-			if ctx.IsSet("diags") {
-				var diags []string
-				diagsStr := ctx.String("diags")
-				if strings.Contains(diagsStr, "all") {
-					diags = []string{"all"}
-				} else {
-					for _, diagStr := range strings.Split(diagsStr, ",") {
-						diags = append(diags, diagStr)
-					}
-				}
 
-				diagOptions := make([]config.DiagOption, len(diags))
-				for i := range diags {
-					diagOptions[i] = config.DiagOption(diags[i])
-				}
-				node.Diags = diagOptions
-			}
-			fmt.Printf("%+v", GlobalConfig.String())
+		dia := GlobalConfig.Diag
+		if ctx.IsSet("output_dir_path") {
+			outputDirPath := ctx.String("output_dir_path")
+			dia.Output.DirPath = outputDirPath
 		}
+		if ctx.IsSet("log_to_file") {
+			logToFile := ctx.Bool("log_to_file")
+			dia.Output.LogToFile = logToFile
+		}
+		if ctx.IsSet("input_dir_path") {
+			inputDirPath := ctx.String("input_dir_path")
+			dia.Input.DirPath = inputDirPath
+		} else {
+			return ErrNoInput
+		}
+		if ctx.IsSet("diags") {
+			var diags []string
+			diagsStr := ctx.String("diags")
+			if strings.Contains(diagsStr, "all") {
+				diags = []string{"all"}
+			} else {
+				for _, diagStr := range strings.Split(diagsStr, ",") {
+					diags = append(diags, diagStr)
+				}
+			}
+
+			diagOptions := make([]config.DiagOption, len(diags))
+			for i := range diags {
+				diagOptions[i] = config.DiagOption(diags[i])
+			}
+			dia.Options = diagOptions
+		}
+		diag.Run(GlobalConfig)
 		return nil
 	},
 }

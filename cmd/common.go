@@ -19,9 +19,9 @@ const (
 var (
 	ErrPrintAndExit = errors.New("print and exit")
 	ErrConfigIsNull = errors.New("config is null")
+	ErrNoInput      = errors.New("have no input dir")
 )
 
-// Commands 将子命令统一暴露给 main 包
 var Commands = []*cli.Command{
 	infoCmd,
 	diagCmd,

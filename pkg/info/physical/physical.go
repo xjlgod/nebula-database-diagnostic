@@ -20,44 +20,44 @@ type PhyInfo struct {
 }
 
 type ProcessInfo struct {
-	RunNumber  int `json:"run_number,omitempty"`
-	WaitNumber int `json:"wait_number,omitempty"`
+	RunNumber  int `json:"run_number"`
+	WaitNumber int `json:"wait_number"`
 }
 
 type MemoryInfo struct { // kB
-	MemTotal int `json:"mem_total,omitempty"`
-	MemFree  int `json:"mem_free,omitempty"`
-	MemBuff  int `json:"mem_buff,omitempty"`
-	MemCache int `json:"mem_cache,omitempty"`
+	MemTotal int `json:"mem_total"`
+	MemFree  int `json:"mem_free"`
+	MemBuff  int `json:"mem_buff"`
+	MemCache int `json:"mem_cache"`
 }
 
 type DiskInfo struct { // kB
-	DiskTotal     int `json:"disk_total,omitempty"`
-	DiskAvailable int `json:"disk_available,omitempty"`
+	DiskTotal     int `json:"disk_total"`
+	DiskAvailable int `json:"disk_available"`
 }
 
 type SwapInfo struct { // kB
-	SwapIn  int `json:"swap_in,omitempty"`
-	SwapOut int `json:"swap_out,omitempty"`
+	SwapIn  int `json:"swap_in"`
+	SwapOut int `json:"swap_out"`
 }
 
 type IOInfo struct { // kb
-	BitIn  int `json:"bit_in,omitempty"`
-	BitOut int `json:"bit_out,omitempty"`
+	BitIn  int `json:"bit_in"`
+	BitOut int `json:"bit_out"`
 }
 
 type SystemInfo struct {
-	InterruptCount     int `json:"interrupt_count,omitempty"`
-	ContextSwitchCount int `json:"context_switch_count,omitempty"`
+	InterruptCount     int `json:"interrupt_count"`
+	ContextSwitchCount int `json:"context_switch_count"`
 }
 
 type CPUInfo struct { // percent
-	RealNumber    int `json:"real_number,omitempty"`
-	LogicNumber   int `json:"logic_number,omitempty"`
-	UserUseTime   int `json:"user_use_time,omitempty"`
-	SystemUseTime int `json:"system_use_time,omitempty"`
-	IdleTime      int `json:"idle_time,omitempty"`
-	WaitPercent   int `json:"wait_percent,omitempty"`
+	RealNumber    int `json:"real_number"`
+	LogicNumber   int `json:"logic_number"`
+	UserUseTime   int `json:"user_use_time"`
+	SystemUseTime int `json:"system_use_time"`
+	IdleTime      int `json:"idle_time"`
+	WaitPercent   int `json:"wait_percent"`
 }
 
 func GetPhyInfo(conf config.SSHConfig) (*PhyInfo, error) {

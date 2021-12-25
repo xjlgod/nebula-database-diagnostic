@@ -14,11 +14,11 @@ func TestNewConfig(t *testing.T) {
 		t.Error(err.Error())
 	}
 
-	for name, node := range conf.Nodes {
-		for _, service := range node.Services {
+	for name, info := range conf.Infos {
+		for _, service := range info.Services {
 			log.Printf("%s, %+v\n", name, service)
 		}
-		log.Printf("%s, %+v\n", name, node)
+		log.Printf("%s, %+v\n", name, info)
 	}
-
+	log.Printf("%+v\n", conf.Diag)
 }

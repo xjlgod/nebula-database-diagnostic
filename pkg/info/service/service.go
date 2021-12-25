@@ -23,7 +23,7 @@ type (
 		// GetConfigMap 返回能够收集到的服务配置信息
 		GetConfigMap() map[string]string
 		// Config 配置config
-		Config(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig)
+		Config(nodeConfig *config.InfoConfig, serviceConfig *config.ServiceConfig)
 		// GetLogsInLogDir 通过指定路径获取日志
 		GetLogsInLogDir() error
 	}
@@ -140,10 +140,10 @@ var (
 var exporters = make(map[string]ServiceExporter)
 var mux sync.RWMutex
 
-func GetServiceExporter(seid string, nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) (ServiceExporter, error) {
+func GetServiceExporter(seid string, conf *config.InfoConfig, serviceConfig *config.ServiceConfig) (ServiceExporter, error) {
 	mux.Lock()
 	if _, ok := exporters[seid]; !ok {
-		e, err := newServiceExporter(nodeConfig, serviceConfig)
+		e, err := newServiceExporter(conf, serviceConfig)
 		if err != nil {
 			return nil, err
 		}
@@ -158,28 +158,28 @@ func GetServiceExporter(seid string, nodeConfig *config.NodeConfig, serviceConfi
 	return exporters[seid], nil
 }
 
-func newServiceExporter(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) (ServiceExporter, error) {
+func newServiceExporter(conf *config.InfoConfig, serviceConfig *config.ServiceConfig) (ServiceExporter, error) {
 
 	serviceType := serviceConfig.Type
 	switch serviceType {
 	case config.GraphService:
-		seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+		seid := conf.Node.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
 		graphExporter := new(GraphExporter)
-		graphExporter.Config(nodeConfig, serviceConfig)
+		graphExporter.Config(conf, serviceConfig)
 		graphExporter.BuildAllMap()
 		exporters[seid] = graphExporter
 		return graphExporter, nil
 	case config.MetaService:
-		seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+		seid := conf.Node.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
 		metaExporter := new(MetaExporter)
-		metaExporter.Config(nodeConfig, serviceConfig)
+		metaExporter.Config(conf, serviceConfig)
 		metaExporter.BuildAllMap()
 		exporters[seid] = metaExporter
 		return metaExporter, nil
 	case config.StorageService:
-		seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+		seid := conf.Node.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
 		storageExporter := new(StorageExporter)
-		storageExporter.Config(nodeConfig, serviceConfig)
+		storageExporter.Config(conf, serviceConfig)
 		storageExporter.BuildAllMap()
 		exporters[seid] = storageExporter
 		return storageExporter, nil

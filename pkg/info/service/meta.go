@@ -16,7 +16,7 @@ type MetaExporter struct {
 	ipAddress        string
 	port             int
 	ServiceStatus    string
-	NodeConfig       *config.NodeConfig
+	InfoConfig       *config.InfoConfig
 	ServiceConfig    *config.ServiceConfig
 }
 
@@ -92,10 +92,10 @@ func (exporter MetaExporter) GetConfigMap() map[string]string {
 	return exporter.ConfigMap
 }
 
-func (exporter *MetaExporter) Config(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) {
-	exporter.NodeConfig = nodeConfig
+func (exporter *MetaExporter) Config(conf *config.InfoConfig, serviceConfig *config.ServiceConfig) {
+	exporter.InfoConfig = conf
 	exporter.ServiceConfig = serviceConfig
-	exporter.ipAddress = nodeConfig.SSH.Address
+	exporter.ipAddress = conf.Node.SSH.Address
 	exporter.port = serviceConfig.HTTPPort
 }
 
@@ -103,18 +103,18 @@ func (exporter *MetaExporter) GetLogsInLogDir() error {
 
 	logDir, ok := exporter.ConfigMap["log_dir"]
 
-	if (logDir == NotCollect || exporter.ServiceConfig.RuntimeDir == "") {
+	if logDir == NotCollect || exporter.ServiceConfig.RuntimeDir == "" {
 		return errors.New("logdir is nut exist")
 	}
 	if !ok {
 		return errors.New("logdir is nut exist")
 	}
-	if (!strings.HasPrefix(logDir, "/")) {
+	if !strings.HasPrefix(logDir, "/") {
 		logDir = exporter.ServiceConfig.RuntimeDir + "/" + logDir
 	}
-	newDir := exporter.NodeConfig.SSH.Address + "-" + strconv.Itoa(exporter.ServiceConfig.Port)
-	localDir := filepath.Join(exporter.NodeConfig.Output.DirPath , newDir)
-	err := remote.GetFilesInRemoteDir(exporter.NodeConfig.SSH.Username, exporter.NodeConfig.SSH, logDir, localDir)
+	newDir := exporter.InfoConfig.Node.SSH.Address + "-" + strconv.Itoa(exporter.ServiceConfig.Port)
+	localDir := filepath.Join(exporter.InfoConfig.Output.DirPath, newDir)
+	err := remote.GetFilesInRemoteDir(exporter.InfoConfig.Node.SSH.Username, exporter.InfoConfig.Node.SSH, logDir, localDir)
 	return err
 
 }

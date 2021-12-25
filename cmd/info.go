@@ -31,12 +31,6 @@ var infoCmd = &cli.Command{
 			Value:   "./out",
 		},
 		&cli.BoolFlag{
-			Name:    "output_remote",
-			Aliases: []string{"R"},
-			Usage:   "output dir on remote",
-			Value:   false,
-		},
-		&cli.BoolFlag{
 			Name:    "log_to_file",
 			Aliases: []string{"L"},
 			Usage:   "log to file or to cmd",
@@ -75,26 +69,22 @@ var infoCmd = &cli.Command{
 		}
 		if ctx.IsSet("name") {
 			name := ctx.String("name")
-			node := GlobalConfig.Nodes[name]
+			inf := GlobalConfig.Infos[name]
 			if ctx.IsSet("output_dir_path") {
 				outputDirPath := ctx.String("output_dir_path")
-				node.Output.DirPath = outputDirPath
-			}
-			if ctx.IsSet("output_remote") {
-				outputRemote := ctx.Bool("output_remote")
-				node.Output.Remote = outputRemote
+				inf.Output.DirPath = outputDirPath
 			}
 			if ctx.IsSet("log_to_file") {
 				logToFile := ctx.Bool("log_to_file")
-				node.Output.LogToFile = logToFile
+				inf.Output.LogToFile = logToFile
 			}
 			if ctx.IsSet("duration") {
 				duration := ctx.String("duration")
-				node.Duration = duration
+				inf.Duration = duration
 			}
 			if ctx.IsSet("period") {
 				period := ctx.String("period")
-				node.Period = period
+				inf.Period = period
 			}
 			if ctx.IsSet("infos") {
 				var infos []string
@@ -111,7 +101,7 @@ var infoCmd = &cli.Command{
 				for i := range infos {
 					infoOptions[i] = config.InfoOption(infos[i])
 				}
-				node.Infos = infoOptions
+				inf.Options = infoOptions
 			}
 		}
 		info.Run(GlobalConfig)

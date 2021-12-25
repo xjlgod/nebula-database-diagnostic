@@ -6,10 +6,10 @@ import (
 	"strconv"
 )
 
-func GetConfigInfo(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) (map[string]string, error) {
+func GetConfigInfo(conf *config.InfoConfig, serviceConfig *config.ServiceConfig) (map[string]string, error) {
 
-	seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
-	exporter, err := service.GetServiceExporter(seid, nodeConfig, serviceConfig)
+	seid := conf.Node.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
+	exporter, err := service.GetServiceExporter(seid, conf, serviceConfig)
 	if err != nil {
 		return nil, err
 	}

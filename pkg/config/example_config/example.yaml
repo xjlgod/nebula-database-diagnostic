@@ -1,58 +1,36 @@
 ---
 version: 3.0
 
-nodes:
+infos:
   node0:
-    host:
-      address: 192.168.8.49
-      port: 9669
-    ssh:
-      address: 192.168.8.49
-      port: 22
-      timeout: 3s
-      username: katz.zhang
-      password: nebula
-    services:
-      graph1:
-        type: graphService
-        deploy_dir: deploy_dir
-        runtime_dir: runtime_dir
+    node:
+      host:
+        address: 192.168.8.49
         port: 9669
-        http_port: 19669
-        http_2_port: 19670
+      ssh:
+        address: 192.168.8.49
+        port: 22
+        timeout: 3s
+        username: katz.zhang
+        password: nebula
     # the following configs have default values
-#    output:
-#      dirPath:
-#      remote:
-#      logToFile:
-#    duration:
-#    period:
-#    infos:
-#    diags:
-
-  node1:
-    host:
-      address: 192.168.8.116
-      port: 9669
-    ssh:
-      address: 192.168.8.49
-      port: 22
-      timeout: 3s
-      username: katz.zhang
-      password: nebula
+    #    output:
+    #      dirPath:
+    #      logToFile: true
+    #    duration:
+    #    period:
+    #    options:
     services:
       graph1:
         type: graphService
         deploy_dir: deploy_dir
-        runtime_dir: runtime_dir
+        runtime_dir: /home/katz.zhang/.nebula/clusters/graphd
         port: 9669
         http_port: 19669
         http_2_port: 19670
-      output:
-        dirPath:
-        remote:
-        logToFile: true
-    duration: 30s
-    period: 3s
-    infos:
-    diags:
+
+# the following configs have default values
+diag:
+#  input:
+#    dirPath:
+#  options:

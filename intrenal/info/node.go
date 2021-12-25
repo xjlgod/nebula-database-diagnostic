@@ -16,21 +16,21 @@ import (
 var NowAllInfo AllInfo
 
 type AllInfo struct {
-	Time string `json:"time"`
+	Time        string                       `json:"time"`
 	PhyInfo     *physical.PhyInfo            `json:"phy_info"`
 	MetricsInfo []*service.ServiceMetricInfo `json:"metrics_info,omitempty"`
 	ConfigInfo  []*service.ServiceConfigInfo `json:"config_info,omitempty"`
 }
 
-func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) (*physical.PhyInfo,
+func fetchInfo(conf *config.InfoConfig, option config.InfoOption, defaultLogger logger.Logger) (*physical.PhyInfo,
 	[]*service.ServiceMetricInfo, []*service.ServiceConfigInfo) {
-	phyInfo, err := fetchPhyInfo(option, conf.SSH)
+	phyInfo, err := fetchPhyInfo(option, conf.Node.SSH)
 	if err != nil {
 		defaultLogger.Errorf("fetch phy info failed: %s", err.Error())
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if phyInfo != nil {
-			defaultLogger.Info(conf.Host, ": ", phyInfo)
+			defaultLogger.Info(conf.Node.Host, ": ", phyInfo)
 		}
 	}
 
@@ -41,7 +41,7 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if servicesMetricsInfo != nil {
-			defaultLogger.Info(conf.Host, ": ", servicesMetricsInfo)
+			defaultLogger.Info(conf.Node.Host, ": ", servicesMetricsInfo)
 		}
 	}
 
@@ -52,7 +52,7 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if serviceConfigsInfo != nil {
-			defaultLogger.Info(conf.Host, ": ", serviceConfigsInfo)
+			defaultLogger.Info(conf.Node.Host, ": ", serviceConfigsInfo)
 		}
 	}
 
@@ -61,13 +61,13 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 	if err != nil {
 		defaultLogger.Errorf("package logs failed: %s", err.Error())
 	} else {
-		defaultLogger.Info(conf.Host, ": ", "package logs success!")
+		defaultLogger.Info(conf.Node.Host, ": ", "package logs success!")
 	}
 
 	return phyInfo, servicesMetricsInfo, serviceConfigsInfo
 }
 
-func packageLogs(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) error {
+func packageLogs(conf *config.InfoConfig, option config.InfoOption, defaultLogger logger.Logger) error {
 	if option == config.AllInfo || option == config.Metrics {
 		servicesConfig := conf.Services
 		for _, serviceConfig := range servicesConfig {
@@ -81,7 +81,6 @@ func packageLogs(conf *config.NodeConfig, option config.InfoOption, defaultLogge
 	return nil
 }
 
-
 func fetchPhyInfo(option config.InfoOption, sshConfig config.SSHConfig) (*physical.PhyInfo, error) {
 	if option == config.AllInfo || option == config.Physical {
 		return physical.GetPhyInfo(sshConfig)
@@ -89,7 +88,7 @@ func fetchPhyInfo(option config.InfoOption, sshConfig config.SSHConfig) (*physic
 	return nil, nil
 }
 
-func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) ([]*service.ServiceMetricInfo, error) {
+func fetchMetricsInfo(conf *config.InfoConfig, option config.InfoOption, defaultLogger logger.Logger) ([]*service.ServiceMetricInfo, error) {
 	if option == config.AllInfo || option == config.Metrics {
 		servicesConfig := conf.Services
 		servicesMetricsInfo := make([]*service.ServiceMetricInfo, 0, len(servicesConfig))
@@ -112,7 +111,7 @@ func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, default
 
 }
 
-func fetchConfigsInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) ([]*service.ServiceConfigInfo, error) {
+func fetchConfigsInfo(conf *config.InfoConfig, option config.InfoOption, defaultLogger logger.Logger) ([]*service.ServiceConfigInfo, error) {
 	// config belongs to Metrics
 	if option == config.AllInfo || option == config.Metrics {
 		servicesConfig := conf.Services
@@ -134,7 +133,7 @@ func fetchConfigsInfo(conf *config.NodeConfig, option config.InfoOption, default
 	return nil, nil
 }
 
-func fetchAndSaveInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) {
+func fetchAndSaveInfo(conf *config.InfoConfig, option config.InfoOption, defaultLogger logger.Logger) {
 
 	phyInfo, metricsInfo, configInfo := fetchInfo(conf, option, defaultLogger)
 	allInfo := &AllInfo{
@@ -151,7 +150,6 @@ func fetchAndSaveInfo(conf *config.NodeConfig, option config.InfoOption, default
 	if os.IsNotExist(err) {
 		os.Mkdir(p, os.ModePerm)
 	}
-
 
 	filename := defaultLogger.Filename()
 	filePath := filepath.Join(p, filename+".data")
@@ -176,7 +174,5 @@ func fetchAndSaveInfo(conf *config.NodeConfig, option config.InfoOption, default
 			defaultLogger.Errorf("save json data fail: %s", err.Error())
 		}
 	}
-
-
 
 }

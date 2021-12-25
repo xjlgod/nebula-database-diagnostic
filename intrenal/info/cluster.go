@@ -17,24 +17,24 @@ func Run(conf *config.Config) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	for name, node := range conf.Nodes {
-		node := node
+	for name, info := range conf.Infos {
+		info := info
 		name := name
 		go func() {
 			var _logger logger.Logger
-			if node.Output.LogToFile {
-				_logger = logger.GetFileLogger(name, node.Output)
+			if info.Output.LogToFile {
+				_logger = logger.GetFileLogger(name, info.Output)
 			} else {
 				_logger = logger.GetCmdLogger(name)
 			}
 			// the conf has been verified, so don't need to handle error
-			d, _ := time.ParseDuration(node.Duration)
-			if node.Duration == "-1" {
-				runWithInfinity(node, _logger)
+			d, _ := time.ParseDuration(info.Duration)
+			if info.Duration == "-1" {
+				runWithInfinity(info, _logger)
 			} else if d == 0 {
-				run(node, _logger)
+				run(info, _logger)
 			} else {
-				runWithDuration(node, _logger)
+				runWithDuration(info, _logger)
 			}
 		}()
 	}
@@ -48,14 +48,14 @@ func Run(conf *config.Config) {
 
 }
 
-func run(conf *config.NodeConfig, defaultLogger logger.Logger) {
-	for _, option := range conf.Infos {
+func run(conf *config.InfoConfig, defaultLogger logger.Logger) {
+	for _, option := range conf.Options {
 		//fetchInfo(conf, option, defaultLogger)
 		fetchAndSaveInfo(conf, option, defaultLogger)
 	}
 }
 
-func runWithInfinity(conf *config.NodeConfig, defaultLogger logger.Logger) {
+func runWithInfinity(conf *config.InfoConfig, defaultLogger logger.Logger) {
 	p, _ := time.ParseDuration(conf.Period)
 	ticker := time.NewTicker(p)
 	for {
@@ -68,7 +68,7 @@ func runWithInfinity(conf *config.NodeConfig, defaultLogger logger.Logger) {
 	}
 }
 
-func runWithDuration(conf *config.NodeConfig, defaultLogger logger.Logger) {
+func runWithDuration(conf *config.InfoConfig, defaultLogger logger.Logger) {
 	p, _ := time.ParseDuration(conf.Period)
 	ticker := time.NewTicker(p)
 	ch := make(chan bool)
