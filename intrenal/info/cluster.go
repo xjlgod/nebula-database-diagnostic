@@ -43,6 +43,8 @@ func Run(conf *config.Config) {
 		select {
 		case <-ctx.Done():
 			return
+		default:
+
 		}
 	}
 
@@ -72,21 +74,21 @@ func runWithDuration(conf *config.InfoConfig, defaultLogger logger.Logger) {
 	p, _ := time.ParseDuration(conf.Period)
 	ticker := time.NewTicker(p)
 	ch := make(chan bool)
-	go func(ticker *time.Ticker) {
-		defer ticker.Stop()
+
+	go func() {
 		for {
 			select {
 			case <-ticker.C:
 				run(conf, defaultLogger)
 			case stop := <-ch:
 				if stop {
-					return
+					ch <- true
 				}
 			default:
 
 			}
 		}
-	}(ticker)
+	}()
 
 	d, _ := time.ParseDuration(conf.Duration)
 	time.Sleep(d)

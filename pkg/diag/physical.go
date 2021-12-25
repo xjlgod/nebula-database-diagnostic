@@ -4,7 +4,7 @@ import "github.com/xjlgod/nebula-database-diagnostic/pkg/info/physical"
 
 func GetPhyDiag(info *physical.PhyInfo) (diags []string) {
 	diags = append(diags, "physical nothing.\n")
-
+	diags = processDiag(info, diags)
 	if len(diags) > 1 {
 		return diags[1:]
 	}
