@@ -6,9 +6,7 @@ import (
 	"strconv"
 )
 
-
 func GetMetricsInfo(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) (map[string]string, error) {
-
 	seid := nodeConfig.SSH.Address + ":" + strconv.Itoa(serviceConfig.Port)
 	exporter, err := service.GetServiceExporter(seid, nodeConfig, serviceConfig)
 	if err != nil {
