@@ -4,7 +4,6 @@ tmp/
 bak/
 out/
 data/
-diag/
 *.log
 
 # Binaries for programs and plugins
