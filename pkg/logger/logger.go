@@ -8,13 +8,15 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"sync"
 	"time"
 )
 
 var (
-	// logger.CMDLogger.Info()
-	CMDLogger  *DefaultLogger = &DefaultLogger{logToFile: false}
-	FileLogger *DefaultLogger = &DefaultLogger{logToFile: true}
+	cmdLoggers  = make(map[string]*DefaultLogger, 0)
+	cmdMux      sync.Mutex
+	fileLoggers = make(map[string]*DefaultLogger, 0)
+	fileMux     sync.Mutex
 )
 
 type (
@@ -76,35 +78,58 @@ func (d *DefaultLogger) fatal(msg string) {
 	d.logr.Fatal(msg)
 }
 
-func InitCmdLogger() {
+func GetCmdLogger(n string) Logger {
+	cmdMux.Lock()
+	defer cmdMux.Unlock()
+	if _, ok := cmdLoggers[n]; !ok {
+		initCmdLogger(n)
+	}
+	return cmdLoggers[n]
+}
 
+func initCmdLogger(n string) {
 	logr := logrus.New()
 	logr.SetFormatter(&logrus.TextFormatter{})
 	logr.SetOutput(os.Stdout)
 	logr.SetLevel(logrus.InfoLevel)
 
-	CMDLogger.logr = logr
-
+	cmdLogger := new(DefaultLogger)
+	cmdLogger.logToFile = false
+	cmdLogger.logr = logr
+	cmdLoggers[n] = cmdLogger
 }
 
-func InitFileLogger(o config.OutputConfig) {
+func GetFileLogger(n string, o config.OutputConfig) Logger {
+	fileMux.Lock()
+	defer fileMux.Unlock()
+	if _, ok := fileLoggers[n]; !ok {
+		initFileLogger(n, o)
+	}
+	return fileLoggers[n]
+}
 
-	log := logrus.New()
-	log.SetFormatter(&logrus.TextFormatter{})
+func initFileLogger(n string, o config.OutputConfig) {
+	logr := logrus.New()
+	logr.SetFormatter(&logrus.TextFormatter{})
 	timeUnix := time.Now().Unix()
 	p, _ := filepath.Abs(o.DirPath)
 	_, err := os.Stat(p)
 	if os.IsNotExist(err) {
 		os.Mkdir(p, os.ModePerm)
 	}
-	FileLogger.filepath = filepath.Join(p, strconv.FormatInt(timeUnix, 10)+".log")
-	file, err := os.OpenFile(FileLogger.filepath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	fileLogger := new(DefaultLogger)
+	fileLogger.logToFile = true
+
+	filename := fmt.Sprintf("%s_%s.%s", n, strconv.FormatInt(timeUnix, 10), "log")
+	fileLogger.filepath = filepath.Join(p, filename)
+	file, err := os.OpenFile(fileLogger.filepath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
-		log.Fatal(err)
+		logr.Fatal(err)
 	}
 	writer := io.Writer(file)
-	log.SetOutput(writer)
-	log.SetLevel(logrus.InfoLevel)
-	FileLogger.logr = log
+	logr.SetOutput(writer)
+	logr.SetLevel(logrus.InfoLevel)
 
+	fileLogger.logr = logr
+	fileLoggers[n] = fileLogger
 }

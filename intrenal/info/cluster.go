@@ -1,8 +1,10 @@
 package info
 
 import (
+	"context"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/logger"
+	"log"
 	"time"
 )
 
@@ -13,25 +15,39 @@ type (
 )
 
 func Run(conf *config.Config) {
-	for _, node := range conf.Nodes {
-		var _logger logger.Logger
-		logger.InitCmdLogger()
-		logger.InitFileLogger(node.Output)
-		if node.Output.LogToFile {
-			_logger = logger.FileLogger
-		} else {
-			_logger = logger.CMDLogger
-		}
-		// the conf has been verified, so don't need to handle error
-		d, _ := time.ParseDuration(node.Duration)
-		if node.Duration == "-1" {
-			runWithInfinity(node, _logger)
-		} else if d == 0 {
-			run(node, _logger)
-		} else {
-			runWithDuration(node, _logger)
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	for name, node := range conf.Nodes {
+		node := node
+		name := name
+		go func() {
+			var _logger logger.Logger
+			if node.Output.LogToFile {
+				_logger = logger.GetFileLogger(name, node.Output)
+			} else {
+				_logger = logger.GetCmdLogger(name)
+			}
+			log.Println(_logger, node.Output)
+			// the conf has been verified, so don't need to handle error
+			d, _ := time.ParseDuration(node.Duration)
+			if node.Duration == "-1" {
+				runWithInfinity(node, _logger)
+			} else if d == 0 {
+				run(node, _logger)
+			} else {
+				runWithDuration(node, _logger)
+			}
+		}()
+	}
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
 		}
 	}
+
 }
 
 func run(conf *config.NodeConfig, defaultLogger logger.Logger) {

@@ -10,7 +10,6 @@ func TestFileLogger(t *testing.T) {
 	o := config.OutputConfig{
 		DirPath: "../../data/logger",
 	}
-	InitFileLogger(o)
-	FileLogger.Info("hello")
-
+	flog := GetFileLogger("test", o)
+	flog.Info("hello")
 }

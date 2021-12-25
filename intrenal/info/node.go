@@ -13,20 +13,20 @@ import (
 )
 
 type AllInfo struct {
-	PhyInfo     *physical.PhyInfo           `json:"phy_info"`
-	MetricsInfo []service.ServiceMetricInfo `json:"metrics_info,omitempty"`
-	ConfigInfo  []service.ServiceConfigInfo `json:"config_info,omitempty"`
+	PhyInfo     *physical.PhyInfo            `json:"phy_info"`
+	MetricsInfo []*service.ServiceMetricInfo `json:"metrics_info,omitempty"`
+	ConfigInfo  []*service.ServiceConfigInfo `json:"config_info,omitempty"`
 }
 
 func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) (*physical.PhyInfo,
-	[]service.ServiceMetricInfo, []service.ServiceConfigInfo) {
+	[]*service.ServiceMetricInfo, []*service.ServiceConfigInfo) {
 	phyInfo, err := fetchPhyInfo(option, conf.SSH)
 	if err != nil {
 		defaultLogger.Errorf("fetch phy info failed: %s", err.Error())
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if phyInfo != nil {
-			defaultLogger.Info(phyInfo)
+			defaultLogger.Info(conf.Host, ": ", phyInfo)
 		}
 	}
 
@@ -37,7 +37,7 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if servicesMetricsInfo != nil {
-			defaultLogger.Info(servicesMetricsInfo)
+			defaultLogger.Info(conf.Host, ": ", servicesMetricsInfo)
 		}
 	}
 
@@ -48,7 +48,7 @@ func fetchInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger 
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if serviceConfigsInfo != nil {
-			defaultLogger.Info(serviceConfigsInfo)
+			defaultLogger.Info(conf.Host, ": ", serviceConfigsInfo)
 		}
 	}
 
@@ -64,13 +64,13 @@ func fetchPhyInfo(option config.InfoOption, sshConfig config.SSHConfig) (*physic
 	return nil, nil
 }
 
-func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) ([]service.ServiceMetricInfo, error) {
+func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) ([]*service.ServiceMetricInfo, error) {
 	if option == config.AllInfo || option == config.Metrics {
 		servicesConfig := conf.Services
-		servicesMetricsInfo := make([]service.ServiceMetricInfo, 0, len(servicesConfig))
+		servicesMetricsInfo := make([]*service.ServiceMetricInfo, 0, len(servicesConfig))
 		for key, serviceConfig := range servicesConfig {
 			metrics, err := metrics.GetMetricsInfo(conf, &serviceConfig)
-			serviceMetricsInfo := service.ServiceMetricInfo{
+			serviceMetricsInfo := &service.ServiceMetricInfo{
 				Name:    key,
 				Metrics: metrics,
 			}
@@ -86,14 +86,14 @@ func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, default
 
 }
 
-func fetchConfigsInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) ([]service.ServiceConfigInfo, error) {
+func fetchConfigsInfo(conf *config.NodeConfig, option config.InfoOption, defaultLogger logger.Logger) ([]*service.ServiceConfigInfo, error) {
 	// config belongs to Metrics
 	if option == config.AllInfo || option == config.Metrics {
 		servicesConfig := conf.Services
-		serviceConfigInfo := make([]service.ServiceConfigInfo, 0, len(servicesConfig))
+		serviceConfigInfo := make([]*service.ServiceConfigInfo, 0, len(servicesConfig))
 		for key, serviceConfig := range servicesConfig {
 			configs, err := configinfo.GetConfigInfo(conf, &serviceConfig)
-			serviceMetricsInfo := service.ServiceConfigInfo{
+			serviceMetricsInfo := &service.ServiceConfigInfo{
 				Name:    key,
 				Configs: configs,
 			}
