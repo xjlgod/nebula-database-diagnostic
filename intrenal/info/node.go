@@ -100,7 +100,7 @@ func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, default
 				Metrics: metrics,
 			}
 			if err != nil {
-				defaultLogger.Errorf("fetch phy info failed: %s, stop fetch services metrics!", err.Error())
+				defaultLogger.Errorf("fetch metrics info failed: %s, stop fetch services metrics!", err.Error())
 				return servicesMetricsInfo, err
 			}
 			servicesMetricsInfo = append(servicesMetricsInfo, serviceMetricsInfo)
@@ -123,7 +123,7 @@ func fetchConfigsInfo(conf *config.NodeConfig, option config.InfoOption, default
 				Configs: configs,
 			}
 			if err != nil {
-				defaultLogger.Errorf("fetch phy info failed: %s, stop fetch services metrics!", err.Error())
+				defaultLogger.Errorf("fetch configs info failed: %s, stop fetch services metrics!", err.Error())
 				return serviceConfigInfo, err
 			}
 			serviceConfigInfo = append(serviceConfigInfo, serviceMetricsInfo)
