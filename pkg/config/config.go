@@ -175,6 +175,9 @@ func ConfigComplete(conf *Config) {
 			info.Options = defaultInfoOptions
 		}
 	}
+	if conf.Diag == nil {
+		conf.Diag = new(DiagConfig)
+	}
 	if conf.Diag.Output.DirPath == "" {
 		conf.Diag.Output.DirPath = defaultOutputDirPath
 	}

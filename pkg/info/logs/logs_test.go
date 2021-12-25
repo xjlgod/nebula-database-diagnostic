@@ -17,9 +17,7 @@ func TestGetAllLog(t *testing.T) {
 			Username: "katz.zhang",
 			Password: "nebula",
 		},
-		Output: config.OutputConfig{
-			DirPath: "",
-		},
+
 
 	}
 	serviceConf := &config.ServiceConfig{
@@ -27,8 +25,14 @@ func TestGetAllLog(t *testing.T) {
 		HTTPPort: 19669,
 		RuntimeDir: "/home/katz.zhang/.nebula/clusters/graphd",
 	}
-	configinfo.GetConfigInfo(nodeConf, serviceConf)
-	err := GetAllLog(nodeConf, serviceConf)
+	infoConf := &config.InfoConfig{
+		Node: *nodeConf,
+		Output: config.OutputConfig{
+			DirPath: "",
+		},
+	}
+	configinfo.GetConfigInfo(infoConf, serviceConf)
+	err := GetAllLog(infoConf, serviceConf)
 	if err != nil {
 		fmt.Println(err.Error())
 	}

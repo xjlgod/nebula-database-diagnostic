@@ -22,6 +22,10 @@ func TestGetMetricsDiag(t *testing.T) {
 			Username: "katz.zhang",
 			Password: "nebula",
 		},
+
+	}
+	infoConf := &config.InfoConfig{
+		Node: *nodeConf,
 		Output: config.OutputConfig{
 			DirPath: "",
 		},
@@ -29,7 +33,7 @@ func TestGetMetricsDiag(t *testing.T) {
 			"graph1":serviceConf,
 		},
 	}
-	metrics, _ := metrics.GetMetricsInfo(nodeConf, &serviceConf)
+	metrics, _ := metrics.GetMetricsInfo(infoConf, &serviceConf)
 	serviceMetricsInfo := &service.ServiceMetricInfo{
 		Name:    "graph",
 		Metrics: metrics,
