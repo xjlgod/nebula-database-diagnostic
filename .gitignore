@@ -3,6 +3,7 @@
 tmp/
 bak/
 out/
+output/
 data/
 *.log
 

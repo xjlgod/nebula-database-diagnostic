@@ -56,7 +56,6 @@ var diagCmd = &cli.Command{
 		}
 		if GlobalConfig == nil {
 			GlobalConfig = new(config.Config)
-			GlobalConfig.Diag = new(config.DiagConfig)
 			config.ConfigComplete(GlobalConfig)
 		}
 
