@@ -6,6 +6,8 @@ out/
 data/
 *.log
 
+diag-cli
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
