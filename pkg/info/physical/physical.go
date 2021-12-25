@@ -52,6 +52,8 @@ type SystemInfo struct {
 }
 
 type CPUInfo struct { // percent
+	RealNumber    int `json:"real_number,omitempty"`
+	LogicNumber   int `json:"logic_number,omitempty"`
 	UserUseTime   int `json:"user_use_time,omitempty"`
 	SystemUseTime int `json:"system_use_time,omitempty"`
 	IdleTime      int `json:"idle_time,omitempty"`
@@ -116,6 +118,7 @@ func GetPhyInfo(conf config.SSHConfig) (*PhyInfo, error) {
 	info.System = system
 
 	cpu := CPUInfo{}
+	cpu.RealNumber, cpu.LogicNumber, err = getCPUNumber(conf)
 	cpuUU, _ := strconv.Atoi(fields[12])
 	cpu.UserUseTime = cpuUU
 	cpuSU, _ := strconv.Atoi(fields[13])
@@ -127,6 +130,27 @@ func GetPhyInfo(conf config.SSHConfig) (*PhyInfo, error) {
 	info.CPU = cpu
 
 	return info, err
+}
+
+func getCPUNumber(conf config.SSHConfig) (int, int, error) {
+	c, err := remote.GetSSHClient(conf.Username, conf)
+	if err != nil {
+		return 0, 0, err
+	}
+
+	res, ok := c.Execute("cat /proc/cpuinfo |grep \"physical id\"|sort |uniq|wc -l")
+	if !ok {
+		return 0, 0, fmt.Errorf("exec got error: %v, with std error: %v", res.Err, errors.New(string(res.StdErr)))
+	}
+	realNumber, _ := strconv.Atoi(string(res.StdOut))
+
+	res, ok = c.Execute("cat /proc/cpuinfo |grep \"processor\"|wc -l")
+	if !ok {
+		return 0, 0, fmt.Errorf("exec got error: %v, with std error: %v", res.Err, errors.New(string(res.StdErr)))
+	}
+	logicNumber, _ := strconv.Atoi(string(res.StdOut))
+
+	return realNumber, logicNumber, nil
 }
 
 func getDiskDetailInfo(conf config.SSHConfig) (map[string]DiskInfo, error) {
