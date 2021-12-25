@@ -4,7 +4,6 @@ import (
 	"context"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/logger"
-	"log"
 	"time"
 )
 
@@ -28,7 +27,6 @@ func Run(conf *config.Config) {
 			} else {
 				_logger = logger.GetCmdLogger(name)
 			}
-			log.Println(_logger, node.Output)
 			// the conf has been verified, so don't need to handle error
 			d, _ := time.ParseDuration(node.Duration)
 			if node.Duration == "-1" {

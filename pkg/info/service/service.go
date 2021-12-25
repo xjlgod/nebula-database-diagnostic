@@ -38,7 +38,6 @@ type (
 		Name    string            `json:"name,omitempty"`
 		Configs map[string]string `json:"configs,omitempty"`
 	}
-
 )
 
 const (
@@ -153,10 +152,9 @@ func GetServiceExporter(seid string, nodeConfig *config.NodeConfig, serviceConfi
 	mux.Unlock()
 
 	mux.RLock()
-	e := exporters[seid]
-	mux.RUnlock()
+	defer mux.RUnlock()
 
-	return e, nil
+	return exporters[seid], nil
 }
 
 func newServiceExporter(nodeConfig *config.NodeConfig, serviceConfig *config.ServiceConfig) (ServiceExporter, error) {

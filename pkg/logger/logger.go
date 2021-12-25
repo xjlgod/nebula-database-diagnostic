@@ -14,9 +14,9 @@ import (
 
 var (
 	cmdLoggers  = make(map[string]*DefaultLogger, 0)
-	cmdMux      sync.Mutex
+	cmdMux      sync.RWMutex
 	fileLoggers = make(map[string]*DefaultLogger, 0)
-	fileMux     sync.Mutex
+	fileMux     sync.RWMutex
 )
 
 type (
@@ -80,10 +80,13 @@ func (d *DefaultLogger) fatal(msg string) {
 
 func GetCmdLogger(n string) Logger {
 	cmdMux.Lock()
-	defer cmdMux.Unlock()
 	if _, ok := cmdLoggers[n]; !ok {
 		initCmdLogger(n)
 	}
+	cmdMux.Unlock()
+
+	cmdMux.RLock()
+	defer cmdMux.RUnlock()
 	return cmdLoggers[n]
 }
 
@@ -101,10 +104,13 @@ func initCmdLogger(n string) {
 
 func GetFileLogger(n string, o config.OutputConfig) Logger {
 	fileMux.Lock()
-	defer fileMux.Unlock()
 	if _, ok := fileLoggers[n]; !ok {
 		initFileLogger(n, o)
 	}
+	fileMux.Unlock()
+
+	fileMux.RLock()
+	defer fileMux.RUnlock()
 	return fileLoggers[n]
 }
 
