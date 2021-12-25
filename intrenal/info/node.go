@@ -98,6 +98,7 @@ func fetchMetricsInfo(conf *config.NodeConfig, option config.InfoOption, default
 			serviceMetricsInfo := &service.ServiceMetricInfo{
 				Name:    key,
 				Metrics: metrics,
+				Type: serviceConfig.Type,
 			}
 			if err != nil {
 				defaultLogger.Errorf("fetch metrics info failed: %s, stop fetch services metrics!", err.Error())

@@ -33,6 +33,7 @@ type (
 	ServiceMetricInfo struct {
 		Name    string            `json:"name,omitempty"`
 		Metrics map[string]string `json:"metrics,omitempty"`
+		Type config.ComponentType `json:"type"`
 	}
 	ServiceConfigInfo struct {
 		Name    string            `json:"name,omitempty"`
