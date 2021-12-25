@@ -5,6 +5,7 @@ import (
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/remote"
 	"path/filepath"
+	"strconv"
 	"strings"
 )
 
@@ -100,12 +101,19 @@ func (exporter *StorageExporter) Config(nodeConfig *config.NodeConfig, serviceCo
 func (exporter *StorageExporter) GetLogsInLogDir() error {
 
 	logDir, ok := exporter.ConfigMap["log_dir"]
+
+	if (logDir == NotCollect || exporter.ServiceConfig.RuntimeDir == "") {
+		return errors.New("logdir is nut exist")
+	}
 	if !ok {
 		return errors.New("logdir is nut exist")
 	}
-	dir := filepath.Join(exporter.ServiceConfig.DeployDir, logDir)
-
-	err := remote.GetFilesInRemoteDir(exporter.NodeConfig.SSH.Username, exporter.NodeConfig.SSH, dir, LOCAL_LOG_DIR)
+	if (!strings.HasPrefix(logDir, "/")) {
+		logDir = exporter.ServiceConfig.RuntimeDir + "/" + logDir
+	}
+	newDir := exporter.NodeConfig.SSH.Address + ":" + strconv.Itoa(exporter.ServiceConfig.Port)
+	localDir := filepath.Join(exporter.NodeConfig.Output.DirPath , newDir)
+	err := remote.GetFilesInRemoteDir(exporter.NodeConfig.SSH.Username, exporter.NodeConfig.SSH, logDir, localDir)
 	return err
 
 }
