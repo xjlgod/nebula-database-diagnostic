@@ -112,7 +112,7 @@ func (exporter *MetaExporter) GetLogsInLogDir() error {
 	if (!strings.HasPrefix(logDir, "/")) {
 		logDir = exporter.ServiceConfig.RuntimeDir + "/" + logDir
 	}
-	newDir := exporter.NodeConfig.SSH.Address + ":" + strconv.Itoa(exporter.ServiceConfig.Port)
+	newDir := exporter.NodeConfig.SSH.Address + "-" + strconv.Itoa(exporter.ServiceConfig.Port)
 	localDir := filepath.Join(exporter.NodeConfig.Output.DirPath , newDir)
 	err := remote.GetFilesInRemoteDir(exporter.NodeConfig.SSH.Username, exporter.NodeConfig.SSH, logDir, localDir)
 	return err

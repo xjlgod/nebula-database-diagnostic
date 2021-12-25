@@ -1,6 +1,7 @@
 package remote
 
 import (
+	"fmt"
 	"github.com/pkg/sftp"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"golang.org/x/crypto/ssh"
@@ -50,7 +51,10 @@ func GetFilesInRemoteDir(scid string, conf config.SSHConfig, remoteDir string, l
 	p, _ := filepath.Abs(localDir)
 	_, err = os.Stat(p)
 	if os.IsNotExist(err) {
-		os.Mkdir(p, os.ModePerm)
+		err := os.Mkdir(p, os.ModePerm)
+		if err != nil {
+			fmt.Println(err.Error())
+		}
 	}
 
 

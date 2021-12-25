@@ -1,0 +1,25 @@
+Log file created at: 2021/12/05 13:18:15
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1205 13:18:15.512681 15183 GraphDaemon.cpp:107] Starting Graph HTTP Service
+I1205 13:18:15.532446 15247 WebService.cpp:131] Web service started on HTTP[19669], HTTP2[19670]
+I1205 13:18:15.532490 15183 GraphDaemon.cpp:121] Number of networking IO threads: 4
+I1205 13:18:15.532496 15183 GraphDaemon.cpp:130] Number of worker threads: 4
+I1205 13:18:15.532732 15183 MetaClient.cpp:52] Create meta client to "192.168.8.49":9559
+E1205 13:18:15.532807 15183 GflagsManager.cpp:70] Load gflags json failed
+I1205 13:18:15.533331 15183 GflagsManager.cpp:140] Prepare to register 6 gflags to meta
+I1205 13:18:17.545240 15183 MetaClient.cpp:3223] Load leader of "192.168.8.49":9779 in 0 space
+I1205 13:18:17.545261 15183 MetaClient.cpp:3229] Load leader ok
+I1205 13:18:17.545562 15183 MetaClient.cpp:3007] Register gflags ok 6
+I1205 13:18:17.556272 15183 MetaClient.cpp:106] Register time task for heartbeat!
+I1205 13:18:17.563612 15183 GraphDaemon.cpp:160] Starting nebula-graphd on 192.168.8.49:9669
+E1205 13:20:52.492072 15316 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:21:13.332326 15347 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:21:17.109694 15265 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:21:39.722414 15353 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+I1205 13:23:25.359084 15183 GraphDaemon.cpp:187] Signal 15(Terminated) received, stopping this server
+I1205 13:23:25.365219 15183 GraphDaemon.cpp:168] nebula-graphd on 192.168.8.49:9669 has been stopped
+I1205 13:23:25.368002 15251 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fef56c36000 in thread 0x7fef55e09000
+I1205 13:23:25.368132 15254 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fef56c36700 in thread 0x7fef55008000
+I1205 13:23:25.368235 15259 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fef56c36e00 in thread 0x7fef54209000
+I1205 13:23:25.369369 15261 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fef56c37500 in thread 0x7fef53408000

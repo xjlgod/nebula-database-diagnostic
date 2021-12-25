@@ -1,0 +1,51 @@
+Log file created at: 2021/12/05 13:28:25
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E1205 13:28:25.416620 18819 GflagsManager.cpp:70] Load gflags json failed
+E1205 13:30:24.444183 18953 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:32:16.852737 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:32:50.084278 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:35:25.242362 18992 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:40:25.363515 18953 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:41:40.200724 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:48:22.135485 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:51:41.934026 18992 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:52:31.220062 18953 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:54:23.485611 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:56:57.748703 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1206 06:57:03.968876 19067 GraphSessionManager.cpp:108] Create session failed:User not existed!
+E1206 06:57:03.969053 19067 GraphService.cpp:89] Create session for userName: katz, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+E1206 06:58:17.394817 19063 GraphSessionManager.cpp:108] Create session failed:User not existed!
+E1206 06:58:17.394881 19063 GraphService.cpp:89] Create session for userName: katz, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+E1206 07:17:03.614109 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1206 07:17:40.509270 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1206 07:39:54.275419 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 07:39:54.275507 19063 QueryInstance.cpp:110] Space not existed!
+E1206 07:39:54.477190 19067 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 07:39:54.477232 19067 QueryInstance.cpp:110] Space not existed!
+E1206 08:12:53.826577 19066 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:12:53.826700 19066 QueryInstance.cpp:110] Space not existed!
+E1206 08:27:36.770269 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:27:36.770328 19063 QueryInstance.cpp:110] Space not existed!
+E1206 08:27:53.842254 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:27:53.842291 19063 QueryInstance.cpp:110] Space not existed!
+E1206 08:28:09.762478 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:28:09.762534 19063 QueryInstance.cpp:110] Space not existed!
+E1206 08:30:00.766578 18992 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1207 07:12:38.374619 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1207 07:12:38.374699 19063 QueryInstance.cpp:110] Space not existed!
+E1208 13:39:41.983120 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:39:41.983234 19067 QueryInstance.cpp:110] Space not existed!
+E1208 13:40:33.508895 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:40:33.508946 19063 QueryInstance.cpp:110] Space not existed!
+E1208 13:43:17.801081 19066 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:43:17.801133 19060 QueryInstance.cpp:110] Space not existed!
+E1208 13:44:23.853781 19066 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:44:23.853857 19060 QueryInstance.cpp:110] Space not existed!
+E1208 13:46:02.162678 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1208 13:46:37.290395 19060 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:46:37.290468 19066 QueryInstance.cpp:110] Space not existed!
+E1208 13:46:37.455592 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:46:37.455634 19066 QueryInstance.cpp:110] Space not existed!
+E1208 13:46:37.610643 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:46:37.610677 19063 QueryInstance.cpp:110] Space not existed!

@@ -1,0 +1,379 @@
+Log file created at: 2021/11/23 07:42:28
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E1123 07:42:28.863068   821 GflagsManager.cpp:69] Load gflags json failed
+E1202 12:51:51.173434  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:51:51.173599  1024 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+E1202 12:52:52.732985  1022 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:52:52.733043  1022 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+E1202 12:54:40.155467  1022 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:54:40.155503  1022 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+E1202 12:58:41.349529  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:58:41.349575  1024 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+E1202 12:59:47.585393  1023 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:59:47.585435  1023 GraphService.cpp:86] Create session for userName: katz, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+E1202 13:13:10.520260  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 13:13:10.520311  1024 GraphService.cpp:86] Create session for userName: katz, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+E1202 13:13:30.672340  1023 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 13:13:30.672372  1023 GraphService.cpp:86] Create session for userName: katz, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+E1202 13:13:35.178287  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 13:13:35.178321  1024 GraphService.cpp:86] Create session for userName: katz.zhang, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+E1203 07:04:01.364008  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 07:04:01.364238  1023 QueryInstance.cpp:108] Space not existed!
+E1203 07:04:01.534864  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 07:04:01.534907  1024 QueryInstance.cpp:108] Space not existed!
+E1203 09:13:14.039789  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:13:14.039852  1023 QueryInstance.cpp:108] Space not existed!
+E1203 09:13:14.096978  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:13:14.097018  1023 QueryInstance.cpp:108] Space not existed!
+E1203 09:14:14.866729  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:14:14.866760  1023 QueryInstance.cpp:108] Space not existed!
+E1203 09:14:14.933966  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:14:14.934005  1023 QueryInstance.cpp:108] Space not existed!
+E1203 09:22:07.353157  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:22:07.353220  1021 QueryInstance.cpp:108] Space not existed!
+E1203 09:22:07.402562  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:22:07.402606  1024 QueryInstance.cpp:108] Space not existed!
+E1203 09:23:12.630103  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:23:12.630167  1021 QueryInstance.cpp:108] Space not existed!
+E1203 09:23:12.677840  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:23:12.677893  1022 QueryInstance.cpp:108] Space not existed!
+E1203 09:25:02.410099  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:02.410145  1022 QueryInstance.cpp:108] Space not existed!
+E1203 09:25:02.458674  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:02.458737  1023 QueryInstance.cpp:108] Space not existed!
+E1203 09:25:35.064452  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:35.064512  1024 QueryInstance.cpp:108] Space not existed!
+E1203 09:25:35.116020  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:35.116056  1024 QueryInstance.cpp:108] Space not existed!
+E1203 09:25:56.745599  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:56.745651  1022 QueryInstance.cpp:108] Space not existed!
+E1203 09:25:56.790992  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:56.791018  1023 QueryInstance.cpp:108] Space not existed!
+E1203 09:26:39.135926  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:26:39.135969  1023 QueryInstance.cpp:108] Space not existed!
+E1203 09:26:39.183163  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:26:39.189733  1022 QueryInstance.cpp:108] Space not existed!
+E1203 09:28:15.500810  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:28:15.500869  1024 QueryInstance.cpp:108] Space not existed!
+E1203 09:28:15.562058  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:28:15.562103  1021 QueryInstance.cpp:108] Space not existed!
+E1203 11:22:34.393697  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:22:34.393759  1021 QueryInstance.cpp:108] Space not existed!
+E1203 11:22:34.444053  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:22:34.444100  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:22:34.610611  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:22:34.610651  1024 QueryInstance.cpp:108] Space not existed!
+E1203 11:23:10.776947  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:10.776983  1024 QueryInstance.cpp:108] Space not existed!
+E1203 11:23:10.821307  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:10.821349  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:23:10.956140  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:10.956177  1023 QueryInstance.cpp:108] Space not existed!
+E1203 11:23:32.830772  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:32.830811  1023 QueryInstance.cpp:108] Space not existed!
+E1203 11:23:32.875705  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:32.875749  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:23:33.013399  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:33.013433  1024 QueryInstance.cpp:108] Space not existed!
+E1203 11:30:11.775326  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:11.775370  1024 QueryInstance.cpp:108] Space not existed!
+E1203 11:30:11.820215  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:11.820255  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:30:12.003324  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:12.003356  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:30:54.378928  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:54.378991  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:30:54.429466  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:54.429507  1023 QueryInstance.cpp:108] Space not existed!
+E1203 11:30:57.619539  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:57.619618  1024 QueryInstance.cpp:108] Space not existed!
+E1203 11:32:21.833784  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:21.833835  1021 QueryInstance.cpp:108] Space not existed!
+E1203 11:32:21.891180  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:21.891222  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:32:26.219077  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:26.219111  1022 QueryInstance.cpp:108] Space not existed!
+E1203 11:32:26.263602  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:26.263631  1022 QueryInstance.cpp:108] Space not existed!
+E1203 12:29:23.568596  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:29:23.568670  1022 QueryInstance.cpp:108] Space not existed!
+E1203 12:29:23.620133  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:29:23.620169  1024 QueryInstance.cpp:108] Space not existed!
+E1203 12:30:52.082113  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:30:52.082163  1021 QueryInstance.cpp:108] Space not existed!
+E1203 12:30:52.136363  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:30:52.136391  1021 QueryInstance.cpp:108] Space not existed!
+E1203 12:32:26.905297  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:32:26.905339  1024 QueryInstance.cpp:108] Space not existed!
+E1203 12:33:02.749372  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:33:02.749425  1024 QueryInstance.cpp:108] Space not existed!
+E1203 12:33:02.799425  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:33:02.799453  1021 QueryInstance.cpp:108] Space not existed!
+E1203 12:35:58.544301  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:35:58.544348  1022 QueryInstance.cpp:108] Space not existed!
+E1203 12:35:58.597110  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:35:58.597154  1022 QueryInstance.cpp:108] Space not existed!
+E1203 12:43:41.463084  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:43:41.463129  1024 QueryInstance.cpp:108] Space not existed!
+E1203 12:43:41.512079  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:43:41.512116  1024 QueryInstance.cpp:108] Space not existed!
+E1203 12:45:51.837564  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:45:51.837621  1023 QueryInstance.cpp:108] Space not existed!
+E1203 12:45:51.880955  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:45:51.880995  1023 QueryInstance.cpp:108] Space not existed!
+E1203 12:46:06.359450  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:46:06.359496  1023 QueryInstance.cpp:108] Space not existed!
+E1203 12:46:06.404503  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:46:06.404538  1023 QueryInstance.cpp:108] Space not existed!
+E1203 12:58:59.389604  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:58:59.389672  1024 QueryInstance.cpp:108] Space not existed!
+E1203 12:58:59.433617  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:58:59.433655  1024 QueryInstance.cpp:108] Space not existed!
+E1203 13:10:29.721969  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:29.722016  1024 QueryInstance.cpp:108] Space not existed!
+E1203 13:10:29.765247  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:29.765275  1023 QueryInstance.cpp:108] Space not existed!
+E1203 13:10:34.115262  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:34.115299  1023 QueryInstance.cpp:108] Space not existed!
+E1203 13:10:34.159644  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:34.159672  1022 QueryInstance.cpp:108] Space not existed!
+E1204 07:01:46.921909  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:01:46.921968  1022 QueryInstance.cpp:108] Space not existed!
+E1204 07:01:46.964422  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:01:46.964464  1022 QueryInstance.cpp:108] Space not existed!
+E1204 07:14:56.467415  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:14:56.467466  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:14:56.510030  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:14:56.510088  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:18:56.096026  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.096092  1021 QueryInstance.cpp:108] Space not existed!
+E1204 07:18:56.138005  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.138047  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:18:56.492923  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.492961  1022 QueryInstance.cpp:108] Space not existed!
+E1204 07:18:56.539340  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.539377  1021 QueryInstance.cpp:108] Space not existed!
+E1204 07:34:08.184396  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:08.184468  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:34:08.533718  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:08.533757  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:34:09.181995  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:09.182037  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:34:09.487002  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:09.487040  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:34:09.579718   901 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 07:35:33.380892  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:33.380950  1021 QueryInstance.cpp:108] Space not existed!
+E1204 07:35:33.721100  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:33.721148  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:35:34.068279  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:34.068318  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:35:34.113124  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:34.113163  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:35:34.195727   984 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 07:40:14.792440  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:14.792476  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:40:15.128695  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:15.128762  1022 QueryInstance.cpp:108] Space not existed!
+E1204 07:40:15.468987  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:15.469033  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:40:15.513893  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:15.513931  1022 QueryInstance.cpp:108] Space not existed!
+E1204 07:44:38.283378  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:38.283452  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:44:38.623050  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:38.623097  1021 QueryInstance.cpp:108] Space not existed!
+E1204 07:44:38.949282  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:38.949379  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:44:39.288117  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:39.288159  1023 QueryInstance.cpp:108] Space not existed!
+E1204 07:44:39.334955  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:39.335005  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:05:59.597688  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:05:59.597749  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:05:59.638916  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:05:59.638970  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:05:59.977207  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:05:59.977239  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:06:00.018357  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.018393  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:06:00.357371  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.357409  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:06:00.397866  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.397912  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:06:00.725301  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.725342  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:06:00.765792  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.765821  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:06:00.849436   901 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 08:08:27.628587  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:27.628643  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:27.668915  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:27.668951  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.017186  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.017217  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.057261  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.057286  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.396859  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.396908  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.437705  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.437736  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.788874  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.788923  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.831408  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.831434  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.918103   955 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 08:15:54.407951  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.407997  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:54.448787  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.448835  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:54.790498  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.790536  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:54.831933  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.831964  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:55.170042  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.170086  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:55.211717  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.211761  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:55.554946  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.554998  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:55.595530  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.595572  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:55.685163   984 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 08:16:22.760797  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:22.760855  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:16:22.801246  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:22.801271  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:16:23.145203  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.145244  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:16:23.185178  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.185220  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:16:23.526455  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.526486  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:16:23.567142  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.567179  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:16:23.916126  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.916172  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:16:23.960346  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.960376  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:05.319135  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.319253  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:05.358973  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.359020  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:05.692755  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.692788  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:05.733605  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.733649  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:06.068367  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.068411  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:06.108891  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.108930  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:06.449350  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.449391  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:06.497224  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.497375  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:27.451539  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.451583  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:27.492563  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.492604  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:27.833148  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.833180  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:27.873513  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.873548  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:28.206415  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.206465  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:28.246613  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.246670  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:28.574366  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.574406  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:17:28.617533  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.617571  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:19:40.232592  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:40.232645  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:19:40.565244  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:40.565299  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:19:40.896404  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:40.896450  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:19:41.238713  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:41.238751  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:19:41.279493  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:41.279529  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:19:41.360803   986 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 10:27:42.452805  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:42.452877  1021 QueryInstance.cpp:108] Space not existed!
+E1204 10:27:42.843374  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:42.843416  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:27:43.230418  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:43.230453  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:27:43.618378  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:43.618409  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:27:43.666479  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:43.666523  1023 QueryInstance.cpp:108] Space not existed!
+E1204 10:27:43.762429   901 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 10:54:40.167229  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:40.167302  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:54:40.568763  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:40.568794  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:54:40.961926  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:40.961966  1024 QueryInstance.cpp:108] Space not existed!
+E1204 10:54:41.362008  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:41.362051  1024 QueryInstance.cpp:108] Space not existed!
+E1204 10:54:41.410342  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:41.410375  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:54:41.507535   955 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 10:56:35.405555  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:35.405632  1021 QueryInstance.cpp:108] Space not existed!
+E1204 10:56:35.816704  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:35.816759  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:56:36.224575  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:36.224614  1021 QueryInstance.cpp:108] Space not existed!
+E1204 10:56:36.630367  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:36.630403  1023 QueryInstance.cpp:108] Space not existed!
+E1204 10:56:36.682179  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:36.682230  1021 QueryInstance.cpp:108] Space not existed!
+E1204 10:56:36.785287   984 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 10:57:24.130254  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:24.130354  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:57:24.523027  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:24.523094  1024 QueryInstance.cpp:108] Space not existed!
+E1204 10:57:24.916124  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:24.916167  1024 QueryInstance.cpp:108] Space not existed!
+E1204 10:57:25.339177  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:25.339226  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:57:25.386809  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:25.386873  1024 QueryInstance.cpp:108] Space not existed!
+E1204 10:57:25.490808   986 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 10:58:00.522842  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:00.522888  1023 QueryInstance.cpp:108] Space not existed!
+E1204 10:58:00.922020  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:00.922068  1024 QueryInstance.cpp:108] Space not existed!
+E1204 10:58:01.317003  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:01.317040  1023 QueryInstance.cpp:108] Space not existed!
+E1204 10:58:01.716120  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:01.716161  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:58:01.767580  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:01.767606  1023 QueryInstance.cpp:108] Space not existed!
+E1204 10:58:01.870190   901 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 11:03:16.889180  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:16.889232  1023 QueryInstance.cpp:108] Space not existed!
+E1204 11:03:17.284150  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:17.284210  1021 QueryInstance.cpp:108] Space not existed!
+E1204 11:03:17.942607  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:17.942657  1021 QueryInstance.cpp:108] Space not existed!
+E1204 11:03:18.334878  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:18.334929  1023 QueryInstance.cpp:108] Space not existed!
+E1204 11:03:18.382923  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:18.382953  1021 QueryInstance.cpp:108] Space not existed!
+E1204 11:03:18.482596   955 PeekingManager.h:122] Received SSL connection on non SSL port
+E1204 11:05:52.911991  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:52.912056  1023 QueryInstance.cpp:108] Space not existed!
+E1204 11:05:53.301115  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:53.301162  1023 QueryInstance.cpp:108] Space not existed!
+E1204 11:05:53.720192  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:53.720242  1021 QueryInstance.cpp:108] Space not existed!
+E1204 11:05:54.122979  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:54.123013  1023 QueryInstance.cpp:108] Space not existed!
+E1204 11:05:54.171671  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:54.171708  1021 QueryInstance.cpp:108] Space not existed!
+E1204 11:05:54.274201   984 PeekingManager.h:122] Received SSL connection on non SSL port

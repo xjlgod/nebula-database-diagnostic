@@ -1,0 +1,119 @@
+Log file created at: 2021/12/05 13:28:25
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1205 13:28:25.393587 18819 GraphDaemon.cpp:107] Starting Graph HTTP Service
+I1205 13:28:25.416312 18862 WebService.cpp:131] Web service started on HTTP[19669], HTTP2[19670]
+I1205 13:28:25.416352 18819 GraphDaemon.cpp:121] Number of networking IO threads: 4
+I1205 13:28:25.416357 18819 GraphDaemon.cpp:130] Number of worker threads: 4
+I1205 13:28:25.416565 18819 MetaClient.cpp:52] Create meta client to "192.168.8.49":9559
+E1205 13:28:25.416620 18819 GflagsManager.cpp:70] Load gflags json failed
+I1205 13:28:25.417217 18819 GflagsManager.cpp:140] Prepare to register 6 gflags to meta
+I1205 13:28:27.451792 18819 MetaClient.cpp:3223] Load leader of "192.168.8.49":9779 in 0 space
+I1205 13:28:27.451815 18819 MetaClient.cpp:3229] Load leader ok
+I1205 13:28:27.452172 18819 MetaClient.cpp:3007] Register gflags ok 6
+I1205 13:28:27.458258 18819 MetaClient.cpp:106] Register time task for heartbeat!
+I1205 13:28:27.478766 18819 GraphDaemon.cpp:160] Starting nebula-graphd on 192.168.8.49:9669
+E1205 13:30:24.444183 18953 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:32:16.852737 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:32:50.084278 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:35:25.242362 18992 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:40:25.363515 18953 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:41:40.200724 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:48:22.135485 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:51:41.934026 18992 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:52:31.220062 18953 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:54:23.485611 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1205 13:56:57.748703 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+I1206 06:57:03.965174 19067 GraphService.cpp:66] Authenticating user katz from [::ffff:192.168.8.116]:55020
+E1206 06:57:03.968876 19067 GraphSessionManager.cpp:108] Create session failed:User not existed!
+E1206 06:57:03.969053 19067 GraphService.cpp:89] Create session for userName: katz, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+I1206 06:58:17.394331 19063 GraphService.cpp:66] Authenticating user katz from [::ffff:192.168.8.116]:55076
+E1206 06:58:17.394817 19063 GraphSessionManager.cpp:108] Create session failed:User not existed!
+E1206 06:58:17.394881 19063 GraphService.cpp:89] Create session for userName: katz, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+I1206 06:58:24.534166 19067 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.116]:55084
+E1206 07:17:03.614109 18982 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+E1206 07:17:40.509270 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+I1206 07:39:54.223374 19067 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:53858
+W1206 07:39:54.267663 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1206 07:39:54.275419 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 07:39:54.275507 19063 QueryInstance.cpp:110] Space not existed!
+I1206 07:39:54.435350 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:53862
+W1206 07:39:54.476680 19067 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1206 07:39:54.477190 19067 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 07:39:54.477232 19067 QueryInstance.cpp:110] Space not existed!
+I1206 08:12:53.780289 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:55046
+W1206 08:12:53.825608 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1206 08:12:53.826577 19066 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:12:53.826700 19066 QueryInstance.cpp:110] Space not existed!
+I1206 08:27:36.725790 19066 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:55146
+W1206 08:27:36.769521 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1206 08:27:36.770269 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:27:36.770328 19063 QueryInstance.cpp:110] Space not existed!
+I1206 08:27:53.797228 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:55150
+W1206 08:27:53.841806 19060 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1206 08:27:53.842254 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:27:53.842291 19063 QueryInstance.cpp:110] Space not existed!
+I1206 08:28:09.709720 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:55154
+W1206 08:28:09.762035 19060 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1206 08:28:09.762478 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1206 08:28:09.762534 19063 QueryInstance.cpp:110] Space not existed!
+E1206 08:30:00.766578 18992 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+I1206 23:38:35.617166 19007 GraphSessionManager.cpp:180] ClientSession 1638773907278126 has expired
+I1207 07:12:38.324213 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:40238
+W1207 07:12:38.373682 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1207 07:12:38.374619 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1207 07:12:38.374699 19063 QueryInstance.cpp:110] Space not existed!
+I1208 13:39:41.939095 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:38000
+W1208 13:39:41.982133 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1208 13:39:41.983120 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:39:41.983234 19067 QueryInstance.cpp:110] Space not existed!
+I1208 13:40:33.464836 19067 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:38006
+W1208 13:40:33.508455 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1208 13:40:33.508895 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:40:33.508946 19063 QueryInstance.cpp:110] Space not existed!
+I1208 13:43:17.761430 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:38072
+W1208 13:43:17.800634 19066 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1208 13:43:17.801081 19066 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:43:17.801133 19060 QueryInstance.cpp:110] Space not existed!
+I1208 13:44:23.814239 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:38080
+W1208 13:44:23.853307 19066 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1208 13:44:23.853781 19066 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:44:23.853857 19060 QueryInstance.cpp:110] Space not existed!
+E1208 13:46:02.162678 18915 GeneratedCodeHelper.cpp:77] Method name verifyClientVersion not found in function process
+I1208 13:46:37.250659 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:38096
+W1208 13:46:37.289979 19060 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1208 13:46:37.290395 19060 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:46:37.290468 19066 QueryInstance.cpp:110] Space not existed!
+I1208 13:46:37.414729 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:38100
+W1208 13:46:37.455253 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1208 13:46:37.455592 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:46:37.455634 19066 QueryInstance.cpp:110] Space not existed!
+I1208 13:46:37.570992 19066 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:38104
+W1208 13:46:37.610273 19063 SpaceExecutor.cpp:110] Get space ID failed when prepare text index: test
+E1208 13:46:37.610643 19063 SpaceExecutor.cpp:117] Drop space `test' failed: Space not existed!
+E1208 13:46:37.610677 19063 QueryInstance.cpp:110] Space not existed!
+I1209 08:44:09.213795 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.116]:55530
+I1209 12:03:09.056643 19066 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34490
+I1209 12:03:09.192404 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34492
+I1209 12:03:09.323204 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34494
+I1209 12:03:09.460495 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34496
+I1209 12:03:09.593454 19067 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34498
+I1209 12:03:09.724368 19063 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34500
+I1209 12:03:09.867367 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34502
+I1209 12:03:10.010929 19066 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34504
+I1209 12:03:30.811589 19066 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34506
+I1209 12:03:30.953408 19067 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34508
+I1209 12:03:31.104095 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34510
+I1209 12:03:31.247079 19060 GraphService.cpp:66] Authenticating user root from [::ffff:192.168.8.3]:34512
+I1210 04:43:06.030617 19007 GraphSessionManager.cpp:180] ClientSession 1639051403873053 has expired
+I1210 04:43:16.044459 19007 GraphSessionManager.cpp:180] ClientSession 1639051404409363 has expired
+I1210 04:43:16.046180 19007 GraphSessionManager.cpp:180] ClientSession 1639051404683292 has expired
+I1210 04:43:16.047240 19007 GraphSessionManager.cpp:180] ClientSession 1639051404540265 has expired
+I1210 04:43:16.062597 19007 GraphSessionManager.cpp:180] ClientSession 1639051404139125 has expired
+I1210 04:43:16.064271 19007 GraphSessionManager.cpp:180] ClientSession 1639051404826792 has expired
+I1210 04:43:16.065271 19007 GraphSessionManager.cpp:180] ClientSession 1639051404008375 has expired
+I1210 04:43:16.066129 19007 GraphSessionManager.cpp:180] ClientSession 1639051404276434 has expired
+I1210 04:43:36.090449 19007 GraphSessionManager.cpp:180] ClientSession 1639051425770266 has expired
+I1210 04:43:36.092121 19007 GraphSessionManager.cpp:180] ClientSession 1639051425628470 has expired
+I1210 04:43:36.093139 19007 GraphSessionManager.cpp:180] ClientSession 1639051426063928 has expired
+I1210 04:43:36.094027 19007 GraphSessionManager.cpp:180] ClientSession 1639051425920941 has expired

@@ -1,0 +1,10 @@
+Log file created at: 2021/12/05 13:24:08
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E1205 13:24:08.913364 16986 GflagsManager.cpp:69] Load gflags json failed
+W1205 13:25:06.601399 17264 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1205 13:25:06.602339 17264 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1205 13:25:06.602394 17264 QueryInstance.cpp:108] Space not existed!
+W1205 13:25:06.962484 17264 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1205 13:25:06.962937 17262 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1205 13:25:06.962993 17262 QueryInstance.cpp:108] Space not existed!

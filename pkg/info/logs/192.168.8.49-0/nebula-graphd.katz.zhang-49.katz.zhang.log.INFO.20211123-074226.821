@@ -1,0 +1,697 @@
+Log file created at: 2021/11/23 07:42:26
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1123 07:42:26.814486   821 GraphDaemon.cpp:124] Starting Graph HTTP Service
+I1123 07:42:26.851256   870 WebService.cpp:124] Web service started on HTTP[19669], HTTP2[19670]
+I1123 07:42:26.851326   821 GraphDaemon.cpp:138] Number of networking IO threads: 4
+I1123 07:42:26.851333   821 GraphDaemon.cpp:147] Number of worker threads: 4
+I1123 07:42:26.851573   821 MetaClient.cpp:57] Create meta client to "192.168.8.49":9559
+E1123 07:42:28.863068   821 GflagsManager.cpp:69] Load gflags json failed
+I1123 07:42:28.863768   821 GflagsManager.cpp:137] Prepare to register 6 gflags to meta
+I1123 07:42:28.882653   821 MetaClient.cpp:3006] Load leader of "192.168.8.49":9779 in 0 space
+I1123 07:42:28.882684   821 MetaClient.cpp:3012] Load leader ok
+I1123 07:42:28.886114   821 MetaClient.cpp:2792] Register gflags ok 6
+I1123 07:42:28.891633   821 MetaClient.cpp:117] Register time task for heartbeat!
+I1123 07:42:28.898669   821 GraphDaemon.cpp:180] Starting nebula-graphd on 192.168.8.49:9669
+I1123 07:42:39.002933  1006 MetaClient.cpp:3006] Load leader of "192.168.8.49":9779 in 0 space
+I1123 07:42:39.003012  1006 MetaClient.cpp:3012] Load leader ok
+I1202 12:51:51.171578  1024 GraphService.cpp:63] Authenticating user admin from [::ffff:192.168.8.3]:46554
+E1202 12:51:51.173434  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:51:51.173599  1024 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+I1202 12:52:52.732358  1022 GraphService.cpp:63] Authenticating user admin from [::ffff:192.168.8.3]:46660
+E1202 12:52:52.732985  1022 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:52:52.733043  1022 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+I1202 12:54:40.154955  1022 GraphService.cpp:63] Authenticating user admin from [::ffff:192.168.8.3]:46848
+E1202 12:54:40.155467  1022 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:54:40.155503  1022 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+I1202 12:58:41.348973  1024 GraphService.cpp:63] Authenticating user admin from [::ffff:192.168.8.3]:47304
+E1202 12:58:41.349529  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:58:41.349575  1024 GraphService.cpp:86] Create session for userName: admin, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+I1202 12:59:47.584923  1023 GraphService.cpp:63] Authenticating user katz from [::ffff:192.168.8.3]:47426
+E1202 12:59:47.585393  1023 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 12:59:47.585435  1023 GraphService.cpp:86] Create session for userName: katz, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+I1202 13:13:10.519623  1024 GraphService.cpp:63] Authenticating user katz from [::ffff:192.168.8.3]:49042
+E1202 13:13:10.520260  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 13:13:10.520311  1024 GraphService.cpp:86] Create session for userName: katz, ip: ::ffff:192.168.8.3 failed: Create session failed: User not existed!
+I1202 13:13:30.671892  1023 GraphService.cpp:63] Authenticating user katz from [::ffff:192.168.8.116]:55344
+E1202 13:13:30.672340  1023 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 13:13:30.672372  1023 GraphService.cpp:86] Create session for userName: katz, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+I1202 13:13:35.177721  1024 GraphService.cpp:63] Authenticating user katz.zhang from [::ffff:192.168.8.116]:55394
+E1202 13:13:35.178287  1024 GraphSessionManager.cpp:102] Create session failed:User not existed!
+E1202 13:13:35.178321  1024 GraphService.cpp:86] Create session for userName: katz.zhang, ip: ::ffff:192.168.8.116 failed: Create session failed: User not existed!
+I1203 03:04:53.080858  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.116]:37778
+I1203 07:04:01.312562  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:56728
+W1203 07:04:01.361945  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 07:04:01.364008  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 07:04:01.364238  1023 QueryInstance.cpp:108] Space not existed!
+W1203 07:04:01.534242  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 07:04:01.534864  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 07:04:01.534907  1024 QueryInstance.cpp:108] Space not existed!
+I1203 09:13:13.987702  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43674
+W1203 09:13:14.039039  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:13:14.039789  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:13:14.039852  1023 QueryInstance.cpp:108] Space not existed!
+W1203 09:13:14.096563  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:13:14.096978  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:13:14.097018  1023 QueryInstance.cpp:108] Space not existed!
+I1203 09:14:14.815666  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43700
+W1203 09:14:14.866356  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:14:14.866729  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:14:14.866760  1023 QueryInstance.cpp:108] Space not existed!
+W1203 09:14:14.933614  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:14:14.933966  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:14:14.934005  1023 QueryInstance.cpp:108] Space not existed!
+I1203 09:22:07.303946  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43872
+W1203 09:22:07.352496  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:22:07.353157  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:22:07.353220  1021 QueryInstance.cpp:108] Space not existed!
+W1203 09:22:07.402218  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:22:07.402562  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:22:07.402606  1024 QueryInstance.cpp:108] Space not existed!
+I1203 09:23:12.577164  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43894
+W1203 09:23:12.629701  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:23:12.630103  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:23:12.630167  1021 QueryInstance.cpp:108] Space not existed!
+W1203 09:23:12.677523  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:23:12.677840  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:23:12.677893  1022 QueryInstance.cpp:108] Space not existed!
+I1203 09:25:02.353535  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43920
+W1203 09:25:02.409438  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:25:02.410099  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:02.410145  1022 QueryInstance.cpp:108] Space not existed!
+W1203 09:25:02.458312  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:25:02.458674  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:02.458737  1023 QueryInstance.cpp:108] Space not existed!
+I1203 09:25:35.017377  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43928
+W1203 09:25:35.064066  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:25:35.064452  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:35.064512  1024 QueryInstance.cpp:108] Space not existed!
+W1203 09:25:35.115690  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:25:35.116020  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:35.116056  1024 QueryInstance.cpp:108] Space not existed!
+I1203 09:25:56.690599  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43942
+W1203 09:25:56.745188  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:25:56.745599  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:56.745651  1022 QueryInstance.cpp:108] Space not existed!
+W1203 09:25:56.790655  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:25:56.790992  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:25:56.791018  1023 QueryInstance.cpp:108] Space not existed!
+I1203 09:26:39.088609  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43956
+W1203 09:26:39.135475  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:26:39.135926  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:26:39.135969  1023 QueryInstance.cpp:108] Space not existed!
+W1203 09:26:39.182844  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:26:39.183163  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:26:39.189733  1022 QueryInstance.cpp:108] Space not existed!
+I1203 09:28:15.451654  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43992
+W1203 09:28:15.500373  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:28:15.500810  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:28:15.500869  1024 QueryInstance.cpp:108] Space not existed!
+W1203 09:28:15.561714  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 09:28:15.562058  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 09:28:15.562103  1021 QueryInstance.cpp:108] Space not existed!
+I1203 09:28:15.654691  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:43992
+I1203 11:22:34.337803  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45486
+W1203 11:22:34.393093  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:22:34.393697  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:22:34.393759  1021 QueryInstance.cpp:108] Space not existed!
+W1203 11:22:34.443614  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:22:34.444053  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:22:34.444100  1022 QueryInstance.cpp:108] Space not existed!
+I1203 11:22:34.544167  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45486
+W1203 11:22:34.610219  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:22:34.610611  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:22:34.610651  1024 QueryInstance.cpp:108] Space not existed!
+I1203 11:23:10.727926  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45496
+W1203 11:23:10.776566  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:23:10.776947  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:10.776983  1024 QueryInstance.cpp:108] Space not existed!
+W1203 11:23:10.821007  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:23:10.821307  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:10.821349  1022 QueryInstance.cpp:108] Space not existed!
+I1203 11:23:10.908926  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45496
+W1203 11:23:10.955796  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:23:10.956140  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:10.956177  1023 QueryInstance.cpp:108] Space not existed!
+I1203 11:23:32.783479  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45520
+W1203 11:23:32.830423  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:23:32.830772  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:32.830811  1023 QueryInstance.cpp:108] Space not existed!
+W1203 11:23:32.875428  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:23:32.875705  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:32.875749  1022 QueryInstance.cpp:108] Space not existed!
+I1203 11:23:32.964493  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45520
+W1203 11:23:33.012969  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:23:33.013399  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:23:33.013433  1024 QueryInstance.cpp:108] Space not existed!
+I1203 11:30:11.727401  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45760
+W1203 11:30:11.774942  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:30:11.775326  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:11.775370  1024 QueryInstance.cpp:108] Space not existed!
+W1203 11:30:11.819891  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:30:11.820215  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:11.820255  1022 QueryInstance.cpp:108] Space not existed!
+I1203 11:30:11.958163  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45762
+W1203 11:30:12.003017  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:30:12.003324  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:12.003356  1022 QueryInstance.cpp:108] Space not existed!
+I1203 11:30:54.332074  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45788
+W1203 11:30:54.378520  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:30:54.378928  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:54.378991  1022 QueryInstance.cpp:108] Space not existed!
+W1203 11:30:54.429083  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:30:54.429466  1023 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:54.429507  1023 QueryInstance.cpp:108] Space not existed!
+I1203 11:30:57.566954  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45790
+W1203 11:30:57.619177  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:30:57.619539  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:30:57.619618  1024 QueryInstance.cpp:108] Space not existed!
+I1203 11:32:21.786052  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45850
+W1203 11:32:21.833420  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:32:21.833784  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:21.833835  1021 QueryInstance.cpp:108] Space not existed!
+W1203 11:32:21.890858  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:32:21.891180  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:21.891222  1022 QueryInstance.cpp:108] Space not existed!
+I1203 11:32:26.170514  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:45856
+W1203 11:32:26.218668  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:32:26.219077  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:26.219111  1022 QueryInstance.cpp:108] Space not existed!
+W1203 11:32:26.263262  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 11:32:26.263602  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 11:32:26.263631  1022 QueryInstance.cpp:108] Space not existed!
+I1203 12:29:23.515566  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51380
+W1203 12:29:23.567684  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:29:23.568596  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:29:23.568670  1022 QueryInstance.cpp:108] Space not existed!
+W1203 12:29:23.619801  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:29:23.620133  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:29:23.620169  1024 QueryInstance.cpp:108] Space not existed!
+I1203 12:30:52.031170  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51432
+W1203 12:30:52.081686  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:30:52.082113  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:30:52.082163  1021 QueryInstance.cpp:108] Space not existed!
+W1203 12:30:52.136020  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:30:52.136363  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:30:52.136391  1021 QueryInstance.cpp:108] Space not existed!
+I1203 12:32:26.843498  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51488
+W1203 12:32:26.904901  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:32:26.905297  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:32:26.905339  1024 QueryInstance.cpp:108] Space not existed!
+I1203 12:33:02.697672  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51518
+W1203 12:33:02.748993  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:33:02.749372  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:33:02.749425  1024 QueryInstance.cpp:108] Space not existed!
+W1203 12:33:02.799090  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:33:02.799425  1021 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:33:02.799453  1021 QueryInstance.cpp:108] Space not existed!
+I1203 12:35:58.492630  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51606
+W1203 12:35:58.543893  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:35:58.544301  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:35:58.544348  1022 QueryInstance.cpp:108] Space not existed!
+W1203 12:35:58.596776  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:35:58.597110  1022 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:35:58.597154  1022 QueryInstance.cpp:108] Space not existed!
+I1203 12:43:41.414387  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51788
+W1203 12:43:41.462581  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:43:41.463084  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:43:41.463129  1024 QueryInstance.cpp:108] Space not existed!
+W1203 12:43:41.511751  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: importer_test
+E1203 12:43:41.512079  1024 SpaceExecutor.cpp:141] Drop space `importer_test' failed: Space not existed!
+E1203 12:43:41.512116  1024 QueryInstance.cpp:108] Space not existed!
+I1203 12:45:51.790707  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51856
+W1203 12:45:51.837155  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 12:45:51.837564  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:45:51.837621  1023 QueryInstance.cpp:108] Space not existed!
+W1203 12:45:51.880618  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 12:45:51.880955  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:45:51.880995  1023 QueryInstance.cpp:108] Space not existed!
+I1203 12:46:06.310649  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51864
+W1203 12:46:06.359062  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 12:46:06.359450  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:46:06.359496  1023 QueryInstance.cpp:108] Space not existed!
+W1203 12:46:06.404178  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 12:46:06.404503  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:46:06.404538  1023 QueryInstance.cpp:108] Space not existed!
+I1203 12:58:59.343436  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52334
+W1203 12:58:59.389129  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 12:58:59.389604  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:58:59.389672  1024 QueryInstance.cpp:108] Space not existed!
+W1203 12:58:59.433322  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 12:58:59.433617  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 12:58:59.433655  1024 QueryInstance.cpp:108] Space not existed!
+I1203 13:10:29.674393  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52716
+W1203 13:10:29.721443  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 13:10:29.721969  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:29.722016  1024 QueryInstance.cpp:108] Space not existed!
+W1203 13:10:29.764873  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 13:10:29.765247  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:29.765275  1023 QueryInstance.cpp:108] Space not existed!
+I1203 13:10:34.069876  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52722
+W1203 13:10:34.114818  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 13:10:34.115262  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:34.115299  1023 QueryInstance.cpp:108] Space not existed!
+W1203 13:10:34.159297  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1203 13:10:34.159644  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1203 13:10:34.159672  1022 QueryInstance.cpp:108] Space not existed!
+I1203 19:45:02.678035  1011 GraphSessionManager.cpp:172] ClientSession 1638500729946238 has expired
+I1204 02:08:13.119166  1011 GraphSessionManager.cpp:172] ClientSession 1638523733520875 has expired
+I1204 04:02:39.094619  1011 GraphSessionManager.cpp:172] ClientSession 1638530592708847 has expired
+I1204 04:03:09.129609  1011 GraphSessionManager.cpp:172] ClientSession 1638530629075243 has expired
+I1204 04:03:39.150324  1011 GraphSessionManager.cpp:172] ClientSession 1638530651131753 has expired
+I1204 04:10:09.493578  1011 GraphSessionManager.cpp:172] ClientSession 1638531050142893 has expired
+I1204 04:10:59.534301  1011 GraphSessionManager.cpp:172] ClientSession 1638531095753690 has expired
+I1204 05:12:32.740578  1011 GraphSessionManager.cpp:172] ClientSession 1638534785190724 has expired
+I1204 07:01:46.876618  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:50408
+W1204 07:01:46.920982  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:01:46.921909  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:01:46.921968  1022 QueryInstance.cpp:108] Space not existed!
+W1204 07:01:46.964047  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:01:46.964422  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:01:46.964464  1022 QueryInstance.cpp:108] Space not existed!
+I1204 07:14:56.424600  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:50864
+W1204 07:14:56.466920  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:14:56.467415  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:14:56.467466  1023 QueryInstance.cpp:108] Space not existed!
+W1204 07:14:56.509673  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:14:56.510030  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:14:56.510088  1024 QueryInstance.cpp:108] Space not existed!
+I1204 07:18:56.054607  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:50954
+W1204 07:18:56.095589  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:18:56.096026  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.096092  1021 QueryInstance.cpp:108] Space not existed!
+W1204 07:18:56.137672  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:18:56.138005  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.138047  1023 QueryInstance.cpp:108] Space not existed!
+I1204 07:18:56.441012  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:50960
+W1204 07:18:56.492511  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:18:56.492923  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.492961  1022 QueryInstance.cpp:108] Space not existed!
+W1204 07:18:56.539022  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:18:56.539340  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:18:56.539377  1021 QueryInstance.cpp:108] Space not existed!
+I1204 07:34:08.141896  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51304
+W1204 07:34:08.183971  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:34:08.184396  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:08.184468  1023 QueryInstance.cpp:108] Space not existed!
+I1204 07:34:08.491145  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51310
+W1204 07:34:08.533388  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:34:08.533718  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:08.533757  1024 QueryInstance.cpp:108] Space not existed!
+I1204 07:34:09.124717  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51316
+W1204 07:34:09.181622  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:34:09.181995  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:09.182037  1024 QueryInstance.cpp:108] Space not existed!
+W1204 07:34:09.486577  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:34:09.487002  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:34:09.487040  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:34:09.579718   901 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 07:35:33.338932  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51338
+W1204 07:35:33.380501  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:35:33.380892  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:33.380950  1021 QueryInstance.cpp:108] Space not existed!
+I1204 07:35:33.678473  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51344
+W1204 07:35:33.720736  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:35:33.721100  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:33.721148  1023 QueryInstance.cpp:108] Space not existed!
+I1204 07:35:34.022409  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51350
+W1204 07:35:34.067884  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:35:34.068279  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:34.068318  1023 QueryInstance.cpp:108] Space not existed!
+W1204 07:35:34.112766  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:35:34.113124  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:35:34.113163  1024 QueryInstance.cpp:108] Space not existed!
+E1204 07:35:34.195727   984 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 07:40:14.750957  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51440
+W1204 07:40:14.792057  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:40:14.792440  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:14.792476  1024 QueryInstance.cpp:108] Space not existed!
+I1204 07:40:15.086844  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51452
+W1204 07:40:15.128346  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:40:15.128695  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:15.128762  1022 QueryInstance.cpp:108] Space not existed!
+I1204 07:40:15.423918  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51458
+W1204 07:40:15.468637  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:40:15.468987  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:15.469033  1023 QueryInstance.cpp:108] Space not existed!
+W1204 07:40:15.513548  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:40:15.513893  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:40:15.513931  1022 QueryInstance.cpp:108] Space not existed!
+I1204 07:44:38.240262  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51580
+W1204 07:44:38.282950  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:44:38.283378  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:38.283452  1023 QueryInstance.cpp:108] Space not existed!
+I1204 07:44:38.579777  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51592
+W1204 07:44:38.622705  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:44:38.623050  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:38.623097  1021 QueryInstance.cpp:108] Space not existed!
+I1204 07:44:38.906270  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51598
+W1204 07:44:38.948935  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:44:38.949282  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:38.949379  1024 QueryInstance.cpp:108] Space not existed!
+I1204 07:44:39.241711  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51604
+W1204 07:44:39.287768  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:44:39.288117  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:39.288159  1023 QueryInstance.cpp:108] Space not existed!
+W1204 07:44:39.334625  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 07:44:39.334955  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 07:44:39.335005  1021 QueryInstance.cpp:108] Space not existed!
+I1204 08:05:59.553951  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52162
+W1204 08:05:59.597079  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:05:59.597688  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:05:59.597749  1022 QueryInstance.cpp:108] Space not existed!
+W1204 08:05:59.638568  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:05:59.638916  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:05:59.638970  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:05:59.935350  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52168
+W1204 08:05:59.976881  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:05:59.977207  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:05:59.977239  1022 QueryInstance.cpp:108] Space not existed!
+W1204 08:06:00.018019  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:06:00.018357  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.018393  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:06:00.312068  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52174
+W1204 08:06:00.356961  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:06:00.357371  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.357409  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:06:00.397554  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:06:00.397866  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.397912  1021 QueryInstance.cpp:108] Space not existed!
+I1204 08:06:00.683682  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52180
+W1204 08:06:00.724954  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:06:00.725301  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.725342  1021 QueryInstance.cpp:108] Space not existed!
+W1204 08:06:00.765450  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:06:00.765792  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:06:00.765821  1022 QueryInstance.cpp:108] Space not existed!
+E1204 08:06:00.849436   901 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 08:08:27.585758  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52264
+W1204 08:08:27.628161  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:27.628587  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:27.628643  1021 QueryInstance.cpp:108] Space not existed!
+W1204 08:08:27.668526  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:27.668915  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:27.668951  1022 QueryInstance.cpp:108] Space not existed!
+I1204 08:08:27.975282  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52270
+W1204 08:08:28.016788  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:28.017186  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.017217  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:08:28.056960  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:28.057261  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.057286  1022 QueryInstance.cpp:108] Space not existed!
+I1204 08:08:28.354091  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52276
+W1204 08:08:28.396543  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:28.396859  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.396908  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:08:28.437419  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:28.437705  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.437736  1022 QueryInstance.cpp:108] Space not existed!
+I1204 08:08:28.745170  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52282
+W1204 08:08:28.788553  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:28.788874  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.788923  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:08:28.831055  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:08:28.831408  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:08:28.831434  1024 QueryInstance.cpp:108] Space not existed!
+E1204 08:08:28.918103   955 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 08:15:54.365296  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52526
+W1204 08:15:54.407439  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:54.407951  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.407997  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:15:54.448451  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:54.448787  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.448835  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:15:54.749101  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52532
+W1204 08:15:54.790083  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:54.790498  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.790536  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:15:54.831545  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:54.831933  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:54.831964  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:15:55.127058  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52538
+W1204 08:15:55.169665  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:55.170042  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.170086  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:15:55.211372  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:55.211717  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.211761  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:15:55.512213  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52544
+W1204 08:15:55.554507  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:55.554946  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.554998  1022 QueryInstance.cpp:108] Space not existed!
+W1204 08:15:55.595216  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:15:55.595530  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:15:55.595572  1021 QueryInstance.cpp:108] Space not existed!
+E1204 08:15:55.685163   984 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 08:16:22.718720  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52562
+W1204 08:16:22.760329  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:22.760797  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:22.760855  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:16:22.800896  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:22.801246  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:22.801271  1021 QueryInstance.cpp:108] Space not existed!
+I1204 08:16:23.100277  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52568
+W1204 08:16:23.144867  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:23.145203  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.145244  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:16:23.184866  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:23.185178  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.185220  1023 QueryInstance.cpp:108] Space not existed!
+I1204 08:16:23.482426  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52574
+W1204 08:16:23.526072  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:23.526455  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.526486  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:16:23.566803  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:23.567142  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.567179  1023 QueryInstance.cpp:108] Space not existed!
+I1204 08:16:23.867081  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52580
+W1204 08:16:23.915778  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:23.916126  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.916172  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:16:23.960029  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:16:23.960346  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:16:23.960376  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:05.276603  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52610
+W1204 08:17:05.318392  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:05.319135  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.319253  1021 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:05.358526  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:05.358973  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.359020  1023 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:05.650879  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52616
+W1204 08:17:05.692376  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:05.692755  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.692788  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:05.733292  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:05.733605  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:05.733649  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:06.026576  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52622
+W1204 08:17:06.068008  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:06.068367  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.068411  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:06.108572  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:06.108891  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.108930  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:06.401705  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52628
+W1204 08:17:06.448992  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:06.449350  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.449391  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:06.490303  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:06.497224  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:06.497375  1022 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:27.410379  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52640
+W1204 08:17:27.451150  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:27.451539  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.451583  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:27.492255  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:27.492563  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.492604  1021 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:27.787725  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52646
+W1204 08:17:27.832778  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:27.833148  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.833180  1021 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:27.873160  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:27.873513  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:27.873548  1021 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:28.163023  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52652
+W1204 08:17:28.206112  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:28.206415  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.206465  1023 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:28.246277  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:28.246613  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.246670  1021 QueryInstance.cpp:108] Space not existed!
+I1204 08:17:28.533502  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52658
+W1204 08:17:28.573949  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:28.574366  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.574406  1024 QueryInstance.cpp:108] Space not existed!
+W1204 08:17:28.617213  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:17:28.617533  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:17:28.617571  1024 QueryInstance.cpp:108] Space not existed!
+I1204 08:19:40.187196  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52732
+W1204 08:19:40.232195  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:19:40.232592  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:40.232645  1022 QueryInstance.cpp:108] Space not existed!
+I1204 08:19:40.520730  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52744
+W1204 08:19:40.564836  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:19:40.565244  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:40.565299  1023 QueryInstance.cpp:108] Space not existed!
+I1204 08:19:40.852962  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52750
+W1204 08:19:40.896108  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:19:40.896404  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:40.896450  1022 QueryInstance.cpp:108] Space not existed!
+I1204 08:19:41.184895  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:52756
+W1204 08:19:41.238394  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:19:41.238713  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:41.238751  1021 QueryInstance.cpp:108] Space not existed!
+W1204 08:19:41.279191  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 08:19:41.279493  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 08:19:41.279529  1023 QueryInstance.cpp:108] Space not existed!
+E1204 08:19:41.360803   986 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 10:27:42.396665  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:58292
+W1204 10:27:42.451795  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:27:42.452805  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:42.452877  1021 QueryInstance.cpp:108] Space not existed!
+I1204 10:27:42.793541  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:58298
+W1204 10:27:42.842885  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:27:42.843374  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:42.843416  1022 QueryInstance.cpp:108] Space not existed!
+I1204 10:27:43.181361  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:58304
+W1204 10:27:43.230068  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:27:43.230418  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:43.230453  1022 QueryInstance.cpp:108] Space not existed!
+I1204 10:27:43.568583  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:58310
+W1204 10:27:43.618027  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:27:43.618378  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:43.618409  1022 QueryInstance.cpp:108] Space not existed!
+W1204 10:27:43.666160  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:27:43.666479  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:27:43.666523  1023 QueryInstance.cpp:108] Space not existed!
+E1204 10:27:43.762429   901 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 10:54:40.114804  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34064
+W1204 10:54:40.166607  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:54:40.167229  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:40.167302  1022 QueryInstance.cpp:108] Space not existed!
+I1204 10:54:40.518302  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34070
+W1204 10:54:40.568411  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:54:40.568763  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:40.568794  1022 QueryInstance.cpp:108] Space not existed!
+I1204 10:54:40.912108  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34076
+W1204 10:54:40.961561  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:54:40.961926  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:40.961966  1024 QueryInstance.cpp:108] Space not existed!
+I1204 10:54:41.311934  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34082
+W1204 10:54:41.361660  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:54:41.362008  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:41.362051  1024 QueryInstance.cpp:108] Space not existed!
+W1204 10:54:41.409991  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:54:41.410342  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:54:41.410375  1022 QueryInstance.cpp:108] Space not existed!
+E1204 10:54:41.507535   955 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 10:56:35.354877  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34300
+W1204 10:56:35.405050  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:56:35.405555  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:35.405632  1021 QueryInstance.cpp:108] Space not existed!
+I1204 10:56:35.765445  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34314
+W1204 10:56:35.816224  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:56:35.816704  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:35.816759  1022 QueryInstance.cpp:108] Space not existed!
+I1204 10:56:36.173633  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34320
+W1204 10:56:36.224069  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:56:36.224575  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:36.224614  1021 QueryInstance.cpp:108] Space not existed!
+I1204 10:56:36.581007  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34326
+W1204 10:56:36.629964  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:56:36.630367  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:36.630403  1023 QueryInstance.cpp:108] Space not existed!
+W1204 10:56:36.681804  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:56:36.682179  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:56:36.682230  1021 QueryInstance.cpp:108] Space not existed!
+E1204 10:56:36.785287   984 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 10:57:24.078794  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34358
+W1204 10:57:24.129724  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:57:24.130254  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:24.130354  1022 QueryInstance.cpp:108] Space not existed!
+I1204 10:57:24.473807  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34364
+W1204 10:57:24.522631  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:57:24.523027  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:24.523094  1024 QueryInstance.cpp:108] Space not existed!
+I1204 10:57:24.866803  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34370
+W1204 10:57:24.915772  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:57:24.916124  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:24.916167  1024 QueryInstance.cpp:108] Space not existed!
+I1204 10:57:25.287851  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34376
+W1204 10:57:25.338842  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:57:25.339177  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:25.339226  1022 QueryInstance.cpp:108] Space not existed!
+W1204 10:57:25.386494  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:57:25.386809  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:57:25.386873  1024 QueryInstance.cpp:108] Space not existed!
+E1204 10:57:25.490808   986 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 10:58:00.472784  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34456
+W1204 10:58:00.522464  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:58:00.522842  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:00.522888  1023 QueryInstance.cpp:108] Space not existed!
+I1204 10:58:00.869174  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34462
+W1204 10:58:00.921674  1022 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:58:00.922020  1022 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:00.922068  1024 QueryInstance.cpp:108] Space not existed!
+I1204 10:58:01.265770  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34468
+W1204 10:58:01.316661  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:58:01.317003  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:01.317040  1023 QueryInstance.cpp:108] Space not existed!
+I1204 10:58:01.665045  1022 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:34474
+W1204 10:58:01.715775  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:58:01.716120  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:01.716161  1022 QueryInstance.cpp:108] Space not existed!
+W1204 10:58:01.767266  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 10:58:01.767580  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 10:58:01.767606  1023 QueryInstance.cpp:108] Space not existed!
+E1204 10:58:01.870190   901 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 11:03:16.839136  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35614
+W1204 11:03:16.888744  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:03:16.889180  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:16.889232  1023 QueryInstance.cpp:108] Space not existed!
+I1204 11:03:17.235222  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35620
+W1204 11:03:17.283820  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:03:17.284150  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:17.284210  1021 QueryInstance.cpp:108] Space not existed!
+I1204 11:03:17.638677  1023 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35626
+W1204 11:03:17.942219  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:03:17.942607  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:17.942657  1021 QueryInstance.cpp:108] Space not existed!
+I1204 11:03:18.285549  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35632
+W1204 11:03:18.334520  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:03:18.334878  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:18.334929  1023 QueryInstance.cpp:108] Space not existed!
+W1204 11:03:18.382596  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:03:18.382923  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:03:18.382953  1021 QueryInstance.cpp:108] Space not existed!
+E1204 11:03:18.482596   955 PeekingManager.h:122] Received SSL connection on non SSL port
+I1204 11:05:52.862298  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35676
+W1204 11:05:52.911545  1024 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:05:52.911991  1024 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:52.912056  1023 QueryInstance.cpp:108] Space not existed!
+I1204 11:05:53.250291  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35682
+W1204 11:05:53.300612  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:05:53.301115  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:53.301162  1023 QueryInstance.cpp:108] Space not existed!
+I1204 11:05:53.671131  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35688
+W1204 11:05:53.719717  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:05:53.720192  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:53.720242  1021 QueryInstance.cpp:108] Space not existed!
+I1204 11:05:54.067543  1024 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:35694
+W1204 11:05:54.122546  1023 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:05:54.122979  1023 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:54.123013  1023 QueryInstance.cpp:108] Space not existed!
+W1204 11:05:54.171314  1021 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1204 11:05:54.171671  1021 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1204 11:05:54.171708  1021 QueryInstance.cpp:108] Space not existed!
+E1204 11:05:54.274201   984 PeekingManager.h:122] Received SSL connection on non SSL port
+I1205 12:05:19.344216  1021 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.116]:56454
+I1205 12:56:21.565593   821 GraphDaemon.cpp:203] Signal 15(Terminated) received, stopping this server
+I1205 12:56:21.583276   901 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb954874800 in thread 0x7fb94e209000
+I1205 12:56:21.587708   821 GraphDaemon.cpp:188] nebula-graphd on 192.168.8.49:9669 has been stopped
+I1205 12:56:21.589198   889 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb953a36000 in thread 0x7fb952c09000
+I1205 12:56:21.589392   891 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb953a36700 in thread 0x7fb951e08000
+I1205 12:56:21.590062   892 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb953a36e00 in thread 0x7fb951009000
+I1205 12:56:21.590322   894 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb953a37500 in thread 0x7fb950208000

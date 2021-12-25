@@ -1,0 +1,29 @@
+Log file created at: 2021/12/05 13:24:06
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1205 13:24:06.857508 16986 GraphDaemon.cpp:124] Starting Graph HTTP Service
+I1205 13:24:06.882020 16989 WebService.cpp:124] Web service started on HTTP[19669], HTTP2[19670]
+I1205 13:24:06.882334 16986 GraphDaemon.cpp:138] Number of networking IO threads: 4
+I1205 13:24:06.882354 16986 GraphDaemon.cpp:147] Number of worker threads: 4
+I1205 13:24:06.882647 16986 MetaClient.cpp:57] Create meta client to "192.168.8.49":9559
+E1205 13:24:08.913364 16986 GflagsManager.cpp:69] Load gflags json failed
+I1205 13:24:08.914149 16986 GflagsManager.cpp:137] Prepare to register 6 gflags to meta
+I1205 13:24:08.937289 16986 MetaClient.cpp:3006] Load leader of "192.168.8.49":9779 in 0 space
+I1205 13:24:08.937306 16986 MetaClient.cpp:3012] Load leader ok
+I1205 13:24:08.937645 16986 MetaClient.cpp:2792] Register gflags ok 6
+I1205 13:24:08.943779 16986 MetaClient.cpp:117] Register time task for heartbeat!
+I1205 13:24:08.966264 16986 GraphDaemon.cpp:180] Starting nebula-graphd on 192.168.8.49:9669
+I1205 13:25:06.555423 17264 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51000
+W1205 13:25:06.601399 17264 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1205 13:25:06.602339 17264 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1205 13:25:06.602394 17264 QueryInstance.cpp:108] Space not existed!
+I1205 13:25:06.918376 17264 GraphService.cpp:63] Authenticating user root from [::ffff:192.168.8.3]:51006
+W1205 13:25:06.962484 17264 SpaceExecutor.cpp:132] Get space ID failed when prepare text index: test
+E1205 13:25:06.962937 17262 SpaceExecutor.cpp:141] Drop space `test' failed: Space not existed!
+E1205 13:25:06.962993 17262 QueryInstance.cpp:108] Space not existed!
+I1205 13:27:42.450994 16986 GraphDaemon.cpp:203] Signal 15(Terminated) received, stopping this server
+I1205 13:27:42.454334 16986 GraphDaemon.cpp:188] nebula-graphd on 192.168.8.49:9669 has been stopped
+I1205 13:27:42.454624 16990 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb0f5636000 in thread 0x7fb0f4809000
+I1205 13:27:42.456640 17036 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb0f5636700 in thread 0x7fb0f3a08000
+I1205 13:27:42.457979 17042 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb0f5636e00 in thread 0x7fb0f2c09000
+I1205 13:27:42.458299 17044 Acceptor.cpp:467] Dropping all connections from Acceptor=0x7fb0f5637500 in thread 0x7fb0f1e08000

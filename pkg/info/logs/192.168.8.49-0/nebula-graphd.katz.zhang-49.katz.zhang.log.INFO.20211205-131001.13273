@@ -1,0 +1,22 @@
+Log file created at: 2021/12/05 13:10:01
+Running on machine: katz.zhang-49
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1205 13:10:01.506496 13273 GraphDaemon.cpp:110] Starting Graph HTTP Service
+I1205 13:10:01.569528 13317 WebService.cpp:131] Web service started on HTTP[19669], HTTP2[19670]
+I1205 13:10:01.569598 13273 GraphDaemon.cpp:124] Number of networking IO threads: 4
+I1205 13:10:01.569607 13273 GraphDaemon.cpp:133] Number of worker threads: 4
+I1205 13:10:01.580649 13273 MetaClient.cpp:50] Create meta client to "192.168.8.49":9559
+E1205 13:10:01.580763 13273 GflagsManager.cpp:70] Load gflags json failed
+I1205 13:10:01.590517 13273 GflagsManager.cpp:140] Prepare to register 6 gflags to meta
+I1205 13:10:03.649365 13273 MetaClient.cpp:2828] Register gflags ok 6
+I1205 13:10:03.650202 13273 MetaClient.cpp:99] Register time task for heartbeat!
+I1205 13:10:03.667264 13273 GraphDaemon.cpp:164] Starting nebula-graphd on 0.0.0.0:9669
+E1205 13:13:26.566025 13407 GeneratedCodeHelper.cpp:73] Method name verifyClientVersion not found in function process
+E1205 13:14:08.197876 13437 GeneratedCodeHelper.cpp:73] Method name verifyClientVersion not found in function process
+E1205 13:15:44.846493 13448 GeneratedCodeHelper.cpp:73] Method name verifyClientVersion not found in function process
+I1205 13:17:29.226514 13273 GraphDaemon.cpp:191] Signal 15(Terminated) received, stopping this server
+I1205 13:17:29.230175 13273 GraphDaemon.cpp:172] nebula-graphd on 0.0.0.0:9669 has been stopped
+I1205 13:17:29.230505 13340 Acceptor.cpp:453] Dropping all connections from Acceptor=0x7fd5e2431000 in thread 0x7fd5e1609000
+I1205 13:17:29.230687 13356 Acceptor.cpp:453] Dropping all connections from Acceptor=0x7fd5e2431500 in thread 0x7fd5e0808000
+I1205 13:17:29.230970 13360 Acceptor.cpp:453] Dropping all connections from Acceptor=0x7fd5e2431a00 in thread 0x7fd5dfa09000
+I1205 13:17:29.231109 13361 Acceptor.cpp:453] Dropping all connections from Acceptor=0x7fd5e2431f00 in thread 0x7fd5dec08000
