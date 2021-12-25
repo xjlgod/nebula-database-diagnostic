@@ -18,23 +18,24 @@ func Run(conf *config.Config) {
 		_logger = logger.GetCmdLogger("diag")
 	}
 
-	allInfos := ReadAllInfos(conf)
-	for _, f := range allInfos {
-		diagResult := diag.GetDiagResult(f)
-		_logger.Info(diagResult)
+	infoFilePathAbs, _ := filepath.Abs(conf.Diag.Input.DirPath)
+	infoFileEntries, _ := os.ReadDir(infoFilePathAbs)
+	for _, infoFileEntry := range infoFileEntries {
+		infoFilePath := filepath.Join(infoFilePathAbs, infoFileEntry.Name())
+		allInfos := ReadAllInfos(infoFilePath)
+		for _, f := range allInfos {
+			diagResult := diag.GetDiagResult(f)
+			_logger.Info(diagResult)
+		}
 	}
 }
 
-// ReadAllInfos read infos from a dir which included nodes info data
-func ReadAllInfos(conf *config.Config) []*info.AllInfo {
-	inputDirPath := conf.Diag.Input.DirPath
-	inputDirPathAbs, _ := filepath.Abs(inputDirPath)
-	infoFileEntries, _ := os.ReadDir(inputDirPathAbs)
+// ReadAllInfos read infos from a node info file
+func ReadAllInfos(infoFilePath string) []*info.AllInfo {
+	infoFilePathAbs, _ := filepath.Abs(infoFilePath)
 
-	for _, entry := range infoFileEntries {
-		log.Println(entry.Name())
-		// TODO add read
-	}
+	// TODO add read info code
+	log.Println(infoFilePathAbs)
 
 	return nil
 }
