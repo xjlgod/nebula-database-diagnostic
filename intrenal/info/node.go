@@ -28,22 +28,24 @@ func fetchInfo(conf *config.InfoConfig, option config.InfoOption, defaultLogger 
 	[]*service.ServiceMetricInfo, []*service.ServiceConfigInfo) {
 	phyInfo, err := fetchPhyInfo(option, conf.Node.SSH)
 	if err != nil {
-		defaultLogger.Errorf("fetch phy info failed: %s", err.Error())
+		defaultLogger.Errorf("fetch phy info failed: %s\n", err.Error())
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if phyInfo != nil {
-			defaultLogger.Info(conf.Node.Host, ": ", phyInfo)
+			defaultLogger.Infof("%s physical info: %+v\n", conf.Node.Host, phyInfo)
 		}
 	}
 
 	// fetch all services metrics info
 	servicesMetricsInfo, err := fetchMetricsInfo(conf, option, defaultLogger)
 	if err != nil {
-		defaultLogger.Errorf("fetch services metrics failed: %s", err.Error())
+		defaultLogger.Errorf("fetch services metrics failed: %s\n", err.Error())
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if servicesMetricsInfo != nil {
-			defaultLogger.Info(conf.Node.Host, ": ", servicesMetricsInfo)
+			for i := range servicesMetricsInfo {
+				defaultLogger.Infof("%s metrics info: %+v\n", conf.Node.Host, servicesMetricsInfo[i])
+			}
 		}
 	}
 
@@ -54,16 +56,19 @@ func fetchInfo(conf *config.InfoConfig, option config.InfoOption, defaultLogger 
 	} else {
 		// defaultLogger.Info(phyInfo.String())
 		if serviceConfigsInfo != nil {
-			defaultLogger.Info(conf.Node.Host, ": ", serviceConfigsInfo)
+			for i := range serviceConfigsInfo {
+				defaultLogger.Infof("%s config info: %+v\n", conf.Node.Host, serviceConfigsInfo[i])
+			}
 		}
 	}
 
 	// pack all services log
 	err = packageLogs(conf, option, defaultLogger)
+	defaultLogger.Info("packaging service logs...\n")
 	if err != nil {
-		defaultLogger.Errorf("package logs failed: %s", err.Error())
+		defaultLogger.Errorf("service package: failed, %s\n", err.Error())
 	} else {
-		defaultLogger.Info(conf.Node.Host, ": ", "package logs success!")
+		defaultLogger.Info(conf.Node.Host, " service package: success!\n")
 	}
 
 	return phyInfo, servicesMetricsInfo, serviceConfigsInfo
@@ -99,10 +104,10 @@ func fetchMetricsInfo(conf *config.InfoConfig, option config.InfoOption, default
 			serviceMetricsInfo := &service.ServiceMetricInfo{
 				Name:    key,
 				Metrics: metrics,
-				Type: serviceConfig.Type,
+				Type:    serviceConfig.Type,
 			}
 			if err != nil {
-				defaultLogger.Errorf("fetch metrics info failed: %s, stop fetch services metrics!", err.Error())
+				defaultLogger.Errorf("fetch metrics info failed: %s, stop fetch services metrics!\n", err.Error())
 				return servicesMetricsInfo, err
 			}
 			servicesMetricsInfo = append(servicesMetricsInfo, serviceMetricsInfo)
@@ -125,7 +130,7 @@ func fetchConfigsInfo(conf *config.InfoConfig, option config.InfoOption, default
 				Configs: configs,
 			}
 			if err != nil {
-				defaultLogger.Errorf("fetch configs info failed: %s, stop fetch services metrics!", err.Error())
+				defaultLogger.Errorf("fetch configs info failed: %s, stop fetch services configs!\n", err.Error())
 				return serviceConfigInfo, err
 			}
 			serviceConfigInfo = append(serviceConfigInfo, serviceMetricsInfo)
@@ -145,7 +150,7 @@ func fetchAndSaveInfo(conf *config.InfoConfig, option config.InfoOption, default
 	}
 	marshal, err := json.Marshal(allInfo)
 	if err != nil {
-		defaultLogger.Errorf("save json data fail: %s", err.Error())
+		defaultLogger.Errorf("save json data failed: %s\n", err.Error())
 	}
 
 	dir := filepath.Join(conf.Output.DirPath, conf.Node.Host.Address)
@@ -174,7 +179,7 @@ func fetchAndSaveInfo(conf *config.InfoConfig, option config.InfoOption, default
 		}
 		_, err = file.Write(marshal)
 		if err != nil {
-			defaultLogger.Errorf("save json data fail: %s", err.Error())
+			defaultLogger.Errorf("save json data failed: %s\n", err.Error())
 		}
 	} else {
 		file, err := os.OpenFile(filePath, os.O_WRONLY|os.O_APPEND, 0666)
@@ -184,7 +189,7 @@ func fetchAndSaveInfo(conf *config.InfoConfig, option config.InfoOption, default
 		_, err = file.Write([]byte("\n"))
 		_, err = file.Write(marshal)
 		if err != nil {
-			defaultLogger.Errorf("save json data fail: %s", err.Error())
+			defaultLogger.Errorf("save json data failed: %s\n", err.Error())
 		}
 	}
 

@@ -8,7 +8,7 @@ import (
 
 const (
 	Name    = "nebula-diag-cli"
-	Desc    = `A free and open source distributed diagnostic tool for nebula graph`
+	Desc    = `A free and open source distributed diagnostic cli tool for nebula graph`
 	Version = "v0.0.1"
 )
 

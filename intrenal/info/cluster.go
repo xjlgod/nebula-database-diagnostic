@@ -14,6 +14,7 @@ type (
 )
 
 func Run(conf *config.Config) {
+	// TODO fix the cancel bugs
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
@@ -33,6 +34,7 @@ func Run(conf *config.Config) {
 				runWithInfinity(info, _logger)
 			} else if d == 0 {
 				run(info, _logger)
+				cancel() // TODO temp code
 			} else {
 				runWithDuration(info, _logger)
 			}

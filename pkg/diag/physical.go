@@ -22,6 +22,7 @@ func processDiag(info *physical.PhyInfo, diags []string) []string {
 			diags = memoryDiag(info, diags)
 		}
 	}
+	diags = append(diags, "==> diag process info finished\n ")
 	return diags
 }
 
@@ -34,7 +35,7 @@ func cpuDiag(info *physical.PhyInfo, diags []string) []string {
 	if float64(info.CPU.WaitPercent/100) > ThresholdWaitPercent {
 		diags = append(diags, "==> diag cpu wait percent: wait percent is too big. there have io problems\n")
 	}
-
+	diags = append(diags, "==> diag cpu info finished\n ")
 	return diags
 }
 
@@ -43,5 +44,6 @@ func memoryDiag(info *physical.PhyInfo, diags []string) []string {
 	if float64(info.Memory.MemFree/info.Memory.MemTotal) >= ThresholdMemoryFree {
 		diags = append(diags, "==> diag memory free: memory free is too small\n")
 	}
+	diags = append(diags, "==> diag memory info finished\n ")
 	return diags
 }

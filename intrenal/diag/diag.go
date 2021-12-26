@@ -11,6 +11,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 func Run(conf *config.Config) {
@@ -28,7 +29,7 @@ func Run(conf *config.Config) {
 		allInfos := ReadAllInfos(infoFilePath)
 		for _, f := range allInfos {
 			diagResult := diag.GetDiagResult(f)
-			_logger.Info(diagResult)
+			_logger.Infof("%s\n", strings.Join(diagResult, ""))
 		}
 	}
 }
