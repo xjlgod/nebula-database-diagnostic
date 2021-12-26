@@ -143,6 +143,7 @@ func initFileLogger(n string, o config.OutputConfig) {
 	fileLogger.logToFile = true
 
 	filename := fmt.Sprintf("%s_%s", n, strconv.FormatInt(timeUnix, 10))
+
 	fileLogger.filename = filename
 	fileLogger.filepath = filepath.Join(p, filename + ".log")
 	file, err := os.OpenFile(fileLogger.filepath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)

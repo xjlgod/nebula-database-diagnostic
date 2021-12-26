@@ -8,7 +8,7 @@ import (
 )
 
 func GetMetricsDiag(infos []*service.ServiceMetricInfo) (diags []string) {
-	diags = append(diags, "metrics nothing.\n")
+	diags = append(diags, "metrics nothing.\n ")
 	diags = metricsDiag(infos, diags)
 	if len(diags) > 1 {
 		return diags[1:]
@@ -17,7 +17,7 @@ func GetMetricsDiag(infos []*service.ServiceMetricInfo) (diags []string) {
 }
 
 func metricsDiag(infos []*service.ServiceMetricInfo, diags []string) []string {
-	diags = append(diags, "==> diag metrics info:\n")
+	diags = append(diags, "==> diag metrics info:\n ")
 	for _, serviceMetricsInfo := range infos {
 		componentType := serviceMetricsInfo.Type
 		metrics := serviceMetricsInfo.Metrics

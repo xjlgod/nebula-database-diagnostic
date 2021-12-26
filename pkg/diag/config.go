@@ -7,7 +7,7 @@ import (
 
 func GetConfigDiag(infos []*service.ServiceConfigInfo) (diags []string) {
 	
-	diags = append(diags, "config nothing.\n")
+	diags = append(diags, "config nothing.\n ")
 	diags = checkConfigDiag(infos, diags)
 	if len(diags) > 1 {
 		return diags[1:]
@@ -17,7 +17,7 @@ func GetConfigDiag(infos []*service.ServiceConfigInfo) (diags []string) {
 }
 
 func checkConfigDiag(infos []*service.ServiceConfigInfo, diags []string) []string {
-	diags = append(diags, "==> diag config info:\n")
+	diags = append(diags, "==> diag config info:\n ")
 	for _, serviceConfigInfo := range infos {
 		configs := serviceConfigInfo.Configs
 		flag := true

@@ -47,8 +47,10 @@ func ReadAllInfos(infoFilePath string) []*info.AllInfo {
 	for {
 		line, err := rd.ReadString('\n') //以'\n'为结束符读入一行
 
-		if err != nil || io.EOF == err {
-			log.Println(err.Error())
+		if err != nil {
+			if io.EOF != err {
+				log.Println(err.Error())
+			}
 			break
 		}
 		allInfo := new(info.AllInfo)
@@ -58,7 +60,6 @@ func ReadAllInfos(infoFilePath string) []*info.AllInfo {
 			break
 		}
 		allInfos = append(allInfos, allInfo)
-
 	}
 
 	return allInfos

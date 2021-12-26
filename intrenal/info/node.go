@@ -2,6 +2,7 @@ package info
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	configinfo "github.com/xjlgod/nebula-database-diagnostic/pkg/info/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/info/logs"
@@ -11,6 +12,7 @@ import (
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/logger"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 var NowAllInfo AllInfo
@@ -145,14 +147,25 @@ func fetchAndSaveInfo(conf *config.InfoConfig, option config.InfoOption, default
 	if err != nil {
 		defaultLogger.Errorf("save json data fail: %s", err.Error())
 	}
-	p, _ := filepath.Abs(conf.Output.DirPath)
+
+	dir := filepath.Join(conf.Output.DirPath, conf.Node.Host.Address)
+	p, _ := filepath.Abs(dir)
 	_, err = os.Stat(p)
 	if os.IsNotExist(err) {
 		os.Mkdir(p, os.ModePerm)
 	}
 
-	filename := defaultLogger.Filename()
-	filePath := filepath.Join(p, filename+".data")
+	// node0_160.data
+	// node0_161.data
+	// node0/ 160.data
+	//
+
+	loggerFileName := defaultLogger.Filename()
+	slice := strings.Split(loggerFileName, "_")
+	time := slice[1]
+
+	filename := fmt.Sprintf("%s%s", time, ".data")
+	filePath := filepath.Join(p, filename)
 	_, err = os.Stat(filePath)
 	if os.IsNotExist(err) {
 		file, err := os.OpenFile(filePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
