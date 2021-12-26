@@ -8,6 +8,8 @@ import (
 func GetDiagResult(allInfo *info.AllInfo) []string {
 	phyDiagResult := GetPhyDiag(allInfo.PhyInfo)
 	metricsDiagResult := GetMetricsDiag(allInfo.MetricsInfo)
+	configDiagResult := GetConfigDiag(allInfo.ConfigInfo)
 
-	return []string{strings.Join(phyDiagResult, ""), strings.Join(metricsDiagResult, "")}
+	return []string{strings.Join(phyDiagResult, ""), strings.Join(metricsDiagResult, ""),
+		strings.Join(configDiagResult, "")}
 }

@@ -1,10 +1,13 @@
 package diag
 
 import (
+	"bufio"
+	"encoding/json"
 	"github.com/xjlgod/nebula-database-diagnostic/intrenal/info"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/config"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/diag"
 	"github.com/xjlgod/nebula-database-diagnostic/pkg/logger"
+	"io"
 	"log"
 	"os"
 	"path/filepath"
@@ -33,9 +36,30 @@ func Run(conf *config.Config) {
 // ReadAllInfos read infos from a node info file
 func ReadAllInfos(infoFilePath string) []*info.AllInfo {
 	infoFilePathAbs, _ := filepath.Abs(infoFilePath)
+	file, err := os.Open(infoFilePathAbs)
+	defer file.Close()
+	if err != nil {
+		log.Println(err.Error())
+		return nil
+	}
+	rd := bufio.NewReader(file)
+	allInfos := make([]*info.AllInfo, 0)
+	for {
+		line, err := rd.ReadString('\n') //以'\n'为结束符读入一行
 
-	// TODO add read info code
-	log.Println(infoFilePathAbs)
+		if err != nil || io.EOF == err {
+			log.Println(err.Error())
+			break
+		}
+		allInfo := new(info.AllInfo)
+		err = json.Unmarshal([]byte(line), allInfo)
+		if err != nil {
+			log.Println(err.Error())
+			break
+		}
+		allInfos = append(allInfos, allInfo)
 
-	return nil
+	}
+
+	return allInfos
 }
