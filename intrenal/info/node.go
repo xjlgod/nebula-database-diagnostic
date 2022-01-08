@@ -178,6 +178,7 @@ func fetchAndSaveInfo(conf *config.InfoConfig, option config.InfoOption, default
 			defaultLogger.Fatal(err)
 		}
 		_, err = file.Write(marshal)
+		_, err = file.Write([]byte("\n"))
 		if err != nil {
 			defaultLogger.Errorf("save json data failed: %s\n", err.Error())
 		}
@@ -186,8 +187,8 @@ func fetchAndSaveInfo(conf *config.InfoConfig, option config.InfoOption, default
 		if err != nil {
 			defaultLogger.Fatal(err)
 		}
-		_, err = file.Write([]byte("\n"))
 		_, err = file.Write(marshal)
+		_, err = file.Write([]byte("\n"))
 		if err != nil {
 			defaultLogger.Errorf("save json data failed: %s\n", err.Error())
 		}

@@ -1,0 +1,33 @@
+卷 E 的文件夹 PATH 列表
+卷序列号为 0000006B 8640:18FD
+E:\NEBULAPROJECT\NEBULA-DATABASE-DIAGNOSTIC
+├─.idea
+├─build
+├─cmd
+├─config
+├─doc
+├─intrenal
+│  ├─diag
+│  └─info
+├─out
+├─output
+│  ├─192.168.8.49
+│  └─192.168.8.49-9669
+├─pkg
+│  ├─config
+│  │  └─example_config
+│  ├─diag
+│  │  └─tmpl
+│  ├─errors
+│  ├─info
+│  │  ├─config
+│  │  ├─logs
+│  │  │  └─192.168.8.49-0
+│  │  ├─metrics
+│  │  ├─physical
+│  │  ├─service
+│  │  └─stats
+│  ├─logger
+│  ├─mock
+│  └─remote
+└─scripts
